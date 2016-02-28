@@ -1,0 +1,13 @@
+.wrap {}
+.wrap .form-table {}
+.wrap #slick-settings {
+	position: absolute;
+	margin-top: -80px;
+}
+.wrap .form-table small {
+	color: #666;
+	margin: 0 0 6px;
+	display: block;
+	font-size: 11px;
+	font-weight: normal;
+}

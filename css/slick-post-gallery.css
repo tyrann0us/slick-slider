@@ -1,0 +1,52 @@
+.media-modal {}
+.media-modal .slick-slider-settings {}
+.media-modal .slick-slider-settings h3 {
+	margin-top: 8px;
+}
+.media-modal .slick-slider-settings .slick-slider-settings-inner {
+	/*display: none;*/
+}
+.media-modal .slick-slider-settings .setting {
+	position: relative;
+}
+.media-modal .slick-slider-settings .setting span {
+	margin-right: 0;
+}
+.media-modal .slick-slider-settings .setting small {
+	float: left;
+	margin-right: 4%;
+}
+.media-modal .slick-slider-settings .setting small::before {
+	content: attr( data-hint );
+	position: absolute;
+	top: -15px;
+	left: 0;
+	background: rgba( 102, 102, 102, .9 );
+	color: #fff;
+	padding: 4px 8px;
+	opacity: 0;
+	transition: opacity .2s;
+	pointer-events: none;
+	border-radius: 2px;
+	box-shadow: 0 1px 1px rgba( 0, 0, 0, .04 );
+}
+.media-modal .slick-slider-settings .setting small:hover::before {
+	opacity: 1;
+}
+.media-modal .slick-slider-settings .setting input,
+.media-modal .slick-slider-settings .setting textarea,
+.media-modal .slick-slider-settings .setting select {
+	max-width: 50%;
+}
+.media-modal .slick-slider-settings .slick-slider-settings-inner .breakpoint-accordion {}
+.media-modal .slick-slider-settings .slick-slider-settings-inner .breakpoint-accordion .breakpoint-accordion-content {
+	display: none;
+	padding: 15px;
+	border: 1px solid #ddd;
+	overflow: hidden;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.media-modal .slick-slider-settings .slick-slider-settings-inner .breakpoint-accordion .breakpoint-accordion-content.active {
+	display: block;
+}
