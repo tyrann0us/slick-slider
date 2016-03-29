@@ -20,9 +20,11 @@
 		$slickSliderSettings = $( '.media-modal .slick-slider-settings-inner' );
 		$slickSliderSettings.css( 'display', slickActive ? 'block' : 'none' );
 	}
+
 	function toggleSliderSettings() {
 		$slickSliderSettings.add( $invalidGallerySettings ).toggle();
 	};
+	
 	function manage_breakpoints() {
 		// prepend wrapper for better event handling
 		if ( ! $( this ).parents( '.slick-slider-breakpoint-wrapper' ).length ) {
