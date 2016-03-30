@@ -1,6 +1,6 @@
 ( function( $ ) {
 
-	var media = wp.media;
+	var media = wp.media, defaults = media.gallery.defaults
 	$.extend( media.gallery.defaults, {
 		slick_active: false,
 	} );
@@ -8,22 +8,22 @@
 		switch ( value.type ) {
 			case 'string' :
 			case 'function' :
-				$.extend( media.gallery.defaults, {
+				$.extend( defaults, {
 					[value['setting']]: value.value,
 				} );
 				break;
 			case 'boolean' :
-				$.extend( media.gallery.defaults, {
+				$.extend( defaults, {
 					[value['setting']]: '1' == value.value ? true : false,
 				} );
 				break;
 			case 'integer' :
-				$.extend( media.gallery.defaults, {
+				$.extend( defaults, {
 					[value['setting']]: value.value,
 				} );
 				break;
 			case 'object' :
-				$.extend( media.gallery.defaults, {
+				$.extend( defaults, {
 					[value['setting']]: value.value[0],
 				} );
 				break;
@@ -32,11 +32,18 @@
 		}		
 	} );
 
+	if ( ! media.gallery.templates ) media.gallery.templates = ['gallery-settings'];
+	media.gallery.templates.push( 'slick-slider-gallery-settings' );
+
 	media.view.Settings.Gallery = media.view.Settings.Gallery.extend( {
-		template: function(view) {
-		  return media.template( 'gallery-settings' )( view )
-			   + media.template( 'slick-slider-gallery-setting' )( view );
-		}
-	} );
+	    template: function ( view ) {
+	        var output = '';
+	        for ( var i in media.gallery.templates ) {
+	            output += media.template( media.gallery.templates[i] )( view );
+	        }
+	        return output;
+	    }
+	});
+
 	
 } )( jQuery );

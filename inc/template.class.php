@@ -42,7 +42,7 @@ class slickTemplate {
 
 		$pagenow = slick::currentPage(); ?>
 
-		<script type="text/html" id="tmpl-slick-slider-gallery-setting">
+		<script type="text/html" id="tmpl-slick-slider-gallery-settings">
 			<div class="clear"></div>
 			<div class="slick-slider-settings">
 				<hr>

@@ -1,9 +1,7 @@
 ( function( $ ) {
-	var $slickSliderSettings;
-	var $invalidGallerySettings;
-	var slickActive = false;
+	var $slickSliderSettings, $invalidGallerySettings, 	slickActive = false;
 
-	$( document ).on( 'click', '.dashicons-edit, .media-button-gallery:not([disabled="disabled"])', function() {
+	$( document ).on( 'click', '.dashicons-edit, .media-button-gallery', function() {
 		initSliderSettings();
 	} );
 	$( document ).on( 'click', '.media-modal .slick-slider-toggle-settings input', function() {
@@ -18,7 +16,7 @@
 		$invalidGallerySettings = $( '[name="columns"]' ).parent();
 		$invalidGallerySettings.css( 'display', ! slickActive ? 'block' : 'none' );
 
-		$slickSliderSettings = $( '.media-modal .slick-slider-settings-inner' );
+		$slickSliderSettings = $( '.slick-slider-settings-inner' );
 		$slickSliderSettings.css( 'display', slickActive ? 'block' : 'none' );
 	}
 
