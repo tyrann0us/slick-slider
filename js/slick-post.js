@@ -3,7 +3,7 @@
 	var $invalidGallerySettings;
 	var slickActive = false;
 
-	$( document ).on( 'click', '.dashicons-edit, .insert-media', function() {
+	$( document ).on( 'click', '.dashicons-edit, .media-button-gallery:not([disabled="disabled"])', function() {
 		initSliderSettings();
 	} );
 	$( document ).on( 'click', '.media-modal .slick-slider-toggle-settings input', function() {
@@ -13,6 +13,7 @@
 
 
 	function initSliderSettings() {
+		console.log('initSliderSettings');
 		slickActive = $( '[data-setting="slick_active"]' ).is( ':checked' );
 		$invalidGallerySettings = $( '[name="columns"]' ).parent();
 		$invalidGallerySettings.css( 'display', ! slickActive ? 'block' : 'none' );
