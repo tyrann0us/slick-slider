@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) OR exit;
 /**
  * Outputs all files and HTML markup required for Slick Slider options on the media settings page.
  */
-class Slick_GUI {
+class slickGui {
 
 	/**
 	 * If set to true, skip saving Slick Slider options to database.
@@ -12,12 +12,12 @@ class Slick_GUI {
 	 * and thus prevents repeated requests to database.
 	 * @var boolean $skip_saving wether to skip saving
 	 */
-	private static $skip_saving = false;
+	private static $skipSaving = false;
 
 	/**
 	 * Enqueues assets and prints Slick Slider options's HTML markup using add_settings_field().
 	 */
-	public static function init_settings() {
+	public static function initSettings() {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
@@ -26,14 +26,14 @@ class Slick_GUI {
 			'admin_enqueue_scripts',
 			array(
 				 __CLASS__,
-				'add_css' 
+				'addCss' 
 			)
 		);
 		add_action(
 			'admin_print_styles',
 			array(
 				 __CLASS__,
-				'add_js' 
+				'addJs' 
 			)
 		);
 
@@ -42,26 +42,26 @@ class Slick_GUI {
 			__( 'Slick Slider settings', 'slick-wp' ),
 			array(
 				__CLASS__,
-				'setting_section_callback'
+				'settingSectionCallback'
 			),
 			'media'
 		);
 
-		$pagenow = Slick::current_page();
-		Slick_Options::render_settings_markup( $pagenow );
+		$pagenow = slick::currentPage();
+		slickOptions::renderSettingsMarkup( $pagenow );
 
 	}
 
 	/**
 	 * Adds CSS file with some basic styling using wp_enqueue_style().
 	 */
-	public static function add_css() {
+	public static function addCss() {
 
 		wp_enqueue_style(
 			'slick-options-media',
-			Slick::plugin_url( 'css/slick-options-media.css' ),
+			slick::pluginUrl( 'css/slick-options-media.css' ),
 			array(),
-			Slick::get_plugin_data( 'Version' )
+			slick::getPluginData( 'Version' )
 		);
 
 	}
@@ -69,13 +69,13 @@ class Slick_GUI {
 	/**
 	 * Adds JS file using wp_enqueue_script().
 	 */
-	public static function add_js() {
+	public static function addJs() {
 
 		wp_enqueue_script(
 			'slick-options-media',
-			Slick::plugin_url( 'js/slick-options-media.js' ),
+			slick::pluginUrl( 'js/slick-options-media.js' ),
 			array( 'jquery' ),
-			Slick::get_plugin_data( 'Version' )
+			slick::getPluginData( 'Version' )
 		);
 
 	}
@@ -83,7 +83,7 @@ class Slick_GUI {
 	/**
 	 * Prints intro text and reset button
 	 */
-	public static function setting_section_callback() {
+	public static function settingSectionCallback() {
 
 		wp_nonce_field( '_slick__settings_nonce', '_slick_nonce' );
 		echo '<a id="slick-settings"></a>';
@@ -103,9 +103,9 @@ class Slick_GUI {
 	/**
 	 * Initiates saving Slick Slider options to database.
 	 */
-	public static function save_changes() {
+	public static function saveChanges() {
 
-		if ( self::$skip_saving ) {
+		if ( self::$skipSaving ) {
 			return;
 		}
 		if ( empty( $_POST ) OR empty( $_POST['_slick_action'] ) ) {
@@ -121,13 +121,13 @@ class Slick_GUI {
 			return;
 		}
 
-		self::$skip_saving = true;
+		self::$skipSaving = true;
 		$_POST = array_map( 'stripslashes_deep', $_POST );
 		if ( isset( $_POST['_slick_reset'] ) ) {
-			Slick_Options::reset();
+			slickOptions::reset();
 			return;
 		}
-		Slick_Options::update( $_POST, true );
+		slickOptions::update( $_POST, true );
 
 	}
 }

@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) OR exit;
 /**
  * Caches Slick Slider options and metadata for faster performance.
  */
-class Slick_Cache {
+class slickCache {
 
 	/**
 	 * Contains cached values in an array.

@@ -6,7 +6,6 @@ Description: Turn your native WordPress galleries into beautiful sliders using t
 Version:     1.0
 Author:      Philipp Bammes
 Text Domain: slick-wp
-Domain Path: /languages/
 License:     GPL2
 
 Slick Slider is free software: you can redistribute it and/or modify
@@ -40,7 +39,7 @@ require_once sprintf(
 );
 
 spl_autoload_register(
-	'slick_autoload'
+	'slickAutoload'
 );
 
 add_action(
@@ -69,15 +68,15 @@ register_uninstall_hook(
 );
 
 
-function slick_autoload( $class ) {
+function slickAutoload( $class ) {
 
 	$available = array(
-		'Slick_Cache' => 'cache',
-		'Slick_Feedback' => 'feedback',
-		'Slick_Options' => 'options',
-		'Slick_Output' => 'output',
-		'Slick_GUI' => 'gui',
-		'Slick_Template' => 'template',
+		'slickCache' => 'cache',
+		'slickFeedback' => 'feedback',
+		'slickOptions' => 'options',
+		'slickOutput' => 'output',
+		'slickGui' => 'gui',
+		'slickTemplate' => 'template',
 	);
 
 	if ( isset( $available[$class] ) ) {

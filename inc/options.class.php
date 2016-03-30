@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) OR exit;
 /**
  * Handles getting and setting of all Slick Slider options.
  */
-class Slick_Options {
+class slickOptions {
 
 	/**
 	 * Gets Slick Slider options from database.
@@ -14,7 +14,7 @@ class Slick_Options {
 	 */
 	public static function get( $field = '' ) {
 
-		$options = Slick_Cache::get( 'options' );
+		$options = slickCache::get( 'options' );
 		if ( empty( $options ) ) {
 			$options = self::defaults();
 			$options_user = get_option( 'slick' );
@@ -25,7 +25,7 @@ class Slick_Options {
 			foreach ( $options as $option => $array_values ) {
 				$options[$option]['value'] = $options_user[$option];
 			}
-			Slick_Cache::set( 'options', $options );
+			slickCache::set( 'options', $options );
 		}
 		if ( empty( $field ) ) {
 			return $options;
@@ -75,7 +75,7 @@ class Slick_Options {
 			$options = array_merge( (array) get_option( 'slick' ), $fields );
 		}
 		update_option( 'slick', $options );
-		Slick_Cache::set( 'options', $options );
+		slickCache::set( 'options', $options );
 
 	}
 
@@ -84,16 +84,16 @@ class Slick_Options {
 	 */
 	public static function init() {
 
-		add_option( 'slick', self::default_options() );
+		add_option( 'slick', self::defaultOptions() );
 
 	}
 
 	/**
-	 * Resets Slick Slider options using self::default_options().
+	 * Resets Slick Slider options using self::defaultOptions().
 	 */
 	public static function reset() {
 
-		self::update( self::default_options() );
+		self::update( self::defaultOptions() );
 
 	}
 
@@ -113,12 +113,12 @@ class Slick_Options {
 	 * @param  array $atts shortcode parameters
 	 * @return array       Slick Slider options
 	 */
-	public static function prepare_options_for_output( $atts ) {
+	public static function prepareOptionsForOutput( $atts ) {
 
-		$options_user = Slick_Options::get();
-		$options_default = Slick_Options::defaults();
+		$options_user = self::get();
+		$options_default = self::defaults();
 		
-		$options_merged = Slick::array_diff_assoc_recursive( $options_user, $options_default );
+		$options_merged = Slick::arrayDiffAssocRecursive( $options_user, $options_default );
 
 		if ( is_array( $options_merged ) ) {
 			foreach ( $options_merged as $option => $value ) {
@@ -151,7 +151,7 @@ class Slick_Options {
 	 * @param  string $location where the markup should be inserted (markup differs based on location)
 	 * @return if $location is empty
 	 */
-	public static function render_settings_markup( $location = '' ) {
+	public static function renderSettingsMarkup( $location = '' ) {
 
 		if ( empty( $location ) ) {
 			return;
@@ -290,7 +290,7 @@ class Slick_Options {
 	 * Gets Slick Slider's default options and returns them.
 	 * @return array       Slick Slider options encoded using esc_attr()
 	 */
-	public static function default_options() {
+	public static function defaultOptions() {
 
 		return array_map( function( $option ) { return esc_attr( $option['value'] ); }, self::defaults() );
 

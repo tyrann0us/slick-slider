@@ -9,7 +9,7 @@
 	$( document ).on( 'click', '.media-modal .slick-slider-toggle-settings input', function() {
 		toggleSliderSettings();
 	} );
-	$( document ).on( 'click', '.media-modal .slick-slider-add-breakpoint', manage_breakpoints );
+	$( document ).on( 'click', '.media-modal .slick-slider-add-breakpoint', manageBreakpoints );
 
 
 	function initSliderSettings() {
@@ -26,7 +26,7 @@
 		$slickSliderSettings.add( $invalidGallerySettings ).toggle();
 	};
 	
-	function manage_breakpoints() {
+	function manageBreakpoints() {
 		// prepend wrapper for better event handling
 		if ( ! $( this ).parents( '.slick-slider-breakpoint-wrapper' ).length ) {
 			$( this ).parents( '.setting' ).wrap( '<div class="slick-slider-breakpoint-wrapper"></div>' );

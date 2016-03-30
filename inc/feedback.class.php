@@ -4,19 +4,19 @@ defined( 'ABSPATH' ) OR exit;
 /**
  * Show Slick Slider warnings using (network)_admin_notices().
  */
-class Slick_Feedback {
+class slickFeedback {
 
 	/**
 	 * Adds warning if PHP and/or WordPress version is too low.
 	 */
 	public static function rules() {
 
-		switch ( Slick::current_page() ) {
+		switch ( slick::currentPage() ) {
 			case 'plugins' :
 			case 'options-media' :
-				if ( ! Slick::is_min_wp( '4.4' ) ) {
+				if ( ! slick::isMinWp( '4.4' ) ) {
 					self::add( 'critical', sprintf( '%s: %s %s.', __( 'Attention', 'slick-wp' ), __( 'Slick Slider requires at least WordPress', 'slick-wp' ), '4.4' ) );
-				} else if ( ! Slick::is_min_php( SLICK_MIN_PHP ) ) {
+				} else if ( ! slick::isMinPhp( SLICK_MIN_PHP ) ) {
 					self::add( 'critical', sprintf( '%s: %s %s.', __( 'Attention', 'slick-wp' ), __( 'Slick Slider requires at least PHP', 'slick-wp' ), SLICK_MIN_PHP ) );
 				}
 				break;
@@ -39,7 +39,7 @@ class Slick_Feedback {
 		) ) ) {
 			return false;
 		}
-		$data        = ( array ) Slick_Cache::get( 'feedback' );
+		$data        = ( array ) slickCache::get( 'feedback' );
 		$data[$type] = $msg;
 		Slick_Cache::set( 'feedback', $data );
 
@@ -52,7 +52,7 @@ class Slick_Feedback {
 	 */
 	public static function get( $type = '' ) {
 
-		$data = ( array ) Slick_Cache::get( 'feedback' );
+		$data = ( array ) slickCache::get( 'feedback' );
 		if ( empty( $data ) ) {
 			return false;
 		}

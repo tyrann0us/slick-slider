@@ -4,19 +4,16 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Main class for all frontend methods.
  */
-class Slick {
+class slick {
 
 	/**
 	 * Initiates Slick Slider.
 	 */
 	public static function init() {
 
-		if ( ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) || ( defined( 'DOING_CRON' ) && DOING_CRON ) || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) ) {
-			return;
-		}
 		add_action( 'init', array(
-			'Slick_Output',
-			'init_slider'
+			'slickOutput',
+			'initSlider'
 		) );
 
 	}
@@ -26,7 +23,7 @@ class Slick {
 	 * @param  string $path URI to asset
 	 * @return string        full URL to asset			
 	 */
-	public static function plugin_url( $path ) {
+	public static function pluginUrl( $path ) {
 
 		return plugins_url( $path, SLICK_FILE );
 
@@ -37,7 +34,7 @@ class Slick {
 	 * @param  string  $version PHP version to check against.
 	 * @return boolean          true if PHP is at least of version $version, false otherwise
 	 */
-	public static function is_min_php( $version ) {
+	public static function isMinPhp( $version ) {
 
 		return version_compare( phpversion(), $version, '>=' );
 
@@ -68,7 +65,7 @@ class Slick {
  * @param  array $array2 an array to compare against
  * @return array         array containing all the values from $array1 that are not present in $array2.
  */
-	public static function array_diff_assoc_recursive( $array1, $array2 ) { 
+	public static function arrayDiffAssocRecursive( $array1, $array2 ) { 
 
 		foreach( $array1 as $key => $value ) {
 			if ( is_array( $value ) ) { 
@@ -77,7 +74,7 @@ class Slick {
 				  } elseif ( ! is_array( $array2[$key] ) ) { 
 					  $difference[$key] = $value; 
 				  } else  { 
-					  $new_diff = self::array_diff_assoc_recursive( $value, $array2[$key] );
+					  $new_diff = self::arrayDiffAssocRecursive( $value, $array2[$key] );
 					  if ( $new_diff != FALSE ) { 
 							$difference[$key] = $new_diff; 
 					  } 

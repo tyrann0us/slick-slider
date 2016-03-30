@@ -4,21 +4,21 @@ defined( 'ABSPATH' ) OR exit;
 /**
  * Outputs all files and HTML markup required for main Slick Slider on frontend.
  */
-class Slick_Output {
+class slickOutput {
 
 	/**
 	 * Number of Slick Sliders on same WordPress page.
 	 * @var integer
 	 */
-	private static $slick_instance = 0;
+	private static $slickInstance = 0;
 
 	/**
 	 * Initiate registering of assets and replacing default WordPress gallery HTML with Slick Slider markup using add_filter().
 	 * @return if PHP version is too old
 	 */
-	public static function init_slider() {
+	public static function initSlider() {
 
-		if ( ! Slick::is_min_php( SLICK_MIN_PHP ) ) {
+		if ( ! slick::isMinPhp( SLICK_MIN_PHP ) ) {
 			return;
 		}
 
@@ -26,7 +26,7 @@ class Slick_Output {
 			'wp_enqueue_scripts',
 			array(
 				__CLASS__,
-				'register_slick_assets'
+				'registerSlickAssets'
 			)
 		);
 
@@ -34,7 +34,7 @@ class Slick_Output {
 			'post_gallery',
 			array(
 				__CLASS__,
-				'slick_markup'
+				'slickMarkup'
 			),
 			10,
 			3
@@ -45,24 +45,24 @@ class Slick_Output {
 	/**
 	 * Registers assets (JS and CSS files).
 	 */
-	public static function register_slick_assets() {
+	public static function registerSlickAssets() {
 
 		wp_register_script(
 			'slick',
-			Slick::plugin_url( 'bower_components/slick-carousel/slick/slick.min.js' ),
+			slick::pluginUrl( 'bower_components/slick-carousel/slick/slick.min.js' ),
 			array( 'jquery' ),
 			'1.5.9',
 			true
 		);
 		wp_register_style(
 			'slick',
-			Slick::plugin_url( 'bower_components/slick-carousel/slick/slick.css' ),
+			slick::pluginUrl( 'bower_components/slick-carousel/slick/slick.css' ),
 			array(),
 			'1.5.9'
 		);
 		wp_register_style(
 			'slick-theme',
-			Slick::plugin_url( 'bower_components/slick-carousel/slick/slick-theme.css' ),
+			slick::pluginUrl( 'bower_components/slick-carousel/slick/slick-theme.css' ),
 			array( 'slick' ),
 			'1.5.9'
 		);
@@ -77,7 +77,7 @@ class Slick_Output {
 	 * add_filter( 'slick_slider_init', '__return_false' );
 	 * @return string           minified initiation script
 	 */
-	public static function slick_init() {
+	public static function slickInit() {
 
 		if ( ! wp_script_is( 'slick', 'done' ) ) {
 			return;
@@ -102,7 +102,7 @@ class Slick_Output {
 	 * add_filter( 'slick_slider_helper_css', '__return_false' );
 	 * @return string           minified CSS script
 	 */
-	public static function slick_helper_css() {
+	public static function slickHelperCss() {
 
 		if ( false === apply_filters( 'slick_slider_helper_css', '' ) ) {
 			return;
@@ -124,7 +124,7 @@ class Slick_Output {
 	 * @param  integer $instance unique numeric ID of this gallery shortcode instance
 	 * @return string           complete Slick Slider markup which can be modified by multiple filters
 	 */
-	public static function slick_markup( $output = '', $atts, $instance ) {
+	public static function slickMarkup( $output = '', $atts, $instance ) {
 		
 		if ( isset( $atts['slick_active'] ) && 'true' === $atts['slick_active'] ) {
 
@@ -136,7 +136,7 @@ class Slick_Output {
 				'wp_footer',
 				array(
 					__CLASS__,
-					'slick_init',
+					'slickInit',
 				),
 				100
 			);
@@ -145,7 +145,7 @@ class Slick_Output {
 				'wp_footer',
 				array(
 					__CLASS__,
-					'slick_helper_css',
+					'slickHelperCss',
 				)
 			);
 
@@ -159,7 +159,7 @@ class Slick_Output {
 				'exclude' => '',
 				'link' => '',
 			) );
-			$atts = apply_filters( 'shortcode_atts_gallery', $atts, array(), 'gallery' );
+			$atts = apply_filters( 'shortcode_atts_gallery', $atts, [], 'gallery' );
 
 			$id = intval( $atts['id'] );
 
@@ -208,14 +208,14 @@ class Slick_Output {
 				return '';
 			}
 
-			$options = Slick_Options::prepare_options_for_output( $atts );
+			$options = slickOptions::prepareOptionsForOutput( $atts );
 
 			$output = [];
 			$output[] = '<div class="slick-slider-wrapper">';
 			$output[] = sprintf(
 				'<div class="slick-slider slick-slider-size-%s" id="slick-slider-%s" data-slick=\'%s\'>',
 				sanitize_html_class( $atts['size'] ),
-				++self::$slick_instance,
+				++self::$slickInstance,
 				json_encode( $options )
 			);
 				

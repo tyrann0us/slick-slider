@@ -4,33 +4,33 @@ defined( 'ABSPATH' ) OR exit;
 /**
  * Outputs all JS files and Slick Slider settings templates for being used by WordPress Media Uploader.
  */
-class Slick_Template {
+class slickTemplate {
 
 	/**
 	 * [init_template description]
 	 * @return [type] [description]
 	 */
-	public static function init_template() {
+	public static function initTemplate() {
 
 		add_action( 'print_media_templates', array(
 			__CLASS__,
-			'print_media_templates'
+			'printMediaTemplates'
 		) );
 		add_action( 'admin_print_scripts', array(
 			__CLASS__,
-			'print_slider_defaults' 
+			'printSliderDefaults' 
 		) );
 		add_action( 'admin_enqueue_scripts',  array(
 			 __CLASS__,
-			'js_extend_gallery' 
+			'jsExtendGallery' 
 		) );
 		add_action( 'admin_enqueue_scripts',  array(
 			 __CLASS__,
-			'add_css' 
+			'addCss' 
 		) );
 		add_action( 'admin_enqueue_scripts',  array(
 			 __CLASS__,
-			'add_js' 
+			'addJs' 
 		) );
 
 	}
@@ -38,9 +38,9 @@ class Slick_Template {
 	/**
 	 * Inline prints the settings template.
 	 */
-	public static function print_media_templates() {
+	public static function printMediaTemplates() {
 
-		$pagenow = Slick::current_page(); ?>
+		$pagenow = slick::currentPage(); ?>
 
 		<script type="text/html" id="tmpl-slick-slider-gallery-setting">
 			<div class="clear"></div>
@@ -54,7 +54,7 @@ class Slick_Template {
 					</label>
 				</div>
 				<div class="slick-slider-settings-inner">
-					<?php Slick_Options::render_settings_markup( $pagenow ); ?>
+					<?php slickOptions::renderSettingsMarkup( $pagenow ); ?>
 				</div>
 			</div>
 		</script>
@@ -65,9 +65,9 @@ class Slick_Template {
 	 * Gets Slick Slider options and inline prints them json encoded inside a script tag.
 	 * @return string json encoded options
 	 */
-	public static function print_slider_defaults() {
+	public static function printSliderDefaults() {
 
-		$options_json = json_encode( Slick_Options::get() );
+		$options_json = json_encode( slickOptions::get() );
 
 		$output = array();
 		$output[] = '<script type="text/javascript">';
@@ -81,13 +81,13 @@ class Slick_Template {
 	/**
 	 * Enqueues JS file to extend the wp.media object and register the settings template.
 	 */
-	public static function js_extend_gallery() {
+	public static function jsExtendGallery() {
 
 		wp_enqueue_script(
 			'slick-slider-gallery-settings',
-			Slick::plugin_url( 'js/slick-post-gallery-defaults.js' ),
+			slick::pluginUrl( 'js/slick-post-gallery-defaults.js' ),
 			array( 'jquery' ),
-			Slick::get_plugin_data( 'Version' ),
+			slick::getPluginData( 'Version' ),
 			true
 		);
 
@@ -96,13 +96,13 @@ class Slick_Template {
 	/**
 	 * Enqueues CSS file for basic styling of Slick Slider settings section inside WordPress Media Uploader.
 	 */
-	public static function add_css() {
+	public static function addCss() {
 
 		wp_enqueue_style(
 			'slick-post-gallery',
-			Slick::plugin_url( 'css/slick-post.css' ),
+			slick::pluginUrl( 'css/slick-post.css' ),
 			false,
-			Slick::get_plugin_data( 'Version' )
+			slick::getPluginData( 'Version' )
 		);
 
 	}
@@ -110,13 +110,13 @@ class Slick_Template {
 	/**
 	 * Enqueues JS file for basic toggling actions of labels.
 	 */
-	public static function add_js() {
+	public static function addJs() {
 
 		wp_enqueue_script(
 			'slick-post-gallery',
-			Slick::plugin_url( 'js/slick-post.js' ),
+			slick::pluginUrl( 'js/slick-post.js' ),
 			array( 'jquery' ),
-			Slick::get_plugin_data( 'Version' )
+			slick::getPluginData( 'Version' )
 		);
 
 	}
