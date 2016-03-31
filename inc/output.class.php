@@ -210,7 +210,7 @@ class slickOutput {
 
 			$output = implode( "\n", $output );
 
-			return apply_filters( 'slick_slider', $output );
+			return apply_filters( 'slick_slider', $output, $post->ID );
 		}
 
 	}
