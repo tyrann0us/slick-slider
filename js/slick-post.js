@@ -1,4 +1,4 @@
-( function( $ ) {
+ jQuery( document ).ready( function( $ ) {
 	var $slickSliderSettings, $invalidGallerySettings, 	slickActive = false;
 
 	$( document ).on( 'click', '.dashicons-edit, .media-button-gallery', function() {
@@ -36,4 +36,4 @@
 			$( '.breakpoint-accordion-content' ).toggleClass( 'active' );
 		} );
 	};
-} )( jQuery );
+} )

@@ -69,7 +69,7 @@ class slick {
 	 */
 	public static function install() {
 
-		Slick_Options::init();
+		slickOptions::init();
 
 	}
 
@@ -78,7 +78,7 @@ class slick {
 	 */
 	public static function uninstall() {
 
-		Slick_Options::destroy();
+		slickOptions::destroy();
 
 	}
 
