@@ -44,6 +44,11 @@ class slickOutput {
 
 	/**
 	 * Registers assets (JS and CSS files).
+	 * Also initiates Slick Slider and adds helper CSS
+	 * which moves Slick Slider arrows inside the gallery because it is invisible on white backgrounds.
+	 * To prevent output use
+	 * add_filter( 'slick_slider_init', '__return_false' ); and
+	 * add_filter( 'slick_slider_helper_css', '__return_false' ); respectively.
 	 */
 	public static function registerSlickAssets() {
 
@@ -54,6 +59,7 @@ class slickOutput {
 			'1.5.9',
 			true
 		);
+		
 		wp_register_style(
 			'slick',
 			slick::pluginUrl( 'bower_components/slick-carousel/slick/slick.css' ),
@@ -67,53 +73,15 @@ class slickOutput {
 			'1.5.9'
 		);
 
-	}
-
-
-	/**
-	 * Reads JS from file and returns it.
-	 * Initiates Slick Slider.
-	 * Prevent output with
-	 * add_filter( 'slick_slider_init', '__return_false' );
-	 * @return string           minified initiation script
-	 */
-	public static function slickInit() {
-
-		if ( ! wp_script_is( 'slick', 'done' ) ) {
-			return;
-		}
-		if ( false === apply_filters( 'slick_slider_init', '' ) ) {
-			return;
+		if ( false !== apply_filters( 'slick_slider_init', '' ) ) {
+			wp_add_inline_script( 'slick', file_get_contents( SLICK_DIR . '/js/slick-init.js' ) );
 		}
 
-		$output = [];
-		$output[] = '<script type="text/javascript">';
-		$output[] = file_get_contents( SLICK_DIR . '/js/slick-init.js' );
-		$output[] = '</script>';
-
-		echo str_replace( array( "\r", "\n", "\t" ), '', implode( "\n", $output ) );
-
-	}
-
-	/**
-	 * Reads CSS from file and returns it.
-	 * The CSS moves Slick Slider arrows inside the gallery because it is invisible on white backgrounds.
-	 * Prevent output with
-	 * add_filter( 'slick_slider_helper_css', '__return_false' );
-	 * @return string           minified CSS script
-	 */
-	public static function slickHelperCss() {
-
-		if ( false === apply_filters( 'slick_slider_helper_css', '' ) ) {
-			return;
+		if ( false !== apply_filters( 'slick_slider_helper_css', '' ) ) {
+			wp_add_inline_style( 'slick-theme', file_get_contents( SLICK_DIR . '/css/slick-frontend.css' ) );
 		}
 
-		$output = [];
-		$output[] = '<style type="text/css">';
-		$output[] = file_get_contents( SLICK_DIR . '/css/slick-frontend.css' );
-		$output[] = '</style>';
 
-		echo str_replace( array( "\r", "\n", "\t" ), '', implode( "\n", $output ) );
 
 	}
 
@@ -131,24 +99,6 @@ class slickOutput {
 			global $post;
 			wp_enqueue_script( 'slick' );
 			wp_enqueue_style( 'slick-theme' );
-
-			add_action(
-				'wp_footer',
-				array(
-					__CLASS__,
-					'slickInit',
-				),
-				100
-			);
-
-			add_action(
-				'wp_footer',
-				array(
-					__CLASS__,
-					'slickHelperCss',
-				)
-			);
-
 
 			$atts = wp_parse_args( $atts, array(
 				'order' => 'ASC',
