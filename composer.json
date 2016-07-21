@@ -1,0 +1,23 @@
+{
+  "name": "tyrann0us/slick-slider",
+  "description": "Turn your native WordPress galleries into beautiful fully responsive sliders using the awesome “slick” slider.",
+  "version": "1.0.0",
+  "license": "GPL-3.0",
+  "type": "wordpress-plugin",
+  "keywords": [
+    "gallery",
+    "slider",
+    "slick"
+  ],
+  "homepage": "https://github.com/tyrann0us/slick-slider",
+  "authors": [
+    {
+      "name": "Philipp Bammes",
+      "email": "pbammes@gmail.com",
+      "role": "Lead Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/tyrann0us/slick-slider/issues"
+  }
+}
