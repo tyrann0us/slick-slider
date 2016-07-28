@@ -56,7 +56,7 @@ class slickOutput {
 			'slick',
 			slick::pluginUrl( 'bower_components/slick-carousel/slick/slick.min.js' ),
 			array( 'jquery' ),
-			'1.5.9',
+			'1.6.0',
 			true
 		);
 		
@@ -64,13 +64,13 @@ class slickOutput {
 			'slick',
 			slick::pluginUrl( 'bower_components/slick-carousel/slick/slick.css' ),
 			array(),
-			'1.5.9'
+			'1.6.0'
 		);
 		wp_register_style(
 			'slick-theme',
 			slick::pluginUrl( 'bower_components/slick-carousel/slick/slick-theme.css' ),
 			array( 'slick' ),
-			'1.5.9'
+			'1.6.0'
 		);
 
 		if ( false !== apply_filters( 'slick_slider_init', '' ) ) {

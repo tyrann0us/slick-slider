@@ -1,6 +1,6 @@
 {
   "name": "slick-slider",
   "dependencies": {
-    "slick-carousel": "1.5.9"
+    "slick-carousel": "*"
   }
 }
