@@ -3,7 +3,7 @@
 Plugin Name: Slick Slider
 Plugin URI:  https://wordpress.org/plugins/slick-wp/
 Description: Turn your native WordPress galleries into beautiful sliders using the awesome “slick” slider.
-Version:     1.0
+Version:     0.1
 Author:      Philipp Bammes
 Text Domain: slick-wp
 License:     GPL2
