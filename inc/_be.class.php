@@ -11,10 +11,6 @@ class slick {
 	 */
 	public static function init() {
 
-		add_action( 'init', array(
-			 __CLASS__,
-			'loadTextdomain' 
-		) );
 		add_action( 'admin_notices', array(
 			 'slickFeedback',
 			'rules' 
@@ -168,15 +164,6 @@ class slick {
 	public static function isMinPhp( $version ) {
 
 		return version_compare( phpversion(), $version, '>=' );
-
-	}
-
-	/**
-	 * Loads plugin textdomain for internalization using load_plugin_textdomain().
-	 */
-	public static function loadTextdomain() {
-
-		load_plugin_textdomain( 'slick-slider', false, dirname( SLICK_BASE ) . '/lang' );
 
 	}
 
