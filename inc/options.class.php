@@ -213,7 +213,7 @@ class slickOptions {
 								case 'object' :
 									printf(
 										'<button class="slick-slider-add-breakpoint">%s</button>',
-										__( 'Add breakpoint', 'slick-wp' ) );
+										__( 'Add breakpoint', 'slick-slider' ) );
 									break;
 								default:
 									break;
@@ -273,7 +273,7 @@ class slickOptions {
 							case 'object' :
 								printf(
 									'<button class="slick-slider-add-breakpoint">%s</button>',
-									__( 'Add breakpoint', 'slick-wp' )
+									__( 'Add breakpoint', 'slick-slider' )
 								);
 								break;
 							default :
@@ -304,7 +304,7 @@ class slickOptions {
 
 		return array(
 			'accessibility' => array(
-				'name' => __( 'accessibility', 'slick-wp' ),
+				'name' => __( 'accessibility', 'slick-slider' ),
 				'desc' => 'Enables tabbing and arrow key navigation.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_accessibility',
@@ -312,7 +312,7 @@ class slickOptions {
 				'value' => true,
 			),
 			'adaptiveHeight' => array(
-				'name' => __( 'adaptiveHeight', 'slick-wp' ),
+				'name' => __( 'adaptiveHeight', 'slick-slider' ),
 				'desc' => 'Enables adaptive height for single slide horizontal carousels.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_adaptiveheight',
@@ -320,7 +320,7 @@ class slickOptions {
 				'value' => false,
 			),
 			'autoplay' => array(
-				'name' => __( 'autoplay', 'slick-wp' ),
+				'name' => __( 'autoplay', 'slick-slider' ),
 				'desc' => 'Enables Autoplay.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_autoplay',
@@ -328,7 +328,7 @@ class slickOptions {
 				'value' => false,
 			),
 			'autoplaySpeed' => array(
-				'name' => __( 'autoplaySpeed', 'slick-wp' ),
+				'name' => __( 'autoplaySpeed', 'slick-slider' ),
 				'desc' => 'Autoplay Speed in milliseconds.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_autoplayspeed',
@@ -336,7 +336,7 @@ class slickOptions {
 				'value' => 3000,
 			),
 			'arrows' => array(
-				'name' => __( 'arrows', 'slick-wp' ),
+				'name' => __( 'arrows', 'slick-slider' ),
 				'desc' => 'Prev/Next Arrows.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_arrows',
@@ -344,7 +344,7 @@ class slickOptions {
 				'value' => true,
 			),
 			'asNavFor' => array(
-				'name' => __( 'asNavFor', 'slick-wp' ),
+				'name' => __( 'asNavFor', 'slick-slider' ),
 				'desc' => 'Set the slider to be the navigation of other slider (Class or ID Name).',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_asnavfor',
@@ -352,7 +352,7 @@ class slickOptions {
 				'value' => '',
 			),
 			'appendArrows' => array(
-				'name' => __( 'appendArrows', 'slick-wp' ),
+				'name' => __( 'appendArrows', 'slick-slider' ),
 				'desc' => 'Change where the navigation arrows are attached (Selector, htmlString, Array, Element, jQuery object).',
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_appendarrows',
@@ -360,7 +360,7 @@ class slickOptions {
 				'value' => '',
 			),
 			'prevArrow' => array(
-				'name' => __( 'prevArrow', 'slick-wp' ),
+				'name' => __( 'prevArrow', 'slick-slider' ),
 				'desc' => 'Allows you to select a node or customize the HTML for the "Previous" arrow.',
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_prevarrow',
@@ -368,7 +368,7 @@ class slickOptions {
 				'value' => '<button type=\'button\' class=\'slick-prev\'>Previous</button>',
 			),
 			'nextArrow' => array(
-				'name' => __( 'nextArrow', 'slick-wp' ),
+				'name' => __( 'nextArrow', 'slick-slider' ),
 				'desc' => 'Allows you to select a node or customize the HTML for the "Next" arrow.',
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_nextarrow',
@@ -376,7 +376,7 @@ class slickOptions {
 				'value' => '<button type=\'button\' class=\'slick-next\'>Next</button>',
 			),
 			'centerMode' => array(
-				'name' => __( 'centerMode', 'slick-wp' ),
+				'name' => __( 'centerMode', 'slick-slider' ),
 				'desc' => 'Enables centered view with partial prev/next slides. Use with odd numbered slidesToShow counts.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_centermode',
@@ -384,7 +384,7 @@ class slickOptions {
 				'value' => false,
 			),
 			'centerPadding' => array(
-				'name' => __( 'centerPadding', 'slick-wp' ),
+				'name' => __( 'centerPadding', 'slick-slider' ),
 				'desc' => 'Side padding when in center mode (px or %).',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_centerpadding',
@@ -392,7 +392,7 @@ class slickOptions {
 				'value' => '50px',
 			),
 			'cssEase' => array(
-				'name' => __( 'cssEase', 'slick-wp' ),
+				'name' => __( 'cssEase', 'slick-slider' ),
 				'desc' => 'CSS3 Animation Easing.',
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_cssease',
@@ -403,7 +403,7 @@ class slickOptions {
 				),
 			),
 			'customPaging' => array(
-				'name' => __( 'customPaging', 'slick-wp' ),
+				'name' => __( 'customPaging', 'slick-slider' ),
 				'desc' => 'Custom paging templates. See source for use example.',
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_custompaging',
@@ -411,7 +411,7 @@ class slickOptions {
 				'value' => '',
 			),
 			'dots' => array(
-				'name' => __( 'dots', 'slick-wp' ),
+				'name' => __( 'dots', 'slick-slider' ),
 				'desc' => 'Show dot indicators.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_dots',
@@ -419,7 +419,7 @@ class slickOptions {
 				'value' => false,
 			),
 			'draggable' => array(
-				'name' => __( 'draggable', 'slick-wp' ),
+				'name' => __( 'draggable', 'slick-slider' ),
 				'desc' => 'Enable mouse dragging.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_draggable',
@@ -427,7 +427,7 @@ class slickOptions {
 				'value' => true,
 			),
 			'fade' => array(
-				'name' => __( 'fade', 'slick-wp' ),
+				'name' => __( 'fade', 'slick-slider' ),
 				'desc' => 'Enable fade.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_fade',
@@ -435,7 +435,7 @@ class slickOptions {
 				'value' => false,
 			),
 			'focusOnSelect' => array(
-				'name' => __( 'focusOnSelect', 'slick-wp' ),
+				'name' => __( 'focusOnSelect', 'slick-slider' ),
 				'desc' => 'Enable focus on selected element (click).',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_focusonselect',
@@ -443,7 +443,7 @@ class slickOptions {
 				'value' => false,
 			),
 			'easing' => array(
-				'name' => __( 'easing', 'slick-wp' ),
+				'name' => __( 'easing', 'slick-slider' ),
 				'desc' => 'Add easing for jQuery animate. Use with easing libraries or default easing methods.',
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_easing',
@@ -454,7 +454,7 @@ class slickOptions {
 				),
 			),
 			'edgeFriction' => array(
-				'name' => __( 'edgeFriction', 'slick-wp' ),
+				'name' => __( 'edgeFriction', 'slick-slider' ),
 				'desc' => 'Resistance when swiping edges of non-infinite carousels.',
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_edgefriction',
@@ -462,7 +462,7 @@ class slickOptions {
 				'value' => 0.15,
 			),
 			'infinite' => array(
-				'name' => __( 'infinite', 'slick-wp' ),
+				'name' => __( 'infinite', 'slick-slider' ),
 				'desc' => 'Infinite loop sliding.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_infinite',
@@ -470,7 +470,7 @@ class slickOptions {
 				'value' => true,
 			),
 			'initialSlide' => array(
-				'name' => __( 'initialSlide', 'slick-wp' ),
+				'name' => __( 'initialSlide', 'slick-slider' ),
 				'desc' => 'Slide to start on.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_initialslide',
@@ -478,7 +478,7 @@ class slickOptions {
 				'value' => 0,
 			),
 			'lazyLoad' => array(
-				'name' => __( 'lazyLoad', 'slick-wp' ),
+				'name' => __( 'lazyLoad', 'slick-slider' ),
 				'desc' => 'Set lazy loading technique. Accepts \'ondemand\' or \'progressive\'.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_lazyload',
@@ -490,7 +490,7 @@ class slickOptions {
 				),
 			),
 			//'mobileFirst' => array(
-			//	'name' => __( 'mobileFirst', 'slick-wp' ),
+			//	'name' => __( 'mobileFirst', 'slick-slider' ),
 			//	'desc' => 'Responsive settings use mobile first calculation.',
 			//	'showOnSingleGallery' => false,
 			//	'setting' => 'sl_mobilefirst',
@@ -498,7 +498,7 @@ class slickOptions {
 			//	'value' => false,
 			//),
 			'pauseOnHover' => array(
-				'name' => __( 'pauseOnHover', 'slick-wp' ),
+				'name' => __( 'pauseOnHover', 'slick-slider' ),
 				'desc' => 'Pause Autoplay On Hover.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_pauseonhover',
@@ -506,7 +506,7 @@ class slickOptions {
 				'value' => true,
 			),
 			'pauseOnDotsHover' => array(
-				'name' => __( 'pauseOnDotsHover', 'slick-wp' ),
+				'name' => __( 'pauseOnDotsHover', 'slick-slider' ),
 				'desc' => 'Pause Autoplay when a dot is hovered.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_pauseondotshover',
@@ -514,7 +514,7 @@ class slickOptions {
 				'value' => false,
 			),
 			'respondTo' => array(
-				'name' => __( 'respondTo', 'slick-wp' ),
+				'name' => __( 'respondTo', 'slick-slider' ),
 				'desc' => 'Width that responsive object responds to. Can be \'window\', \'slider\' or \'min\' (the smaller of the two).',
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_respondto',
@@ -527,7 +527,7 @@ class slickOptions {
 				),
 			),
 			//'responsive' => array(
-			//	'name' => __( 'responsive', 'slick-wp' ),
+			//	'name' => __( 'responsive', 'slick-slider' ),
 			//	'showOnSingleGallery' => false,
 			//	'desc' => 'Object containing breakpoints and settings objects (see demo). Enables settings sets at given screen width. Set settings to "unslick" instead of an object to disable slick at a given breakpoint.',
 			//	'setting' => 'sl_responsive',
@@ -535,7 +535,7 @@ class slickOptions {
 			//	'value' => '',
 			//),
 			'rows' => array(
-				'name' => __( 'rows', 'slick-wp' ),
+				'name' => __( 'rows', 'slick-slider' ),
 				'desc' => 'Setting this to more than 1 initializes grid mode. Use slidesPerRow to set how many slides should be in each row.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_rows',
@@ -543,7 +543,7 @@ class slickOptions {
 				'value' => 1,
 			),
 			'slide' => array(
-				'name' => __( 'slide', 'slick-wp' ),
+				'name' => __( 'slide', 'slick-slider' ),
 				'desc' => 'Element query to use as slide.',
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_slide',
@@ -551,7 +551,7 @@ class slickOptions {
 				'value' => '',
 			),
 			'slidesPerRow' => array(
-				'name' => __( 'slidesPerRow', 'slick-wp' ),
+				'name' => __( 'slidesPerRow', 'slick-slider' ),
 				'desc' => 'With grid mode intialized via the rows option, this sets how many slides are in each grid row.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_slidesperrow',
@@ -559,7 +559,7 @@ class slickOptions {
 				'value' => 1,
 			),
 			'slidesToShow' => array(
-				'name' => __( 'slidesToShow', 'slick-wp' ),
+				'name' => __( 'slidesToShow', 'slick-slider' ),
 				'desc' => '# of slides to show.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_slidestoshow',
@@ -567,7 +567,7 @@ class slickOptions {
 				'value' => 1,
 			),
 			'slidesToScroll' => array(
-				'name' => __( 'slidesToScroll', 'slick-wp' ),
+				'name' => __( 'slidesToScroll', 'slick-slider' ),
 				'desc' => '# of slides to scroll.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_slidestoscroll',
@@ -575,7 +575,7 @@ class slickOptions {
 				'value' => 1,
 			),
 			'speed' => array(
-				'name' => __( 'speed', 'slick-wp' ),
+				'name' => __( 'speed', 'slick-slider' ),
 				'desc' => 'Slide/Fade animation speed.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_speed',
@@ -583,7 +583,7 @@ class slickOptions {
 				'value' => 300,
 			),
 			'swipe' => array(
-				'name' => __( 'swipe', 'slick-wp' ),
+				'name' => __( 'swipe', 'slick-slider' ),
 				'desc' => 'Enable swiping.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_swipe',
@@ -591,7 +591,7 @@ class slickOptions {
 				'value' => true,
 			),
 			'swipeToSlide' => array(
-				'name' => __( 'swipeToSlide', 'slick-wp' ),
+				'name' => __( 'swipeToSlide', 'slick-slider' ),
 				'desc' => 'Allow users to drag or swipe directly to a slide irrespective of slidesToScroll.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_swipetoslide',
@@ -599,7 +599,7 @@ class slickOptions {
 				'value' => false,
 			),
 			'touchMove' => array(
-				'name' => __( 'touchMove', 'slick-wp' ),
+				'name' => __( 'touchMove', 'slick-slider' ),
 				'desc' => 'Enable slide motion with touch.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_touchmove',
@@ -607,7 +607,7 @@ class slickOptions {
 				'value' => true,
 			),
 			'touchThreshold' => array(
-				'name' => __( 'touchThreshold', 'slick-wp' ),
+				'name' => __( 'touchThreshold', 'slick-slider' ),
 				'desc' => 'To advance slides, the user must swipe a length of (1/touchThreshold) * the width of the slider.',
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_touchthreshold',
@@ -615,7 +615,7 @@ class slickOptions {
 				'value' => 5,
 			),
 			'useCSS' => array(
-				'name' => __( 'useCSS', 'slick-wp' ),
+				'name' => __( 'useCSS', 'slick-slider' ),
 				'desc' => 'Enable/Disable CSS Transitions.',
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_usecss',
@@ -623,7 +623,7 @@ class slickOptions {
 				'value' => true,
 			),
 			'useTransform' => array(
-				'name' => __( 'useTransform', 'slick-wp' ),
+				'name' => __( 'useTransform', 'slick-slider' ),
 				'desc' => 'Enable/Disable CSS Transforms.',
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_usetransform',
@@ -631,7 +631,7 @@ class slickOptions {
 				'value' => false,
 			),
 			'variableWidth' => array(
-				'name' => __( 'variableWidth', 'slick-wp' ),
+				'name' => __( 'variableWidth', 'slick-slider' ),
 				'desc' => 'Variable width slides.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_variablewidth',
@@ -639,7 +639,7 @@ class slickOptions {
 				'value' => false,
 			),
 			'vertical' => array(
-				'name' => __( 'vertical', 'slick-wp' ),
+				'name' => __( 'vertical', 'slick-slider' ),
 				'desc' => 'Vertical slide mode.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_vertical',
@@ -647,7 +647,7 @@ class slickOptions {
 				'value' => false,
 			),
 			'verticalSwiping' => array(
-				'name' => __( 'verticalSwiping', 'slick-wp' ),
+				'name' => __( 'verticalSwiping', 'slick-slider' ),
 				'desc' => 'Vertical swipe mode.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_verticalswiping',
@@ -655,7 +655,7 @@ class slickOptions {
 				'value' => false,
 			),
 			'rtl' => array(
-				'name' => __( 'rtl', 'slick-wp' ),
+				'name' => __( 'rtl', 'slick-slider' ),
 				'desc' => 'Change the slider\'s direction to become right-to-left.',
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_rtl',

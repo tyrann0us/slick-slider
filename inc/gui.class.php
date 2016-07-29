@@ -39,7 +39,7 @@ class slickGui {
 
 		add_settings_section(
 			'slick',
-			__( 'Slick Slider settings', 'slick-wp' ),
+			__( 'Slick Slider settings', 'slick-slider' ),
 			array(
 				__CLASS__,
 				'settingSectionCallback'
@@ -88,15 +88,15 @@ class slickGui {
 		wp_nonce_field( '_slick__settings_nonce', '_slick_nonce' );
 		echo '<a id="slick-settings"></a>';
 		echo '<input type="hidden" name="_slick_action" value="update" />';
-		echo sprintf( '<p>%s</p>', __( 'Change default Slick Slider settings.', 'slick-wp' ) );
+		echo sprintf( '<p>%s</p>', __( 'Change default Slick Slider settings.', 'slick-slider' ) );
 		echo sprintf(
 			'<p>%s</p>',
 			sprintf(
-				__( 'For more information about the slider visit %s.', 'slick-wp' ),
+				__( 'For more information about the slider visit %s.', 'slick-slider' ),
 				'<a href="https://kenwheeler.github.io/slick/" target="blank">https://kenwheeler.github.io/slick/</a>'
 			)
 		);
-		submit_button( __( 'Reset Slick Slider settings', 'slick-wp' ), 'delete', '_slick_reset' );
+		submit_button( __( 'Reset Slick Slider settings', 'slick-slider' ), 'delete', '_slick_reset' );
 
 	}
 

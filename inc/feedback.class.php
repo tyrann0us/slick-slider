@@ -15,9 +15,9 @@ class slickFeedback {
 			case 'plugins' :
 			case 'options-media' :
 				if ( ! slick::isMinWp( '4.4' ) ) {
-					self::add( 'critical', sprintf( '%s: %s %s.', __( 'Attention', 'slick-wp' ), __( 'Slick Slider requires at least WordPress', 'slick-wp' ), '4.4' ) );
+					self::add( 'critical', sprintf( '%s: %s %s.', __( 'Attention', 'slick-slider' ), __( 'Slick Slider requires at least WordPress', 'slick-slider' ), '4.4' ) );
 				} else if ( ! slick::isMinPhp( SLICK_MIN_PHP ) ) {
-					self::add( 'critical', sprintf( '%s: %s %s.', __( 'Attention', 'slick-wp' ), __( 'Slick Slider requires at least PHP', 'slick-wp' ), SLICK_MIN_PHP ) );
+					self::add( 'critical', sprintf( '%s: %s %s.', __( 'Attention', 'slick-slider' ), __( 'Slick Slider requires at least PHP', 'slick-slider' ), SLICK_MIN_PHP ) );
 				}
 				break;
 			default :

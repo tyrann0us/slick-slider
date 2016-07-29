@@ -46,10 +46,10 @@ class slickTemplate {
 			<div class="clear"></div>
 			<div class="slick-slider-settings">
 				<hr>
-				<h3><?php _e( 'Slick Slider', 'slick-wp' ); ?></h3>
+				<h3><?php _e( 'Slick Slider', 'slick-slider' ); ?></h3>
 				<div class="slick-slider-toggle-settings">
 					<label class="setting">
-						<span><?php _e( 'Use Slick Slider', 'slick-wp' ); ?></span>
+						<span><?php _e( 'Use Slick Slider', 'slick-slider' ); ?></span>
 						<input type="checkbox" data-setting="slick_active">
 					</label>
 				</div>

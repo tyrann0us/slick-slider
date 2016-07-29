@@ -136,12 +136,12 @@ class slick {
 				 sprintf(
 				 	'<a href="%s" target="blank">%s</a>',
 				 	'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J4347QQ8J3L54',
-				 	__( 'Donate', 'slick-wp' )
+				 	__( 'Donate', 'slick-slider' )
 				 ),
 				 sprintf(
 				 	'<a href="%s" target="blank">%s</a>',
-				 	'https://wordpress.org/support/view/plugin-reviews/slick-wp#postform',
-				 	__( 'Rate', 'slick-wp' )
+				 	'https://wordpress.org/support/view/plugin-reviews/slick-slider#postform',
+				 	__( 'Rate', 'slick-slider' )
 				 )
 			) );
 		}
@@ -176,7 +176,7 @@ class slick {
 	 */
 	public static function loadTextdomain() {
 
-		load_plugin_textdomain( 'slick-wp', false, dirname( SLICK_BASE ) . '/lang' );
+		load_plugin_textdomain( 'slick-slider', false, dirname( SLICK_BASE ) . '/lang' );
 
 	}
 
