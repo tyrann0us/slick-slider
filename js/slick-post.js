@@ -1,39 +1,50 @@
- jQuery( document ).ready( function( $ ) {
-	var $slickSliderSettings, $invalidGallerySettings, 	slickActive = false;
+var slickSlider = {
 
-	$( document ).on( 'click', '.dashicons-edit, .media-button-gallery', function() {
-		initSliderSettings();
-	} );
-	$( document ).on( 'click', '.media-modal .slick-slider-toggle-settings input', function() {
-		toggleSliderSettings();
-	} );
-	$( document ).on( 'click', '.media-modal .slick-slider-add-breakpoint', manageBreakpoints );
+	settings: {
+		$slickSliderSettings: false,
+		$invalidGallerySettings: false,
+		slickActive: false,
+	},
 
+	initSliderSettings: function() {
 
-	function initSliderSettings() {
-		console.log('initSliderSettings');
-		slickActive = $( '[data-setting="slick_active"]' ).is( ':checked' );
-		$invalidGallerySettings = $( '[name="columns"]' ).parent();
-		$invalidGallerySettings.css( 'display', ! slickActive ? 'block' : 'none' );
+		$( document ).on( 'click', '.dashicons-edit, .media-button-gallery', function() {
 
-		$slickSliderSettings = $( '.slick-slider-settings-inner' );
-		$slickSliderSettings.css( 'display', slickActive ? 'block' : 'none' );
-	}
-
-	function toggleSliderSettings() {
-		$slickSliderSettings.add( $invalidGallerySettings ).toggle();
-	};
+			s.slickActive = $( '[data-setting="slick_active"]' ).is( ':checked' );
+			s.$invalidGallerySettings = $( '[name="columns"]' ).parent();
+			s.$invalidGallerySettings.css( 'display', ! s.slickActive ? 'block' : 'none' );
 	
-	function manageBreakpoints() {
-		// prepend wrapper for better event handling
-		if ( ! $( this ).parents( '.slick-slider-breakpoint-wrapper' ).length ) {
-			$( this ).parents( '.setting' ).wrap( '<div class="slick-slider-breakpoint-wrapper"></div>' );
-		};
-		var breakpoint_template = wp.template( 'slick-slider-breakpoint-settings' );
-		$( '.slick-slider-breakpoint-wrapper' ).prepend( breakpoint_template );
+			s.$slickSliderSettings = $( '.slick-slider-settings-inner' );
+			s.$slickSliderSettings.css( 'display', s.slickActive ? 'block' : 'none' );
 
-		$( document ).on( 'click', '.breakpoint-accordion-toggle', function() {
-			$( '.breakpoint-accordion-content' ).toggleClass( 'active' );
 		} );
-	};
+
+	},
+
+	toggleSliderSettings: function() {
+
+		$( document ).on( 'click', '.media-modal .slick-slider-toggle-settings input', function() {
+
+			s.$slickSliderSettings.add( s.$invalidGallerySettings ).toggle();
+
+		} );
+
+	},
+
+	init: function() {
+
+		s = this.settings;
+		$ = jQuery;
+		this.initSliderSettings();
+		this.toggleSliderSettings();
+
+	}
+}
+
+jQuery( document ).ready( function() {
+
+	'use strict';
+
+	slickSlider.init();
+
 } )
