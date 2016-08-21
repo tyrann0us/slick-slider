@@ -4,7 +4,7 @@
 	margin-top: 8px;
 }
 .media-modal .slick-slider-settings .slick-slider-settings-inner {
-	/*display: none;*/
+	display: none;
 }
 .media-modal .slick-slider-settings .setting {
 	position: relative;
@@ -29,6 +29,7 @@
 	pointer-events: none;
 	border-radius: 2px;
 	box-shadow: 0 1px 1px rgba( 0, 0, 0, .04 );
+	z-index: 1;
 }
 .media-modal .slick-slider-settings .setting small:hover::before {
 	opacity: 1;
@@ -37,16 +38,4 @@
 .media-modal .slick-slider-settings .setting textarea,
 .media-modal .slick-slider-settings .setting select {
 	max-width: 50%;
-}
-.media-modal .slick-slider-settings .slick-slider-settings-inner .breakpoint-accordion {}
-.media-modal .slick-slider-settings .slick-slider-settings-inner .breakpoint-accordion .breakpoint-accordion-content {
-	display: none;
-	padding: 15px;
-	border: 1px solid #ddd;
-	overflow: hidden;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-.media-modal .slick-slider-settings .slick-slider-settings-inner .breakpoint-accordion .breakpoint-accordion-content.active {
-	display: block;
 }
