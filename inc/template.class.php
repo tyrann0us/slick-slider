@@ -84,9 +84,9 @@ class slickTemplate {
 	public static function jsExtendGallery() {
 
 		wp_enqueue_script(
-			'slick-slider-gallery-settings',
-			slick::pluginUrl( 'js/slick-post-gallery-defaults.js' ),
-			array( 'jquery' ),
+			'slick-gallery-settings',
+			slick::pluginUrl( 'js/slick-gallery-settings.js' ),
+			array( 'media-views' ),
 			slick::getPluginData( 'Version' ),
 			true
 		);
