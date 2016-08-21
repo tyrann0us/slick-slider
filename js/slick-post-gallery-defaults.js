@@ -1,7 +1,7 @@
 ( function( $ ) {
 
-	var media = wp.media, defaults = media.gallery.defaults
-	$.extend( media.gallery.defaults, {
+	var media = wp.media, defaults = media.gallery.defaults;
+	$.extend( defaults, {
 		slick_active: false,
 	} );
 	$.each( slider_defaults, function( key, value ) {
