@@ -102,7 +102,7 @@ class slickGui {
 				'<p>%s</p>',
 				sprintf(
 					__( 'For more information about the slider visit %s.', 'slick-slider' ),
-					'<a href="https://kenwheeler.github.io/slick/" target="blank">https://kenwheeler.github.io/slick/</a>'
+					'<a href="https://kenwheeler.github.io/slick/" target="_blank">https://kenwheeler.github.io/slick/</a>'
 				)
 			)
 		) );
