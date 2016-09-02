@@ -2,21 +2,29 @@
 defined( 'ABSPATH' ) OR exit;
 
 /**
- * Caches Slick Slider options and metadata for faster performance.
+ * Class to handle Slick Slider internal caching system of
+ * options and metadata.
+ *
+ * @since 0.1
  */
 class slickCache {
 
 	/**
-	 * Contains cached values in an array.
+	 * Cached values stored in array.
+	 * @since 0.1
+	 * 
 	 * @var array
 	 */
 	private static $_cache;
 
 
 	/**
-	 * Gets cached value ($key).
-	 * @param  string $key key to get
-	 * @return mixed $cache returns value of $key if not empty, null otherwise
+	 * Get cached value ($key).
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $key   Key to get.
+	 * @return mixed $cache Value of $key if not empty, null otherwise.
 	 */
 	public static function get( $key ) {
 
@@ -32,10 +40,13 @@ class slickCache {
 	}
 
 	/**
-	 * Adds a key value pair to the cache.
-	 * @param string $key   key to be set
-	 * @param string $value corresponding value to set
-	 * @return null null if $key is empty
+	 * Add a key value pair to the cache.
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $key   Key to be set.
+	 * @param string $value Corresponding value to set.
+	 * @return null         If $key is empty.
 	 */
 	public static function set( $key, $value ) {
 

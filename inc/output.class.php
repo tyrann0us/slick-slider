@@ -2,19 +2,25 @@
 defined( 'ABSPATH' ) OR exit;
 
 /**
- * Outputs all files and HTML markup required for main Slick Slider on frontend.
+ * Class to output all files and HTML markup required for Slick Slider on frontend.
  */
 class slickOutput {
 
 	/**
 	 * Number of Slick Sliders on same WordPress page.
+	 *
+	 * @since 0.1
+	 * 
 	 * @var integer
 	 */
 	private static $slickInstance = 0;
 
 	/**
-	 * Initiate registering of assets and replacing default WordPress gallery HTML with Slick Slider markup using add_filter().
-	 * @return if PHP version is too old
+	 * Initiate registering of assets and replacing default WordPress gallery HTML with Slick Slider markup.
+	 *
+	 * @since 0.1
+	 * 
+	 * @return If PHP version is too low.
 	 */
 	public static function initSlider() {
 
@@ -43,12 +49,14 @@ class slickOutput {
 	}
 
 	/**
-	 * Registers assets (JS and CSS files).
-	 * Also initiates Slick Slider and adds helper CSS
+	 * Register assets (JS and CSS files).
+	 * Also initiate Slick Slider and add helper CSS
 	 * which moves Slick Slider arrows inside the gallery because it is invisible on white backgrounds.
 	 * To prevent output use
 	 * add_filter( 'slick_slider_init', '__return_false' ); and
 	 * add_filter( 'slick_slider_helper_css', '__return_false' ); respectively.
+	 *
+	 * @since 0.1
 	 */
 	public static function registerSlickAssets() {
 
@@ -86,11 +94,14 @@ class slickOutput {
 	}
 
 	/**
-	 * Main method to enqueue required assets, build HTML markup for Slick Slider and return it.
-	 * @param  string $output   the current output
-	 * @param  array $atts     the attributes from the gallery shortcode
-	 * @param  integer $instance unique numeric ID of this gallery shortcode instance
-	 * @return string           complete Slick Slider markup which can be modified by multiple filters
+	 * Enqueue required assets, build HTML markup for Slick Slider and return it.
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $output    HTML markup.
+	 * @param array $atts       Attributes from the gallery shortcode.
+	 * @param integer $instance Unique numeric ID of this gallery shortcode instance.
+	 * @return string           Complete Slick Slider markup which can be modified by multiple filters.
 	 */
 	public static function slickMarkup( $output = '', $atts, $instance ) {
 		

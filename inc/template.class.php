@@ -2,12 +2,16 @@
 defined( 'ABSPATH' ) OR exit;
 
 /**
- * Outputs all JS files and Slick Slider settings templates for being used by WordPress Media Uploader.
+ * Class to utput all JS files and Slick Slider settings templates for being used by WordPress Media Uploader.
+ *
+ * @since 0.1
  */
 class slickTemplate {
 
 	/**
 	 * Initiate registering of gallery settings template and required JS and CSS files.
+	 *
+	 * @since 0.1
 	 */
 	public static function initTemplate() {
 
@@ -35,7 +39,9 @@ class slickTemplate {
 	}
 
 	/**
-	 * Inline prints the settings template.
+	 * Print the settings template.
+	 * 
+	 * @since 0.1
 	 */
 	public static function printMediaTemplates() {
 
@@ -61,8 +67,11 @@ class slickTemplate {
 	<?php }
 
 	/**
-	 * Gets Slick Slider options and inline prints them json encoded inside a script tag.
-	 * @return string json encoded options
+	 * Get Slick Slider options and inline print them json encoded inside a script tag.
+	 *
+	 * @since 0.1
+	 * 
+	 * @return string json encoded options.
 	 */
 	public static function printSliderDefaults() {
 
@@ -78,7 +87,9 @@ class slickTemplate {
 	}
 
 	/**
-	 * Enqueues JS file to extend the wp.media object and register the settings template.
+	 * Add JS file to extend the wp.media object and register the settings template.
+	 * 
+	 * @since 0.1
 	 */
 	public static function jsExtendGallery() {
 
@@ -93,7 +104,9 @@ class slickTemplate {
 	}
 
 	/**
-	 * Enqueues CSS file for basic styling of Slick Slider settings section inside WordPress Media Uploader.
+	 * Add CSS file to style Slick Slider settings in the Media Uploader.
+	 *
+	 * @since 0.1
 	 */
 	public static function addCss() {
 
@@ -107,7 +120,9 @@ class slickTemplate {
 	}
 
 	/**
-	 * Enqueues JS file for basic toggling actions of labels.
+	 * Add JS file for basic toggling actions of labels.
+	 *
+	 * @since 0.1
 	 */
 	public static function addJs() {
 

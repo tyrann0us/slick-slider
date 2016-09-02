@@ -3,11 +3,15 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Main class for all frontend methods.
+ *
+ * @since 0.1
  */
 class slick {
 
 	/**
-	 * Initiates Slick Slider.
+	 * Initiate adding of Slick Slider’s assets and markup.
+	 *
+	 * @since 0.1
 	 */
 	public static function init() {
 
@@ -19,9 +23,12 @@ class slick {
 	}
 
 	/**
-	 * Get URL to asset using plugins_url().
-	 * @param  string $path URI to asset
-	 * @return string        full URL to asset			
+	 * Get URL relative to given path.
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $path URI to asset.
+	 * @return string      Full URL to asset.
 	 */
 	public static function pluginUrl( $path ) {
 
@@ -31,8 +38,11 @@ class slick {
 
 	/**
 	 * Check PHP version.
-	 * @param  string  $version PHP version to check against.
-	 * @return boolean          true if PHP is at least of version $version, false otherwise
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $version PHP version to check against.
+	 * @return boolean        True if PHP is at least of version $version, false otherwise.
 	 */
 	public static function isMinPhp( $version ) {
 
@@ -41,11 +51,14 @@ class slick {
 	}
 
 	/**
-	 * Wrapper for WordPress function of the same name. Gets plugin metadata value.
-	 * @param  string $field meta field value to get
-	 * @return string|array        single value if $field is set, array of all values otherwise
+	 * Get plugin metadata value.
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $field Meta field value to get.
+	 * @return string|array Single value if $field is set, array of all values otherwise.
 	 */
-	public static function get_plugin_data( $field = null )	{
+	public static function getPluginData( $field = NULL )	{
 
 		if ( ! function_exists( 'get_plugin_data' ) ) {
 			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -59,11 +72,14 @@ class slick {
 	}
 
 /**
- * Computes the difference of multi-dimensional arrays with additional index check.
- * Props: http://php.net/manual/de/function.array-diff-assoc.php#111675
- * @param  array $array1 the array to compare from
- * @param  array $array2 an array to compare against
- * @return array         array containing all the values from $array1 that are not present in $array2.
+ * Compute the difference of multi-dimensional arrays with additional index check.
+ *
+ * @since 0.1
+ * 
+ * @link http://php.net/manual/de/function.array-diff-assoc.php#111675
+ * @param array $array1 The array to compare from.
+ * @param array $array2 An array to compare against.
+ * @return array        Array containing all the values from $array1 that are not present in $array2.
  */
 	public static function arrayDiffAssocRecursive( $array1, $array2 ) { 
 

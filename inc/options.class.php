@@ -2,15 +2,20 @@
 defined( 'ABSPATH' ) OR exit;
 
 /**
- * Handles getting and setting of all Slick Slider options.
+ * Class to handle getting and setting of all Slick Slider options.
+ *
+ * @since 0.1
  */
 class slickOptions {
 
 	/**
-	 * Gets Slick Slider options from database.
+	 * Get Slick Slider options from database.
 	 * The function uses the default options array whose values are replaced with user options.
-	 * @param  string $field field to get
-	 * @return string|array        array of all options if $field not set, single field otherwise or empty string
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $field Field to get.
+	 * @return string|array Array of all options if $field not set, single field otherwise or empty string.
 	 */
 	public static function get( $field = '' ) {
 
@@ -35,10 +40,14 @@ class slickOptions {
 	}
 
 	/**
-	 * Updates Slick Slider settings to database.
-	 * @param  array  $fields  fields to update
-	 * @param  boolean $prepare wether to prepare options before saving (preparing means putting all options into multi-dimensional array)
-	 * @return boolean           false if $fields not set
+	 * Update Slick Slider settings to database.
+	 *
+	 * @since 0.1
+	 * 
+	 * @param array $fields    Fields to update.
+	 * @param boolean $prepare Whether to prepare options before saving.
+	 *                         Preparing means putting all options into multi-dimensional array.
+	 * @return boolean         False if $fields not set.
 	 */
 	public static function update( $fields, $prepare = false ) {
 
@@ -80,7 +89,9 @@ class slickOptions {
 	}
 
 	/**
-	 * Adds Slick Slider options to databse (when plugin gets installed).
+	 * Add Slick Slider options to databse (when plugin gets activated).
+	 *
+	 * @since 0.1
 	 */
 	public static function init() {
 
@@ -89,7 +100,9 @@ class slickOptions {
 	}
 
 	/**
-	 * Resets Slick Slider options using self::defaultOptions().
+	 * Reset Slick Slider options.
+	 *
+	 * @since 0.1
 	 */
 	public static function reset() {
 
@@ -98,8 +111,9 @@ class slickOptions {
 	}
 
 	/**
-	 * Deletes Slick Slider options from databse (when plugin gets deleted).
-	 * @return [type] [description]
+	 * Delete Slick Slider options from databse (when plugin gets deleted).
+	 *
+	 * @since 0.1
 	 */
 	public static function destroy() {
 
@@ -108,10 +122,12 @@ class slickOptions {
 	}
 
 	/**
-	 * This method merges default options, user options and current gallery parameters into correct formatted array.
+	 * Merge default options, user options and current gallery parameters into correct formatted array.
 	 * It only outputs options who differ from default Slick Slider options.
-	 * @param  array $atts shortcode parameters
-	 * @return array       Slick Slider options
+	 *
+	 * @since 0.1
+	 * @param  array $atts shortcode parameters.
+	 * @return array       Slick Slider options.
 	 */
 	public static function prepareOptionsForOutput( $atts ) {
 
@@ -147,9 +163,12 @@ class slickOptions {
 	}
 
 	/**
-	 * Renders Sick Slider options HTML markup for different locations.
-	 * @param  string $location where the markup should be inserted (markup differs based on location)
-	 * @return if $location is empty
+	 * Render Sick Slider option’s HTML markup for different locations.
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $location Where the markup should be inserted (markup differs based on location).
+	 * @return                 If $location is empty.
 	 */
 	public static function renderSettingsMarkup( $location = '' ) {
 
@@ -287,8 +306,11 @@ class slickOptions {
 	}  
 
 	/**
-	 * Gets Slick Slider's default options and returns them.
-	 * @return array       Slick Slider options encoded using esc_attr()
+	 * Get Slick Slider's default options and return them.
+	 *
+	 * @since 0.1
+	 * 
+	 * @return array Slick Slider options encoded.
 	 */
 	public static function defaultOptions() {
 
@@ -298,7 +320,10 @@ class slickOptions {
 
 	/**
 	 * Array of Slick Slider options.
-	 * @return array       Slick Slider options
+	 *
+	 * @since 0.1
+	 * 
+	 * @return array Slick Slider options.
 	 */
 	public static function defaults() {
 

@@ -2,22 +2,30 @@
 defined( 'ABSPATH' ) OR exit;
 
 /**
- * Outputs all files and HTML markup required for Slick Slider options on the media settings page.
+ * Class to output all files and HTML markup required for
+ * Slick Slider options on the media settings page.
+ *
+ * @since 0.1
  */
 class slickGui {
 
 	/**
 	 * If set to true, skip saving Slick Slider options to database.
-	 * This is necessary because update_option() action get called on saving every single option
-	 * and thus prevents repeated requests to database.
-	 * @var boolean $skip_saving wether to skip saving
+	 * This is necessary because {@see update_option()} action gets called on saving every
+	 * single option and thus prevents repeated requests to database.
+	 *
+	 * @since 0.1
+	 * 
+	 * @var boolean $skip_saving Whether to skip saving.
 	 */
 	private static $skipSaving = false;
 
 	/**
-	 * Enqueues assets,
-	 * prints Slick Slider options's HTML markup using add_settings_field()
-	 * and adds a help tab to the Contextual Help menu.
+	 * Enqueue assets,
+	 * print Slick Slider options's HTML markup
+	 * and add help tab to the Contextual Help menu.
+	 *
+	 * @since 0.1
 	 */
 	public static function initSettings() {
 
@@ -63,7 +71,9 @@ class slickGui {
 	}
 
 	/**
-	 * Adds CSS file with some basic styling using wp_enqueue_style().
+	 * Add CSS file to style Slick Slider settings in Media settings.
+	 *
+	 * @since 0.1
 	 */
 	public static function addCss() {
 
@@ -77,7 +87,9 @@ class slickGui {
 	}
 
 	/**
-	 * Adds JS file using wp_enqueue_script().
+	 * Add JS file.
+	 *
+	 * @since 0.1
 	 */
 	public static function addJs() {
 
@@ -91,7 +103,9 @@ class slickGui {
 	}
 
 	/**
-	 * Adds help tab.
+	 * Add help tab.
+	 *
+	 * @since 0.1
 	 */
 	public static function addHelpTab() {
 		$screen = get_current_screen();
@@ -109,7 +123,9 @@ class slickGui {
 	}
 
 	/**
-	 * Prints intro text and reset button.
+	 * Print intro text and reset button.
+	 *
+	 * @since 0.1
 	 */
 	public static function settingSectionCallback() {
 
@@ -122,7 +138,9 @@ class slickGui {
 	}
 
 	/**
-	 * Initiates saving Slick Slider options to database.
+	 * Initiate saving Slick Slider options to database.
+	 *
+	 * @since 0.1
 	 */
 	public static function saveChanges() {
 

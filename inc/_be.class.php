@@ -3,11 +3,15 @@ defined( 'ABSPATH' ) OR exit;
 
 /**
  * Main class for all backend methods.
+ *
+ * @since 0.1
  */
 class slick {
 
 	/**
-	 * Hooks all required Slick Slider actions and filters.
+	 * Hook all Slick Slider actions and filters.
+	 *
+	 * @since 0.1
 	 */
 	public static function init() {
 
@@ -61,7 +65,9 @@ class slick {
 	}
 
 	/**
-	 * Initiate adding of all Slick Slider options.
+	 * Initiate setting of Slick Slider options.
+	 *
+	 * @since 0.1
 	 */
 	public static function install() {
 
@@ -70,7 +76,9 @@ class slick {
 	}
 
 	/**
-	 * Initiate removal of all Slick Slider options.
+	 * Initiate removing of Slick Slider options.
+	 *
+	 * @since 0.1
 	 */
 	public static function uninstall() {
 
@@ -79,9 +87,12 @@ class slick {
 	}
 
 	/**
-	 * Get URL to asset using plugins_url().
-	 * @param  string $path URI to asset
-	 * @return string        full URL to asset			
+	 * Get URL relative to given path.
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $path URI to asset.
+	 * @return string      Full URL to asset.
 	 */
 	public static function pluginUrl( $path ) {
 
@@ -90,8 +101,11 @@ class slick {
 	}
 
 	/**
-	 * Gets current backend page.
-	 * @return string        slug of curerent page (e. g. 'options-media').
+	 * Get current backend page.
+	 *
+	 * @since 0.1
+	 * 
+	 * @return string Slug of curerent page (e. g. 'options-media').
 	 */
 	public static function currentPage() {
 
@@ -100,9 +114,12 @@ class slick {
 	}
 
 	/**
-	 * Adds link to Slick Slider settings on plugin page.
-	 * @param array $data current plugin action links
-	 * @return array        merged array without link to plugin-editor and with link to Slick Slider settings
+	 * Add link to Slick Slider settings on plugin page.
+	 * 
+	 * @since 0.1
+	 * 
+	 * @param array $data Current plugin action link.
+	 * @return array      Merged array without link to plugin-editor and with link to Slick Slider settings.
 	 */
 	public static function addSettingsLinks( $data ) {
 
@@ -117,10 +134,13 @@ class slick {
 	}
 
 	/**
-	 * Add link to PayPal donation page and WordPress rating page.
-	 * @param array $data current plugin row links
-	 * @param string $page plugin basename
-	 * @return array $data merged array with links (see description)
+	 * Add link to PayPal donation page and w.org rating page.
+	 *
+	 * @since 0.1
+	 * 
+	 * @param array $data  Current plugin row links.
+	 * @param string $page Plugin basename.
+	 * @return array $data Merged array with links (see description).
 	 */
 	public static function addThanksLink( $data, $page ) {
 
@@ -147,8 +167,11 @@ class slick {
 
 	/**
 	 * Check WordPress version.
-	 * @param  string  $version WordPress version to check against.
-	 * @return boolean          true if WordPress is at least of version $version, false otherwise
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $version WordPress version to check against.
+	 * @return boolean        True if WordPress is at least of version $version, false otherwise.
 	 */
 	public static function isMinWp( $version ) {
 
@@ -158,8 +181,11 @@ class slick {
 
 	/**
 	 * Check PHP version.
-	 * @param  string  $version PHP version to check against.
-	 * @return boolean          true if PHP is at least of version $version, false otherwise
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $version PHP version to check against.
+	 * @return boolean        True if PHP is at least of version $version, false otherwise.
 	 */
 	public static function isMinPhp( $version ) {
 
@@ -168,22 +194,29 @@ class slick {
 	}
 
 	/**
-	 * Check nonce using check_admin_referer(). Currently not used.
-	 * @param string $none name of nonce to check
+	 * Check nonce.
+	 * Note: Currently not used.
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $nonce Name of nonce to check.
 	 */
-	//public static function check_security( $nonce = '_slick_nonce' ) {
-	//
-	//	if ( ! current_user_can( 'manage_options' ) ) {
-	//		wp_die( __( 'Cheatin&#8217; uh?' ) );
-	//	}
-	//	check_admin_referer( $nonce );
-	//
-	//}
+	public static function check_security( $nonce = '_slick_nonce' ) {
+	
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( __( 'Cheatin&#8217; uh?' ) );
+		}
+		check_admin_referer( $nonce );
+	
+	}
 
 	/**
-	 * Wrapper for WordPress function of the same name. Gets plugin metadata value.
-	 * @param  string $field meta field value to get
-	 * @return string|array        single value if $field is set, array of all values otherwise
+	 * Get plugin metadata value.
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $field Meta field value to get.
+	 * @return string|array Single value if $field is set, array of all values otherwise.
 	 */
 	public static function getPluginData( $field = NULL )	{
 

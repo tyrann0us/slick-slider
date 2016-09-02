@@ -2,12 +2,16 @@
 defined( 'ABSPATH' ) OR exit;
 
 /**
- * Show Slick Slider warnings using (network)_admin_notices().
+ * Class to show Slick Slider warnings.
+ *
+ * @since 0.1
  */
 class slickFeedback {
 
 	/**
-	 * Adds warning if PHP and/or WordPress version is too low.
+	 * Add warning if PHP and/or WordPress version is too low.
+	 *
+	 * @since 0.1
 	 */
 	public static function rules() {
 
@@ -27,9 +31,12 @@ class slickFeedback {
 	}
 
 	/**
-	 * Adds Slick Slider message to cache.
-	 * @param string $type type of message (critical|notice)
-	 * @param string $msg  message to add
+	 * Add Slick Slider message to cache.
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $type Type of message (critical|notice).
+	 * @param string $msg  Message to add.
 	 */
 	public static function add( $type, $msg ) {
 
@@ -46,9 +53,12 @@ class slickFeedback {
 	}
 
 	/**
-	 * Gets Slick Slider message from cache.
-	 * @param  string $type type of message to get
-	 * @return string|array|boolean $data false if no message is cached, all messages if $type is empty or messages of type $type
+	 * Get Slick Slider message from cache.
+	 *
+	 * @since 0.1
+	 * 
+	 * @param string $type                Type of message to get
+	 * @return string|array|boolean $data False if no message is cached, all messages if $type is empty or messages of type $type.
 	 */
 	public static function get( $type = '' ) {
 
@@ -71,6 +81,8 @@ class slickFeedback {
 
 	/**
 	 * Initiate output of message(s) if in multisite installtion.
+	 *
+	 * @since 0.1
 	 */
 	public static function network() {
 
@@ -80,6 +92,8 @@ class slickFeedback {
 
 	/**
 	 * Initiate output of message(s) if not in multisite installtion.
+	 *
+	 * @since 0.1
 	 */
 	public static function admin() {
 
@@ -90,8 +104,11 @@ class slickFeedback {
 	}
 
 	/**
-	 * Echos all cached Slick Slider messages including correct markup.
-	 * @return string all messages
+	 * Echo all cached Slick Slider messages with HTML markup.
+	 *
+	 * @since 0.1
+	 * 
+	 * @return string All messages.
 	 */
 	private static function _display() {
 
