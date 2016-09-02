@@ -19,7 +19,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
  
 You should have received a copy of the GNU General Public License
-along with Slick Slider. If not, see {URI to Plugin License}.
+along with Slick Slider. If not, see <http://www.gnu.org/licenses/>.
 */
 
 

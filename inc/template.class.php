@@ -7,8 +7,7 @@ defined( 'ABSPATH' ) OR exit;
 class slickTemplate {
 
 	/**
-	 * [init_template description]
-	 * @return [type] [description]
+	 * Initiate registering of gallery settings template and required JS and CSS files.
 	 */
 	public static function initTemplate() {
 
