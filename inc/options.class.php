@@ -253,20 +253,26 @@ class slickOptions {
 						<?php switch ( $array_values['type'] ) {
 							case 'boolean' :
 								printf(
-									'<input type="checkbox" data-setting="%s" />',
-									$array_values['setting']
+									'<input type="checkbox" data-setting="%s" %s />',
+									$array_values['setting'],
+									sprintf(
+										'<# if ( slider_defaults.%s.value ) { #> checked="checked" <# } #>',
+										$option
+									)
 								);
 								break;
 							case 'integer' :
 								printf(
-									'<input type="text" data-setting="%s" />',
-									$array_values['setting']
+									'<input type="text" data-setting="%s" value="%s" />',
+									$array_values['setting'],
+									sprintf( '<# print( slider_defaults.%s.value ) #>', $option )
 								);
 								break;
 							case 'string' :
 								printf(
-									'<input type="text" data-setting="%s" />',
-									$array_values['setting']
+									'<input type="text" data-setting="%s" value="%s" />',
+									$array_values['setting'],
+									sprintf( '<# print( slider_defaults.%s.value ) #>', $option )
 								);
 								break;
 							case 'select' :
@@ -276,8 +282,13 @@ class slickOptions {
 								);
 								foreach ( $array_values['values'] as $value ) :
 									printf(
-										'<option value="%s">%s</option>',
+										'<option value="%s" %s>%s</option>',
 										$value,
+										sprintf(
+											'<# if ( "%s" == slider_defaults.%s.value ) { #> selected="selected" <# } #>',
+											$value,
+											$option
+										),
 										$value
 									);
 								endforeach;
@@ -285,16 +296,20 @@ class slickOptions {
 								break;
 							case 'function' :
 								printf(
-									'<textarea data-setting="%s"></textarea>',
-									$array_values['setting']
+									'<textarea data-setting="%s">%s</textarea>',
+									$array_values['setting'],
+									sprintf(
+										'<# print( slider_defaults.%s.value ) #>',
+										$option
+									)
 								);
 								break;
-							case 'object' :
-								printf(
-									'<button class="slick-slider-add-breakpoint">%s</button>',
-									__( 'Add breakpoint', 'slick-slider' )
-								);
-								break;
+							//case 'object' :
+							//	printf(
+							//		'<button class="slick-slider-add-breakpoint">%s</button>',
+							//		__( 'Add breakpoint', 'slick-slider' )
+							//	);
+							//	break;
 							default :
 								break;
 						} ?>
