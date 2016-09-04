@@ -77,12 +77,12 @@ function slick_slider_enqueue_assets() {
 
 = I don’t want the Plugin to initiate the slider =
 
-Use `add_filter( 'slick_slider_init', '__return_false' );`
+Use `add_filter( 'slick_slider_init_slider', '__return_false' );`
 
 = I don’t want the Plugin to print additional CSS on my page =
 
 This three line of CSS are sometimes required if the page has a white background. Otherwise the slider arrows won’t be visible.
-You can turn it off by using `add_filter( 'slick_slider_helper_css', '__return_false' );`
+You can turn it off by using `add_filter( 'slick_slider_load_helper_css', '__return_false' );`
 
 = I want to change the gallery attributes using PHP =
 
@@ -94,11 +94,11 @@ Use the filter `slick_slider_caption_html`. First argument is the caption’s HT
 
 = Is it possible to adjust the markup for each slide? =
 
-Use the filter `slick_slider_slide`. First argument is the slide’s HTML markup, second is the attachment ID, third is the post ID.
+Use the filter `slick_slider_slide_html`. First argument is the slide’s HTML markup, second is the attachment ID, third is the post ID.
 
 = Is it possible to adjust the markup for the entire slider? =
 
-Use the filter `slick_slider`. First argument is the slider’s HTML markup, second is the post ID.
+Use the filter `slick_slider_html`. First argument is the slider’s HTML markup, second is the post ID.
 
 = I want to buy you a beer! =
 

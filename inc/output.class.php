@@ -81,11 +81,11 @@ class slickOutput {
 			'1.6.0'
 		);
 
-		if ( false !== apply_filters( 'slick_slider_init', '' ) ) {
+		if ( false !== apply_filters( 'slick_slider_init_slider', true ) ) {
 			wp_add_inline_script( 'slick', file_get_contents( SLICK_DIR . '/js/slick-init.js' ) );
 		}
 
-		if ( false !== apply_filters( 'slick_slider_helper_css', '' ) ) {
+		if ( false !== apply_filters( 'slick_slider_load_helper_css', true ) ) {
 			wp_add_inline_style( 'slick-theme', file_get_contents( SLICK_DIR . '/css/slick-frontend.css' ) );
 		}
 
@@ -233,7 +233,7 @@ class slickOutput {
 
 				$slide[] = '</div>';
 				$slide[] = '</div>';
-				$output[] = apply_filters( 'slick_slider_slide', implode( "\n", $slide ), $id, $post->ID );
+				$output[] = apply_filters( 'slick_slider_slide_html', implode( "\n", $slide ), $id, $post->ID );
 
 			}
 
@@ -242,7 +242,7 @@ class slickOutput {
 
 			$output = implode( "\n", $output );
 
-			return apply_filters( 'slick_slider', $output, $post->ID );
+			return apply_filters( 'slick_slider_html', $output, $post->ID );
 		}
 
 	}
