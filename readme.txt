@@ -1,20 +1,20 @@
 === Slick Slider ===
-Contributors: tyrannous
+Contributors: tyrann0us
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J4347QQ8J3L54
-Tags: gallery, slider, slick
+Tags: gallery, slider, image slider, slideshow, carousel, slick slider
 Requires at least: 4.6
 Tested up to: 4.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Turn your native WordPress galleries into beautiful fully responsive sliders using the awesome “slick” slider.
-Adjust the slider to your needs on per gallery base.
+Adjust the slider to your needs on a per gallery base.
 
 
 == Description ==
 
-Slick Slider turns your native WordPress galleries into beautiful fully responsive sliders. Choose from a wide range of options to adjust all sliders to your need with a simple click.
-Slick Slider allows you to change default options which are valid for all sliders but you can adjust them on per gallery base.
+Slick Slider turns your native WordPress galleries into beautiful fully responsive sliders. Choose from a wide range of options to adjust all sliders to your needs with a simple click.
+Slick Slider allows you to change default options valid for all sliders or to adjust them on a per gallery base.
 
 Available options (amongst others):
 
@@ -35,7 +35,7 @@ Available options (amongst others):
 
 > Note: No support for slick’s responsive options feature (different options at different breakpoints) at the moment.
 
-> Note: Slick Slider requires at least PHP 5.6! That means it won’t work on websites which run with PHP older than 5.6!
+> Note: Slick Slider requires at least PHP 5.6! That means it won’t work on websites which are powered by PHP older than version 5.6!
 > If you don’t know your website’s PHP version ask your host and request an an update if necessary.
 
 
@@ -58,11 +58,11 @@ Absolutely! On each gallery edit modal there’s a checkbox called “Use Slick 
 = I want the slider to appear somewhere else, say in a widget =
 
 Since Slick Slider uses the default gallery shortcode, you can simply paste it wherever you want it to appear.
-Note that you may need to [enable support for shortcodes in widgets](http://www.wpbeginner.com/wp-tutorials/how-to-use-shortcodes-in-your-wordpress-sidebar-widgets/).
+Note that you may need to [enable support for shortcodes in widgets](http://www.wpbeginner.com/wp-tutorials/how-to-use-shortcodes-in-your-wordpress-sidebar-widgets/). Additionally if you want to edit the slider options you’ll have to change it using the shortcode attributes.
 
 = Are there captions available? =
 
-Yes, but hidden by default. To activate them, use `add_filter( 'slick_slider_show_caption', '__return_true' );`.
+Yes, but hidden by default. To activate them use `add_filter( 'slick_slider_show_caption', '__return_true' );`.
 > Note: The captions are unstyled. You need to apply some CSS on them (use the class `.slide__caption`).
 
 = Is it possible to only use slick’s JS and CSS?
@@ -81,12 +81,12 @@ Use `add_filter( 'slick_slider_init_slider', '__return_false' );`
 
 = I don’t want the Plugin to print additional CSS on my page =
 
-This three line of CSS are sometimes required if the page has a white background. Otherwise the slider arrows won’t be visible.
+These three line of CSS are sometimes required if the page has a white background. Otherwise the slider arrows won’t be visible.
 You can turn it off by using `add_filter( 'slick_slider_load_helper_css', '__return_false' );`
 
 = I want to change the gallery attributes using PHP =
 
-Use the filter `[shortcode_atts_gallery](http://codex.wordpress.org/Function_Reference/shortcode_atts_gallery)`.
+Use the WordPress core filter `[shortcode_atts_gallery](http://codex.wordpress.org/Function_Reference/shortcode_atts_gallery)`.
 
 = Is it possible to adjust the caption’s markup? =
 
@@ -103,13 +103,13 @@ Use the filter `slick_slider_html`. First argument is the slider’s HTML markup
 = I want to buy you a beer! =
 
 Thats great, thanks! First of all, you should say thank you to [Ken Wheeler](http://kenwheeler.github.io/) who developed the actual slick slider.
-But you can of course buy me a beer too. You’ll find the donation link on your plugin page once you have Slick Slider installed and activated.
+If you want, you can buy me a beer too. You’ll find the donation link on your plugin page once you have Slick Slider installed and activated.
 
 
 == Screenshots ==
 
 1. Media settings screen. All available options are listed here.
-2. Single gallery screen. Selected options are available.
+2. Single gallery screen. Only the most importand options are visible.
 3. Frontend with slider.
 
 == Changelog ==
