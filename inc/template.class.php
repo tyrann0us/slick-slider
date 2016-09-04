@@ -96,7 +96,7 @@ class slickTemplate {
 		wp_enqueue_script(
 			'slick-gallery-settings',
 			slick::pluginUrl( 'js/slick-gallery-settings.js' ),
-			array( 'media-views' ),
+			array( 'media-editor' ),
 			slick::getPluginData( 'Version' ),
 			true
 		);
