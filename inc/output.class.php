@@ -226,6 +226,7 @@ class slickOutput {
 						$caption[] = $caption_text;
 						$caption[] = '</div>';
 
+						$slide[] = apply_filters( 'slick_slider_caption_html', implode( "\n", $caption ), $id, $post->ID );
 					}
 				}
 
