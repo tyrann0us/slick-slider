@@ -213,6 +213,23 @@ class slickOutput {
 					$slide[] = $image_tag;
 				}
 
+				if ( false !== apply_filters( 'slick_slider_show_caption', false ) ) {
+					$caption_text = ! empty( $meta['caption'] )
+						? $meta['caption']
+						: ( ! empty( $meta['title'] )
+							? $meta['title']
+							: $meta['alt'] );
+
+					if ( ! empty( $caption_text ) ) {
+						$caption = [];
+						$caption[] = '<div class="slide__caption">';
+						$caption[] = $caption_text;
+						$caption[] = '</div>';
+
+					}
+				}
+
+
 				$slide[] = '</div>';
 				$slide[] = '</div>';
 				$output[] = apply_filters( 'slick_slider_slide', implode( "\n", $slide ), $id, $post->ID );

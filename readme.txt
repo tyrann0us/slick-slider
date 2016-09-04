@@ -60,6 +60,11 @@ Absolutely! On each gallery edit modal there’s a checkbox called “Use Slick 
 Since Slick Slider uses the default gallery shortcode, you can simply paste it wherever you want it to appear.
 Note that you may need to [enable support for shortcodes in widgets](http://www.wpbeginner.com/wp-tutorials/how-to-use-shortcodes-in-your-wordpress-sidebar-widgets/).
 
+= Are there captions available? =
+
+Yes, but hidden by default. To activate them, use `add_filter( 'slick_slider_show_caption', '__return_true' );`.
+> Note: The captions are unstyled. You need to apply some CSS on them (use the class `.slide__caption`).
+
 = Is it possible to only use slick’s JS and CSS?
 
 Of course. Paste the following lines in your template or functions.php:
@@ -82,6 +87,10 @@ You can turn it off by using `add_filter( 'slick_slider_helper_css', '__return_f
 = I want to change the gallery attributes using PHP =
 
 Use the filter `[shortcode_atts_gallery](http://codex.wordpress.org/Function_Reference/shortcode_atts_gallery)`.
+
+= Is it possible to adjust the caption’s markup? =
+
+Use the filter `slick_slider_caption_html`. First argument is the caption’s HTML, second is the attachment ID, third is the post ID.
 
 = Is it possible to adjust the markup for each slide? =
 
