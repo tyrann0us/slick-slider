@@ -108,8 +108,6 @@ class slickOutput {
 		if ( isset( $atts['slick_active'] ) && 'true' === $atts['slick_active'] ) {
 
 			global $post;
-			wp_enqueue_script( 'slick' );
-			wp_enqueue_style( 'slick-theme' );
 
 			$atts = wp_parse_args( $atts, array(
 				'order' => 'ASC',
@@ -169,12 +167,15 @@ class slickOutput {
 				return '';
 			}
 
+			wp_enqueue_script( 'slick' );
+			wp_enqueue_style( 'slick-theme' );
+
 			$options = slickOptions::prepareOptionsForOutput( $atts );
 
 			$output = [];
 			$output[] = '<div class="slick-slider-wrapper">';
 			$output[] = sprintf(
-				'<div class="slick-slider slick-slider-size-%s" id="slick-slider-%s" data-slick=\'%s\'>',
+				'<div class="slick-slider slick-slider--size-%s" id="slick-slider-%s" data-slick=\'%s\'>',
 				sanitize_html_class( $atts['size'] ),
 				++self::$slickInstance,
 				json_encode( $options )
@@ -184,6 +185,7 @@ class slickOutput {
 
 				$slide = [];
 				$slide[] = sprintf( '<div class="slide" data-attachment-id="%s">', $id );
+				$slide[] = '<div class="slide__inner">';
 
 				$image_src = wp_get_attachment_image_src( $id, $atts['size'] );
 				$meta = wp_prepare_attachment_for_js( $id );
@@ -211,6 +213,7 @@ class slickOutput {
 					$slide[] = $image_tag;
 				}
 
+				$slide[] = '</div>';
 				$slide[] = '</div>';
 				$output[] = apply_filters( 'slick_slider_slide', implode( "\n", $slide ), $id, $post->ID );
 
