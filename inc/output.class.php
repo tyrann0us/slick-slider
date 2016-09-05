@@ -175,10 +175,15 @@ class slickOutput {
 			$output = [];
 			$output[] = '<div class="slick-slider-wrapper">';
 			$output[] = sprintf(
-				'<div class="slick-slider slick-slider--size-%s" id="slick-slider-%s" data-slick=\'%s\'>',
+				'<div class="slick-slider slick-slider--size-%s" id="slick-slider-%s" %s>',
 				sanitize_html_class( $atts['size'] ),
 				++self::$slickInstance,
-				json_encode( $options )
+				! empty( $options )
+					? sprintf(
+						'data-slick=\'%s\'',
+						json_encode( $options )
+					)
+					: ''
 			);
 				
 			foreach ( $attachments as $id => $attachment ) {
