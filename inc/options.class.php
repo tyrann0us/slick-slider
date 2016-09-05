@@ -345,7 +345,7 @@ class slickOptions {
 		return array(
 			'accessibility' => array(
 				'name' => __( 'accessibility', 'slick-slider' ),
-				'desc' => 'Enables tabbing and arrow key navigation.',
+				'desc' => __( 'Enables tabbing and arrow key navigation.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_accessibility',
 				'type' => 'boolean',
@@ -353,7 +353,7 @@ class slickOptions {
 			),
 			'adaptiveHeight' => array(
 				'name' => __( 'adaptiveHeight', 'slick-slider' ),
-				'desc' => 'Enables adaptive height for single slide horizontal carousels.',
+				'desc' => __( 'Enables adaptive height for single slide horizontal carousels.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_adaptiveheight',
 				'type' => 'boolean',
@@ -361,7 +361,7 @@ class slickOptions {
 			),
 			'autoplay' => array(
 				'name' => __( 'autoplay', 'slick-slider' ),
-				'desc' => 'Enables Autoplay.',
+				'desc' => __( 'Enables Autoplay.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_autoplay',
 				'type' => 'boolean',
@@ -369,7 +369,7 @@ class slickOptions {
 			),
 			'autoplaySpeed' => array(
 				'name' => __( 'autoplaySpeed', 'slick-slider' ),
-				'desc' => 'Autoplay Speed in milliseconds.',
+				'desc' => __( 'Autoplay Speed in milliseconds.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_autoplayspeed',
 				'type' => 'integer',
@@ -377,7 +377,7 @@ class slickOptions {
 			),
 			'arrows' => array(
 				'name' => __( 'arrows', 'slick-slider' ),
-				'desc' => 'Prev/Next Arrows.',
+				'desc' => __( 'Prev/Next Arrows.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_arrows',
 				'type' => 'boolean',
@@ -385,7 +385,7 @@ class slickOptions {
 			),
 			'asNavFor' => array(
 				'name' => __( 'asNavFor', 'slick-slider' ),
-				'desc' => 'Set the slider to be the navigation of other slider (Class or ID Name).',
+				'desc' => __( 'Set the slider to be the navigation of other slider (Class or ID Name).', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_asnavfor',
 				'type' => 'string',
@@ -393,7 +393,7 @@ class slickOptions {
 			),
 			'appendArrows' => array(
 				'name' => __( 'appendArrows', 'slick-slider' ),
-				'desc' => 'Change where the navigation arrows are attached (Selector, htmlString, Array, Element, jQuery object).',
+				'desc' => __( 'Change where the navigation arrows are attached (Selector, htmlString, Array, Element, jQuery object).', 'slick-slider' );
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_appendarrows',
 				'type' => 'string',
@@ -401,7 +401,7 @@ class slickOptions {
 			),
 			'prevArrow' => array(
 				'name' => __( 'prevArrow', 'slick-slider' ),
-				'desc' => 'Allows you to select a node or customize the HTML for the "Previous" arrow.',
+				'desc' => __( 'Allows you to select a node or customize the HTML for the "Previous" arrow.', 'slick-slider' );
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_prevarrow',
 				'type' => 'string',
@@ -409,7 +409,7 @@ class slickOptions {
 			),
 			'nextArrow' => array(
 				'name' => __( 'nextArrow', 'slick-slider' ),
-				'desc' => 'Allows you to select a node or customize the HTML for the "Next" arrow.',
+				'desc' => __( 'Allows you to select a node or customize the HTML for the "Next" arrow.', 'slick-slider' );
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_nextarrow',
 				'type' => 'string',
@@ -417,7 +417,7 @@ class slickOptions {
 			),
 			'centerMode' => array(
 				'name' => __( 'centerMode', 'slick-slider' ),
-				'desc' => 'Enables centered view with partial prev/next slides. Use with odd numbered slidesToShow counts.',
+				'desc' => __( 'Enables centered view with partial prev/next slides. Use with odd numbered slidesToShow counts.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_centermode',
 				'type' => 'boolean',
@@ -425,7 +425,7 @@ class slickOptions {
 			),
 			'centerPadding' => array(
 				'name' => __( 'centerPadding', 'slick-slider' ),
-				'desc' => 'Side padding when in center mode (px or %).',
+				'desc' => __( 'Side padding when in center mode (px or %).', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_centerpadding',
 				'type' => 'string',
@@ -433,7 +433,7 @@ class slickOptions {
 			),
 			'cssEase' => array(
 				'name' => __( 'cssEase', 'slick-slider' ),
-				'desc' => 'CSS3 Animation Easing.',
+				'desc' => __( 'CSS3 Animation Easing.', 'slick-slider' );
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_cssease',
 				'type' => 'select',
@@ -444,7 +444,7 @@ class slickOptions {
 			),
 			'customPaging' => array(
 				'name' => __( 'customPaging', 'slick-slider' ),
-				'desc' => 'Custom paging templates. See source for use example.',
+				'desc' => __( 'Custom paging templates. See source for use example.', 'slick-slider' );
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_custompaging',
 				'type' => 'function',
@@ -452,7 +452,7 @@ class slickOptions {
 			),
 			'dots' => array(
 				'name' => __( 'dots', 'slick-slider' ),
-				'desc' => 'Show dot indicators.',
+				'desc' => __( 'Show dot indicators.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_dots',
 				'type' => 'boolean',
@@ -460,7 +460,7 @@ class slickOptions {
 			),
 			'draggable' => array(
 				'name' => __( 'draggable', 'slick-slider' ),
-				'desc' => 'Enable mouse dragging.',
+				'desc' => __( 'Enable mouse dragging.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_draggable',
 				'type' => 'boolean',
@@ -468,7 +468,7 @@ class slickOptions {
 			),
 			'fade' => array(
 				'name' => __( 'fade', 'slick-slider' ),
-				'desc' => 'Enable fade.',
+				'desc' => __( 'Enable fade.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_fade',
 				'type' => 'boolean',
@@ -476,7 +476,7 @@ class slickOptions {
 			),
 			'focusOnSelect' => array(
 				'name' => __( 'focusOnSelect', 'slick-slider' ),
-				'desc' => 'Enable focus on selected element (click).',
+				'desc' => __( 'Enable focus on selected element (click).', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_focusonselect',
 				'type' => 'boolean',
@@ -484,7 +484,7 @@ class slickOptions {
 			),
 			'easing' => array(
 				'name' => __( 'easing', 'slick-slider' ),
-				'desc' => 'Add easing for jQuery animate. Use with easing libraries or default easing methods.',
+				'desc' => __( 'Add easing for jQuery animate. Use with easing libraries or default easing methods.', 'slick-slider' );
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_easing',
 				'type' => 'select',
@@ -495,7 +495,7 @@ class slickOptions {
 			),
 			'edgeFriction' => array(
 				'name' => __( 'edgeFriction', 'slick-slider' ),
-				'desc' => 'Resistance when swiping edges of non-infinite carousels.',
+				'desc' => __( 'Resistance when swiping edges of non-infinite carousels.', 'slick-slider' );
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_edgefriction',
 				'type' => 'integer',
@@ -503,7 +503,7 @@ class slickOptions {
 			),
 			'infinite' => array(
 				'name' => __( 'infinite', 'slick-slider' ),
-				'desc' => 'Infinite loop sliding.',
+				'desc' => __( 'Infinite loop sliding.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_infinite',
 				'type' => 'boolean',
@@ -511,7 +511,7 @@ class slickOptions {
 			),
 			'initialSlide' => array(
 				'name' => __( 'initialSlide', 'slick-slider' ),
-				'desc' => 'Slide to start on.',
+				'desc' => __( 'Slide to start on.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_initialslide',
 				'type' => 'integer',
@@ -519,7 +519,7 @@ class slickOptions {
 			),
 			'lazyLoad' => array(
 				'name' => __( 'lazyLoad', 'slick-slider' ),
-				'desc' => 'Set lazy loading technique. Accepts \'ondemand\' or \'progressive\'.',
+				'desc' => __( 'Set lazy loading technique. Accepts \'ondemand\' or \'progressive\'.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_lazyload',
 				'type' => 'select',
@@ -531,7 +531,7 @@ class slickOptions {
 			),
 			//'mobileFirst' => array(
 			//	'name' => __( 'mobileFirst', 'slick-slider' ),
-			//	'desc' => 'Responsive settings use mobile first calculation.',
+			//	'desc' => __( 'Responsive settings use mobile first calculation.', 'slick-slider' );
 			//	'showOnSingleGallery' => false,
 			//	'setting' => 'sl_mobilefirst',
 			//	'type' => 'boolean',
@@ -539,7 +539,7 @@ class slickOptions {
 			//),
 			'pauseOnHover' => array(
 				'name' => __( 'pauseOnHover', 'slick-slider' ),
-				'desc' => 'Pause Autoplay On Hover.',
+				'desc' => __( 'Pause Autoplay On Hover.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_pauseonhover',
 				'type' => 'boolean',
@@ -547,7 +547,7 @@ class slickOptions {
 			),
 			'pauseOnDotsHover' => array(
 				'name' => __( 'pauseOnDotsHover', 'slick-slider' ),
-				'desc' => 'Pause Autoplay when a dot is hovered.',
+				'desc' => __( 'Pause Autoplay when a dot is hovered.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_pauseondotshover',
 				'type' => 'boolean',
@@ -555,7 +555,7 @@ class slickOptions {
 			),
 			'respondTo' => array(
 				'name' => __( 'respondTo', 'slick-slider' ),
-				'desc' => 'Width that responsive object responds to. Can be \'window\', \'slider\' or \'min\' (the smaller of the two).',
+				'desc' => __( 'Width that responsive object responds to. Can be \'window\', \'slider\' or \'min\' (the smaller of the two).', 'slick-slider' );,
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_respondto',
 				'type' => 'select',
@@ -569,14 +569,14 @@ class slickOptions {
 			//'responsive' => array(
 			//	'name' => __( 'responsive', 'slick-slider' ),
 			//	'showOnSingleGallery' => false,
-			//	'desc' => 'Object containing breakpoints and settings objects (see demo). Enables settings sets at given screen width. Set settings to "unslick" instead of an object to disable slick at a given breakpoint.',
+			//	'desc' => __( 'Object containing breakpoints and settings objects (see demo). Enables settings sets at given screen width. Set settings to "unslick" instead of an object to disable slick at a given breakpoint.', 'slick-slider' ),
 			//	'setting' => 'sl_responsive',
 			//	'type' => 'object',
 			//	'value' => '',
 			//),
 			'rows' => array(
 				'name' => __( 'rows', 'slick-slider' ),
-				'desc' => 'Setting this to more than 1 initializes grid mode. Use slidesPerRow to set how many slides should be in each row.',
+				'desc' => __( 'Setting this to more than 1 initializes grid mode. Use slidesPerRow to set how many slides should be in each row.', 'slick-slider' ),
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_rows',
 				'type' => 'integer',
@@ -584,7 +584,7 @@ class slickOptions {
 			),
 			'slide' => array(
 				'name' => __( 'slide', 'slick-slider' ),
-				'desc' => 'Element query to use as slide.',
+				'desc' => __( 'Element query to use as slide.', 'slick-slider' );
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_slide',
 				'type' => 'string',
@@ -592,7 +592,7 @@ class slickOptions {
 			),
 			'slidesPerRow' => array(
 				'name' => __( 'slidesPerRow', 'slick-slider' ),
-				'desc' => 'With grid mode intialized via the rows option, this sets how many slides are in each grid row.',
+				'desc' => __( 'With grid mode intialized via the rows option, this sets how many slides are in each grid row.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_slidesperrow',
 				'type' => 'integer',
@@ -600,7 +600,7 @@ class slickOptions {
 			),
 			'slidesToShow' => array(
 				'name' => __( 'slidesToShow', 'slick-slider' ),
-				'desc' => '# of slides to show.',
+				'desc' => __( '# of slides to show.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_slidestoshow',
 				'type' => 'integer',
@@ -608,7 +608,7 @@ class slickOptions {
 			),
 			'slidesToScroll' => array(
 				'name' => __( 'slidesToScroll', 'slick-slider' ),
-				'desc' => '# of slides to scroll.',
+				'desc' => __( '# of slides to scroll.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_slidestoscroll',
 				'type' => 'integer',
@@ -616,7 +616,7 @@ class slickOptions {
 			),
 			'speed' => array(
 				'name' => __( 'speed', 'slick-slider' ),
-				'desc' => 'Slide/Fade animation speed.',
+				'desc' => __( 'Slide/Fade animation speed.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_speed',
 				'type' => 'integer',
@@ -624,7 +624,7 @@ class slickOptions {
 			),
 			'swipe' => array(
 				'name' => __( 'swipe', 'slick-slider' ),
-				'desc' => 'Enable swiping.',
+				'desc' => __( 'Enable swiping.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_swipe',
 				'type' => 'boolean',
@@ -632,7 +632,7 @@ class slickOptions {
 			),
 			'swipeToSlide' => array(
 				'name' => __( 'swipeToSlide', 'slick-slider' ),
-				'desc' => 'Allow users to drag or swipe directly to a slide irrespective of slidesToScroll.',
+				'desc' => __( 'Allow users to drag or swipe directly to a slide irrespective of slidesToScroll.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_swipetoslide',
 				'type' => 'boolean',
@@ -640,7 +640,7 @@ class slickOptions {
 			),
 			'touchMove' => array(
 				'name' => __( 'touchMove', 'slick-slider' ),
-				'desc' => 'Enable slide motion with touch.',
+				'desc' => __( 'Enable slide motion with touch.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_touchmove',
 				'type' => 'boolean',
@@ -648,7 +648,7 @@ class slickOptions {
 			),
 			'touchThreshold' => array(
 				'name' => __( 'touchThreshold', 'slick-slider' ),
-				'desc' => 'To advance slides, the user must swipe a length of (1/touchThreshold) * the width of the slider.',
+				'desc' => __( 'To advance slides, the user must swipe a length of (1/touchThreshold) * the width of the slider.', 'slick-slider' );
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_touchthreshold',
 				'type' => 'integer',
@@ -656,7 +656,7 @@ class slickOptions {
 			),
 			'useCSS' => array(
 				'name' => __( 'useCSS', 'slick-slider' ),
-				'desc' => 'Enable/Disable CSS Transitions.',
+				'desc' => __( 'Enable/Disable CSS Transitions.', 'slick-slider' );
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_usecss',
 				'type' => 'boolean',
@@ -664,7 +664,7 @@ class slickOptions {
 			),
 			'useTransform' => array(
 				'name' => __( 'useTransform', 'slick-slider' ),
-				'desc' => 'Enable/Disable CSS Transforms.',
+				'desc' => __( 'Enable/Disable CSS Transforms.', 'slick-slider' );
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_usetransform',
 				'type' => 'boolean',
@@ -672,7 +672,7 @@ class slickOptions {
 			),
 			'variableWidth' => array(
 				'name' => __( 'variableWidth', 'slick-slider' ),
-				'desc' => 'Variable width slides.',
+				'desc' => __( 'Variable width slides.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_variablewidth',
 				'type' => 'boolean',
@@ -680,7 +680,7 @@ class slickOptions {
 			),
 			'vertical' => array(
 				'name' => __( 'vertical', 'slick-slider' ),
-				'desc' => 'Vertical slide mode.',
+				'desc' => __( 'Vertical slide mode.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_vertical',
 				'type' => 'boolean',
@@ -688,7 +688,7 @@ class slickOptions {
 			),
 			'verticalSwiping' => array(
 				'name' => __( 'verticalSwiping', 'slick-slider' ),
-				'desc' => 'Vertical swipe mode.',
+				'desc' => __( 'Vertical swipe mode.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_verticalswiping',
 				'type' => 'boolean',
@@ -696,7 +696,7 @@ class slickOptions {
 			),
 			'rtl' => array(
 				'name' => __( 'rtl', 'slick-slider' ),
-				'desc' => 'Change the slider\'s direction to become right-to-left.',
+				'desc' => __( 'Change the slider\'s direction to become right-to-left.', 'slick-slider' );
 				'showOnSingleGallery' => true,
 				'setting' => 'sl_rtl',
 				'type' => 'boolean',
