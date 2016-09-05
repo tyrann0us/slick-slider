@@ -6,12 +6,6 @@
 	} );
 	$.each( slider_defaults, function( key, value ) {
 		switch ( value.type ) {
-			case 'string' :
-			case 'function' :
-				$.extend( defaults, {
-					[value['setting']]: value.value,
-				} );
-				break;
 			case 'boolean' :
 				$.extend( defaults, {
 					[value['setting']]: '1' == value.value ? true : false,
@@ -22,14 +16,20 @@
 					[value['setting']]: value.value,
 				} );
 				break;
-			case 'object' :
+			case 'string' :
+			case 'function' :
 				$.extend( defaults, {
-					[value['setting']]: value.value[0],
+					[value['setting']]: value.value,
+				} );
+				break;
+			case 'select' :
+				$.extend( defaults, {
+					[value['setting']]: value.value,
 				} );
 				break;
 			default :
 				break;
-		}		
+		}
 	} );
 
 	if ( ! media.gallery.templates ) media.gallery.templates = ['gallery-settings'];

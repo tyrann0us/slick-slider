@@ -304,12 +304,6 @@ class slickOptions {
 									)
 								);
 								break;
-							//case 'object' :
-							//	printf(
-							//		'<button class="slick-slider-add-breakpoint">%s</button>',
-							//		__( 'Add breakpoint', 'slick-slider' )
-							//	);
-							//	break;
 							default :
 								break;
 						} ?>
