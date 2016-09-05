@@ -22,13 +22,13 @@ class slickOptions {
 		$options = slickCache::get( 'options' );
 		if ( empty( $options ) ) {
 			$options = self::defaults();
-			$options_user = get_option( 'slick' );
-			if ( empty( $options_user ) ) {
+			$options_db = get_option( 'slick-slider' );
+			if ( empty( $options_db ) ) {
 				self::init();
-				$options_user = get_option( 'slick' );
+				$options_db = get_option( 'slick-slider' );
 			}
 			foreach ( $options as $option => $array_values ) {
-				$options[$option]['value'] = $options_user[$option];
+				$options[$option]['value'] = $options_db[$option];
 			}
 			slickCache::set( 'options', $options );
 		}
@@ -81,9 +81,9 @@ class slickOptions {
 				}
 			}	
 		} else {
-			$options = array_merge( (array) get_option( 'slick' ), $fields );
+			$options = array_merge( (array) get_option( 'slick-slider' ), $fields );
 		}
-		update_option( 'slick', $options );
+		update_option( 'slick-slider', $options );
 		slickCache::set( 'options', $options );
 
 	}
@@ -95,7 +95,7 @@ class slickOptions {
 	 */
 	public static function init() {
 
-		add_option( 'slick', self::defaultOptions() );
+		add_option( 'slick-slider', self::defaultOptions() );
 
 	}
 
@@ -117,7 +117,7 @@ class slickOptions {
 	 */
 	public static function destroy() {
 
-		delete_option( 'slick' );
+		delete_option( 'slick-slider' );
 
 	}
 
@@ -131,10 +131,10 @@ class slickOptions {
 	 */
 	public static function prepareOptionsForOutput( $atts ) {
 
-		$options_user = self::get();
+		$options_db = self::get();
 		$options_default = self::defaults();
 		
-		$options_merged = Slick::arrayDiffAssocRecursive( $options_user, $options_default );
+		$options_merged = Slick::arrayDiffAssocRecursive( $options_db, $options_default );
 
 		if ( is_array( $options_merged ) ) {
 			foreach ( $options_merged as $option => $value ) {
@@ -147,14 +147,14 @@ class slickOptions {
 		}, true );
 
 		$options_slider = [];
-		$keys = array_keys( $options_user );
+		$keys = array_keys( $options_db );
 		foreach ( $options_slider_raw as $option => $value ) {
 			if ( 'true' == $value || 'false' == $value ) {
 				$value = filter_var( $value, FILTER_VALIDATE_BOOLEAN );
 			} else if ( is_numeric( $value ) ) {
 				$value = floatval( $value );
 			}
-			$key = array_search( $option, array_column( $options_user, 'setting' ) );
+			$key = array_search( $option, array_column( $options_db, 'setting' ) );
 			$options_slider[$keys[$key]] = $value;
 		}
 
