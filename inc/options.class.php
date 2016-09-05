@@ -123,7 +123,7 @@ class slickOptions {
 
 	/**
 	 * Merge default options, user options and current gallery parameters into correct formatted array.
-	 * It only outputs options who differ from default Slick Slider options.
+	 * It only outputs options which differ from default Slick Slider options.
 	 *
 	 * @since 0.1
 	 * @param  array $atts shortcode parameters.
