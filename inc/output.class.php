@@ -185,7 +185,7 @@ class slickOutput {
 					)
 					: ''
 			);
-				
+
 			foreach ( $attachments as $id => $attachment ) {
 
 				$slide = [];

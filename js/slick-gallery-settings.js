@@ -36,14 +36,13 @@
 	media.gallery.templates.push( 'slick-slider-gallery-settings' );
 
 	media.view.Settings.Gallery = media.view.Settings.Gallery.extend( {
-	    template: function ( view ) {
-	        var output = '';
-	        for ( var i in media.gallery.templates ) {
-	            output += media.template( media.gallery.templates[i] )( view );
-	        }
-	        return output;
-	    }
+		template: function ( view ) {
+			var output = '';
+			for ( var i in media.gallery.templates ) {
+				output += media.template( media.gallery.templates[i] )( view );
+			}
+			return output;
+		}
 	});
 
-	
 } )( jQuery );

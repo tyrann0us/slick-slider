@@ -56,6 +56,6 @@ class slickCache {
 		$cache        = ( array ) self::$_cache;
 		$cache[$key]  = $value;
 		self::$_cache = $cache;
-		
+
 	}
 }

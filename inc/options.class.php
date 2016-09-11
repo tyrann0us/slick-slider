@@ -79,7 +79,7 @@ class slickOptions {
 							break;
 					}
 				}
-			}	
+			}
 		} else {
 			$options = array_merge( (array) get_option( 'slick-slider' ), $fields );
 		}
@@ -126,8 +126,9 @@ class slickOptions {
 	 * It only outputs options which differ from default Slick Slider options.
 	 *
 	 * @since 0.1
-	 * @param  array $atts shortcode parameters.
-	 * @return array       Slick Slider options.
+	 * 
+	 * @param array $atts Shortcode parameters.
+	 * @return array      Slick Slider options.
 	 */
 	public static function prepareOptionsForOutput( $atts ) {
 
@@ -312,7 +313,7 @@ class slickOptions {
 				break;
 		}
 
-	}  
+	}
 
 	/**
 	 * Get Slick Slider's default options and return them.

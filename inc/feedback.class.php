@@ -27,7 +27,7 @@ class slickFeedback {
 			default :
 				break;
 		}
-		
+
 	}
 
 	/**
