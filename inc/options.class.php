@@ -134,7 +134,10 @@ class slickOptions {
 
 		$options_db = self::get();
 		$options_default = self::defaults();
-		
+
+		array_walk_recursive( $options_default, function( &$value, $key ) {
+			'value' === $key && is_string( $value ) && $value = htmlspecialchars( $value );
+		} );
 		$options_merged = Slick::arrayDiffAssocRecursive( $options_db, $options_default );
 
 		if ( is_array( $options_merged ) ) {
@@ -400,7 +403,7 @@ class slickOptions {
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_prevarrow',
 				'type' => 'string',
-				'value' => '<button type=\'button\' class=\'slick-prev\'>Previous</button>',
+				'value' => '<button type="button" class="slick-prev">Previous</button>',
 			),
 			'nextArrow' => array(
 				'name' => __( 'nextArrow', 'slick-slider' ),
@@ -408,7 +411,7 @@ class slickOptions {
 				'showOnSingleGallery' => false,
 				'setting' => 'sl_nextarrow',
 				'type' => 'string',
-				'value' => '<button type=\'button\' class=\'slick-next\'>Next</button>',
+				'value' => '<button type="button" class="slick-next">Next</button>',
 			),
 			'centerMode' => array(
 				'name' => __( 'centerMode', 'slick-slider' ),
