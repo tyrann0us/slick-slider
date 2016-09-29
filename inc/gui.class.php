@@ -95,8 +95,7 @@ class slickGui {
 
 		wp_enqueue_script(
 			'slick-options-media',
-			slick::pluginUrl( 'js/slick-options-media.js' ),
-			array( 'jquery' ),
+			array( 'jquery-ui-accordion' ),
 			slick::getPluginData( 'Version' )
 		);
 
@@ -130,10 +129,14 @@ class slickGui {
 	public static function settingSectionCallback() {
 
 		wp_nonce_field( '_slick__settings_nonce', '_slick_nonce' );
-		echo '<a id="slick-settings"></a>';
+		echo '<a id="slick-slider-settings"></a>';
 		echo '<input type="hidden" name="_slick_action" value="update" />';
-		echo sprintf( '<p>%s</p>', __( 'Change default Slick Slider settings.', 'slick-slider' ) );
 		submit_button( __( 'Reset Slick Slider settings', 'slick-slider' ), 'delete', '_slick_reset' );
+		echo sprintf(
+			'<span class="button collapse-header hidden" data-collapse-header-text="%s">%s</span>',
+			__( 'Collapse settings', 'slick-slider' ),
+			__( 'Expand settings', 'slick-slider' )
+		);
 
 	}
 

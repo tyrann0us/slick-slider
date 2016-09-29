@@ -243,7 +243,10 @@ class slickOptions {
 							}
 						},
 						'media',
-						'slick'
+						'slick',
+						array(
+							'class' => 'slick-slider-option',
+						)
 					);
 				};
 				break;
