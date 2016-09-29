@@ -79,7 +79,7 @@ class slickGui {
 
 		wp_enqueue_style(
 			'slick-options-media',
-			slick::pluginUrl( 'css/slick-options-media.css' ),
+			slick::pluginUrl( 'css/slick-options-media.min.css' ),
 			array(),
 			slick::getPluginData( 'Version' )
 		);
@@ -95,6 +95,7 @@ class slickGui {
 
 		wp_enqueue_script(
 			'slick-options-media',
+			slick::pluginUrl( 'js/slick-options-media.min.js' ),
 			array( 'jquery-ui-accordion' ),
 			slick::getPluginData( 'Version' )
 		);
