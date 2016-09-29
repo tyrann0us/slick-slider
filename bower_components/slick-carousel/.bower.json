@@ -37,6 +37,7 @@
     "commit": "0aee9fe00e440cc9d72c2dc11768ad9277880603"
   },
   "_source": "https://github.com/kenwheeler/slick.git",
-  "_target": "*",
-  "_originalSource": "slick-carousel"
+  "_target": "^1.6.0",
+  "_originalSource": "slick-carousel",
+  "_direct": true
 }
