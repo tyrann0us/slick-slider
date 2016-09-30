@@ -126,7 +126,7 @@ class slick {
 		$output = array_filter( $data, function( $value ) { return ! strpos( $value, 'plugin-editor.php' ); } );
 		if ( current_user_can( 'manage_options' ) ) {
 			$output = array_merge( $output, array(
-				 sprintf( '<a href="%s">%s</a>', admin_url( 'options-media.php#slick-settings' ), __( 'Settings', 'slick-slider' ) ) 
+				 sprintf( '<a href="%s">%s</a>', admin_url( 'options-media.php#slick-slider-settings' ), __( 'Settings', 'slick-slider' ) ) 
 			) );
 		}
 		return $output;
