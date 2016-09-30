@@ -109,7 +109,7 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 == Screenshots ==
 
 1. Media settings screen. All available options are listed here.
-2. Single gallery screen. Only the most importand options are visible.
+2. Single gallery screen. Only the most important options are visible.
 3. Frontend with slider.
 
 == Changelog ==
