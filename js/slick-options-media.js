@@ -27,7 +27,6 @@ var slickSlider = {
 
 	/**
 	 * Let the user confirm he wants to reset all settings.
-	 * @return {bool} False if user aborts reset.
 	 */
 	confirmReset: function() {
 		
