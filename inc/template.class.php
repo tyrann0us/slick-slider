@@ -91,7 +91,7 @@ class slickTemplate {
 
 		wp_enqueue_style(
 			'slick-post-gallery',
-			slick::pluginUrl( 'css/slick-post.css' ),
+			slick::pluginUrl( 'css/slick-post.min.css' ),
 			false,
 			slick::getPluginData( 'Version' )
 		);
@@ -108,7 +108,7 @@ class slickTemplate {
 
 		wp_enqueue_script(
 			'slick-post-gallery',
-			slick::pluginUrl( 'js/slick-post.js' ),
+			slick::pluginUrl( 'js/slick-post.min.js' ),
 			array( 'jquery' ),
 			slick::getPluginData( 'Version' )
 		);
