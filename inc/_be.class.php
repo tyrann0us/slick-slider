@@ -156,7 +156,7 @@ class slick {
 				 ),
 				 sprintf(
 				 	'<a href="%s" target="blank">%s</a>',
-				 	'https://wordpress.org/support/view/plugin-reviews/slick-slider#postform',
+				 	'https://wordpress.org/support/plugin/slick-slider/reviews/#new-post',
 				 	__( 'Rate', 'slick-slider' )
 				 )
 			) );
