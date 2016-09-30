@@ -25,10 +25,6 @@ class slickTemplate {
 		) );
 		add_action( 'admin_enqueue_scripts',  array(
 			 __CLASS__,
-			'jsExtendGallery' 
-		) );
-		add_action( 'admin_enqueue_scripts',  array(
-			 __CLASS__,
 			'addCss' 
 		) );
 		add_action( 'admin_enqueue_scripts',  array(
@@ -87,23 +83,6 @@ class slickTemplate {
 	}
 
 	/**
-	 * Add JS file to extend the wp.media object and register the settings template.
-	 * 
-	 * @since 0.1
-	 */
-	public static function jsExtendGallery() {
-
-		wp_enqueue_script(
-			'slick-gallery-settings',
-			slick::pluginUrl( 'js/slick-gallery-settings.js' ),
-			array( 'media-editor' ),
-			slick::getPluginData( 'Version' ),
-			true
-		);
-
-	}
-
-	/**
 	 * Add CSS file to style Slick Slider settings in the Media Uploader.
 	 *
 	 * @since 0.1
@@ -120,7 +99,8 @@ class slickTemplate {
 	}
 
 	/**
-	 * Add JS file for basic toggling actions of labels.
+	 * Add JS file to extend the wp.media object and register the settings template.
+	 * Additionally it provides basic toggling actions of settings.
 	 *
 	 * @since 0.1
 	 */
