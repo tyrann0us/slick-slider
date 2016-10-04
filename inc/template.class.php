@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) OR exit;
  *
  * @since 0.1
  */
-class slickTemplate {
+class slickSliderTemplate {
 
 	/**
 	 * Initiate registering of gallery settings template and required JS and CSS files.
@@ -41,7 +41,7 @@ class slickTemplate {
 	 */
 	public static function printMediaTemplates() {
 
-		$pagenow = slick::currentPage(); ?>
+		$pagenow = slickSlider::currentPage(); ?>
 
 		<script type="text/html" id="tmpl-slick-slider-gallery-settings">
 			<div class="clear"></div>
@@ -55,7 +55,7 @@ class slickTemplate {
 					</label>
 				</div>
 				<div class="slick-slider-settings-inner">
-					<?php slickOptions::renderSettingsMarkup( $pagenow ); ?>
+					<?php slickSliderOptions::renderSettingsMarkup( $pagenow ); ?>
 				</div>
 			</div>
 		</script>
@@ -71,7 +71,7 @@ class slickTemplate {
 	 */
 	public static function printSliderDefaults() {
 
-		$options_json = json_encode( slickOptions::get() );
+		$options_json = json_encode( slickSliderOptions::get() );
 
 		$output = array();
 		$output[] = '<script type="text/javascript">';
@@ -90,10 +90,10 @@ class slickTemplate {
 	public static function addCss() {
 
 		wp_enqueue_style(
-			'slick-post-gallery',
-			slick::pluginUrl( 'css/slick-post.min.css' ),
+			'slick-slider-post-gallery',
+			slickSlider::pluginUrl( 'css/slick-slider-post.min.css' ),
 			false,
-			slick::getPluginData( 'Version' )
+			slickSlider::getPluginData( 'Version' )
 		);
 
 	}
@@ -107,10 +107,10 @@ class slickTemplate {
 	public static function addJs() {
 
 		wp_enqueue_script(
-			'slick-post-gallery',
-			slick::pluginUrl( 'js/slick-post.min.js' ),
-			array( 'jquery' ),
-			slick::getPluginData( 'Version' )
+			'slick-slider-post-gallery',
+			slickSlider::pluginUrl( 'js/slick-slider-post.min.js' ),
+			array( 'media-editor' ),
+			slickSlider::getPluginData( 'Version' )
 		);
 
 	}

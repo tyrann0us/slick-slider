@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 0.1
  */
-class slick {
+class slickSlider {
 
 	/**
 	 * Initiate adding of Slick Slider’s assets and markup.
@@ -16,7 +16,7 @@ class slick {
 	public static function init() {
 
 		add_action( 'init', array(
-			'slickOutput',
+			'slickSliderOutput',
 			'initSlider'
 		) );
 
@@ -32,7 +32,7 @@ class slick {
 	 */
 	public static function pluginUrl( $path ) {
 
-		return plugins_url( $path, SLICK_FILE );
+		return plugins_url( $path, SLICK_SLIDER_FILE );
 
 	}
 
@@ -63,7 +63,7 @@ class slick {
 		if ( ! function_exists( 'get_plugin_data' ) ) {
 			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		}
-		$plugin_data = get_plugin_data( SLICK_FILE );
+		$plugin_data = get_plugin_data( SLICK_SLIDER_FILE );
 		if ( ! empty( $field ) && isset( $plugin_data[$field] ) ) {
 			return $plugin_data[$field];
 		}

@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) OR exit;
  *
  * @since 0.1
  */
-class slickOptions {
+class slickSliderOptions {
 
 	/**
 	 * Get Slick Slider options from database.
@@ -19,7 +19,7 @@ class slickOptions {
 	 */
 	public static function get( $field = '' ) {
 
-		$options = slickCache::get( 'options' );
+		$options = slickSliderCache::get( 'options' );
 		if ( empty( $options ) ) {
 			$options = self::defaults();
 			$options_db = get_option( 'slick-slider' );
@@ -30,7 +30,7 @@ class slickOptions {
 			foreach ( $options as $option => $array_values ) {
 				$options[$option]['value'] = $options_db[$option];
 			}
-			slickCache::set( 'options', $options );
+			slickSliderCache::set( 'options', $options );
 		}
 		if ( empty( $field ) ) {
 			return $options;
@@ -84,7 +84,7 @@ class slickOptions {
 			$options = array_merge( (array) get_option( 'slick-slider' ), $fields );
 		}
 		update_option( 'slick-slider', $options );
-		slickCache::set( 'options', $options );
+		slickSliderCache::set( 'options', $options );
 
 	}
 
@@ -138,7 +138,7 @@ class slickOptions {
 		array_walk_recursive( $options_default, function( &$value, $key ) {
 			'value' === $key && is_string( $value ) && $value = htmlspecialchars( $value );
 		} );
-		$options_merged = Slick::arrayDiffAssocRecursive( $options_db, $options_default );
+		$options_merged = SlickSlider::arrayDiffAssocRecursive( $options_db, $options_default );
 
 		if ( is_array( $options_merged ) ) {
 			foreach ( $options_merged as $option => $value ) {
@@ -243,7 +243,7 @@ class slickOptions {
 							}
 						},
 						'media',
-						'slick',
+						'slick-slider',
 						array(
 							'class' => 'slick-slider-option',
 						)

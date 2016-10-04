@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) OR exit;
  *
  * @since 0.1
  */
-class slick {
+class slickSlider {
 
 	/**
 	 * Hook all Slick Slider actions and filters.
@@ -16,15 +16,15 @@ class slick {
 	public static function init() {
 
 		add_action( 'admin_notices', array(
-			 'slickFeedback',
+			 'slickSliderFeedback',
 			'rules' 
 		) );
 		add_action( 'network_admin_notices', array(
-			 'slickFeedback',
+			 'slickSliderFeedback',
 			'network' 
 		) );
 		add_action( 'admin_notices', array(
-			 'slickFeedback',
+			 'slickSliderFeedback',
 			'admin' 
 		) );
 
@@ -32,24 +32,24 @@ class slick {
 			case 'post' :
 			case 'post-new' :
 				add_action( 'admin_init', array(
-					'slickTemplate',
+					'slickSliderTemplate',
 					'initTemplate'
 				) );
 				break;
 			case 'options-media' :
 				add_action( 'admin_init', array(
-					'slickGui',
+					'slickSliderGui',
 					'initSettings' 
 				) );
 				break;
 			case 'options' :
 				add_action( 'update_option',  array(
-					 'slickGui',
+					 'slickSliderGui',
 					'saveChanges' 
 				) );
 				break;
 			case 'plugins' :
-				add_filter( 'plugin_action_links_' . SLICK_BASE, array(
+				add_filter( 'plugin_action_links_' . SLICK_SLIDER_BASE, array(
 					 __CLASS__,
 					'addSettingsLinks' 
 				) );
@@ -71,7 +71,7 @@ class slick {
 	 */
 	public static function install() {
 
-		slickOptions::init();
+		slickSliderOptions::init();
 
 	}
 
@@ -82,7 +82,7 @@ class slick {
 	 */
 	public static function uninstall() {
 
-		slickOptions::destroy();
+		slickSliderOptions::destroy();
 
 	}
 
@@ -96,7 +96,7 @@ class slick {
 	 */
 	public static function pluginUrl( $path ) {
 
-		return plugins_url( $path, SLICK_FILE );
+		return plugins_url( $path, SLICK_SLIDER_FILE );
 
 	}
 
@@ -144,7 +144,7 @@ class slick {
 	 */
 	public static function addThanksLink( $data, $page ) {
 
-		if ( SLICK_BASE != $page ) {
+		if ( SLICK_SLIDER_BASE != $page ) {
 			return $data;
 		}
 		if ( current_user_can( 'manage_options' ) ) {
@@ -194,23 +194,6 @@ class slick {
 	}
 
 	/**
-	 * Check nonce.
-	 * Note: Currently not used.
-	 *
-	 * @since 0.1
-	 * 
-	 * @param string $nonce Name of nonce to check.
-	 */
-	public static function check_security( $nonce = '_slick_nonce' ) {
-	
-		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( __( 'Cheatin&#8217; uh?' ) );
-		}
-		check_admin_referer( $nonce );
-	
-	}
-
-	/**
 	 * Get plugin metadata value.
 	 *
 	 * @since 0.1
@@ -220,12 +203,12 @@ class slick {
 	 */
 	public static function getPluginData( $field = NULL )	{
 
-		if ( ! $plugin_data = slickCache::get( 'plugin_data' ) ) {
+		if ( ! $plugin_data = slickSliderCache::get( 'plugin_data' ) ) {
 			if ( ! function_exists( 'get_plugin_data' ) ) {
 				require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 			}
-			$plugin_data = get_plugin_data( SLICK_FILE );
-			slickCache::set( 'plugin_data', $plugin_data );
+			$plugin_data = get_plugin_data( SLICK_SLIDER_FILE );
+			slickSliderCache::set( 'plugin_data', $plugin_data );
 		}
 		if ( ! empty( $field ) && isset( $plugin_data[$field] ) ) {
 			return $plugin_data[$field];

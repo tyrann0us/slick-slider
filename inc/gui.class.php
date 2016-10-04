@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) OR exit;
  *
  * @since 0.1
  */
-class slickGui {
+class slickSliderGui {
 
 	/**
 	 * If set to true, skip saving Slick Slider options to database.
@@ -56,7 +56,7 @@ class slickGui {
 		);
 
 		add_settings_section(
-			'slick',
+			'slick-slider',
 			__( 'Slick Slider settings', 'slick-slider' ),
 			array(
 				__CLASS__,
@@ -65,8 +65,8 @@ class slickGui {
 			'media'
 		);
 
-		$pagenow = slick::currentPage();
-		slickOptions::renderSettingsMarkup( $pagenow );
+		$pagenow = slickSlider::currentPage();
+		slickSliderOptions::renderSettingsMarkup( $pagenow );
 
 	}
 
@@ -78,10 +78,10 @@ class slickGui {
 	public static function addCss() {
 
 		wp_enqueue_style(
-			'slick-options-media',
-			slick::pluginUrl( 'css/slick-options-media.min.css' ),
+			'slick-slider-options-media',
+			slickSlider::pluginUrl( 'css/slick-slider-options-media.min.css' ),
 			array(),
-			slick::getPluginData( 'Version' )
+			slickSlider::getPluginData( 'Version' )
 		);
 
 	}
@@ -94,10 +94,10 @@ class slickGui {
 	public static function addJs() {
 
 		wp_enqueue_script(
-			'slick-options-media',
-			slick::pluginUrl( 'js/slick-options-media.min.js' ),
+			'slick-slider-options-media',
+			slickSlider::pluginUrl( 'js/slick-slider-options-media.min.js' ),
 			array( 'jquery-ui-accordion' ),
-			slick::getPluginData( 'Version' )
+			slickSlider::getPluginData( 'Version' )
 		);
 
 	}
@@ -167,10 +167,10 @@ class slickGui {
 		self::$skipSaving = true;
 		$_POST = array_map( 'stripslashes_deep', $_POST );
 		if ( isset( $_POST['_slick_reset'] ) ) {
-			slickOptions::reset();
+			slickSliderOptions::reset();
 			return;
 		}
-		slickOptions::update( $_POST, true );
+		slickSliderOptions::update( $_POST, true );
 
 	}
 }

@@ -26,26 +26,26 @@ along with Slick Slider. If not, see <http://www.gnu.org/licenses/>.
 /* Quit */
 defined( 'ABSPATH' ) OR exit;
 
-define( 'SLICK_DIR', dirname( __FILE__ ) );
-define( 'SLICK_FILE', __FILE__ );
-define( 'SLICK_BASE', plugin_basename( __FILE__ ) );
-define( 'SLICK_MIN_PHP', 5.6 );
+define( 'SLICK_SLIDER_DIR', dirname( __FILE__ ) );
+define( 'SLICK_SLIDER_FILE', __FILE__ );
+define( 'SLICK_SLIDER_BASE', plugin_basename( __FILE__ ) );
+define( 'SLICK_SLIDER_MIN_PHP', 5.6 );
 
 
 require_once sprintf(
 	'%s/inc/_%s.class.php',
-	SLICK_DIR,
+	SLICK_SLIDER_DIR,
 	( is_admin() ? 'be' : 'fe' )
 );
 
 spl_autoload_register(
-	'slickAutoload'
+	'slickSliderAutoload'
 );
 
 add_action(
 	'plugins_loaded',
 	array(
-		'Slick',
+		'slickSlider',
 		'init'
 	)
 );
@@ -54,7 +54,7 @@ add_action(
 register_activation_hook(
 	__FILE__,
 	array(
-		'Slick',
+		'slickSlider',
 		'install'
 	)
 );
@@ -62,28 +62,28 @@ register_activation_hook(
 register_uninstall_hook(
 	__FILE__,
 	array(
-		'Slick',
+		'slickSlider',
 		'uninstall'
 	)
 );
 
 
-function slickAutoload( $class ) {
+function slickSliderAutoload( $class ) {
 
 	$available = array(
-		'slickCache' => 'cache',
-		'slickFeedback' => 'feedback',
-		'slickOptions' => 'options',
-		'slickOutput' => 'output',
-		'slickGui' => 'gui',
-		'slickTemplate' => 'template',
+		'slickSliderCache' => 'cache',
+		'slickSliderFeedback' => 'feedback',
+		'slickSliderOptions' => 'options',
+		'slickSliderOutput' => 'output',
+		'slickSliderGui' => 'gui',
+		'slickSliderTemplate' => 'template',
 	);
 
 	if ( isset( $available[$class] ) ) {
 		require_once(
 			sprintf(
 				'%s/inc/%s.class.php',
-				SLICK_DIR,
+				SLICK_SLIDER_DIR,
 				$available[$class]
 			)
 		);

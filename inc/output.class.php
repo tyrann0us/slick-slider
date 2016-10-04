@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) OR exit;
 /**
  * Class to output all files and HTML markup required for Slick Slider on frontend.
  */
-class slickOutput {
+class slickSliderOutput {
 
 	/**
 	 * Number of Slick Sliders on same WordPress page.
@@ -24,7 +24,7 @@ class slickOutput {
 	 */
 	public static function initSlider() {
 
-		if ( ! slick::isMinPhp( SLICK_MIN_PHP ) ) {
+		if ( ! slickSlider::isMinPhp( SLICK_SLIDER_MIN_PHP ) ) {
 			return;
 		}
 
@@ -61,32 +61,32 @@ class slickOutput {
 	public static function registerSlickAssets() {
 
 		wp_register_script(
-			'slick',
-			slick::pluginUrl( 'bower_components/slick-carousel/slick/slick.min.js' ),
+			'slick-slider-core',
+			slickSlider::pluginUrl( 'bower_components/slick-carousel/slick/slick.min.js' ),
 			array( 'jquery' ),
 			'1.6.0',
 			true
 		);
 		
 		wp_register_style(
-			'slick',
-			slick::pluginUrl( 'bower_components/slick-carousel/slick/slick.css' ),
+			'slick-slider-core',
+			slickSlider::pluginUrl( 'bower_components/slick-carousel/slick/slick.css' ),
 			array(),
 			'1.6.0'
 		);
 		wp_register_style(
-			'slick-theme',
-			slick::pluginUrl( 'bower_components/slick-carousel/slick/slick-theme.css' ),
-			array( 'slick' ),
+			'slick-slider-core-theme',
+			slickSlider::pluginUrl( 'bower_components/slick-carousel/slick/slick-theme.css' ),
+			array( 'slick-slider-core' ),
 			'1.6.0'
 		);
 
 		if ( false !== apply_filters( 'slick_slider_init_slider', true ) ) {
-			wp_add_inline_script( 'slick', file_get_contents( SLICK_DIR . '/js/slick-init.js' ) );
+			wp_add_inline_script( 'slick-slider-core', file_get_contents( SLICK_SLIDER_DIR . '/js/slick-slider-init.js' ) );
 		}
 
 		if ( false !== apply_filters( 'slick_slider_load_helper_css', true ) ) {
-			wp_add_inline_style( 'slick-theme', file_get_contents( SLICK_DIR . '/css/slick-frontend.css' ) );
+			wp_add_inline_style( 'slick-slider-core-theme', file_get_contents( SLICK_SLIDER_DIR . '/css/slick-slider-helper.css' ) );
 		}
 
 
@@ -167,10 +167,10 @@ class slickOutput {
 				return '';
 			}
 
-			wp_enqueue_script( 'slick' );
-			wp_enqueue_style( 'slick-theme' );
+			wp_enqueue_script( 'slick-slider-core' );
+			wp_enqueue_style( 'slick-slider-core-theme' );
 
-			$options = slickOptions::prepareOptionsForOutput( $atts );
+			$options = slickSliderOptions::prepareOptionsForOutput( $atts );
 
 			$output = [];
 			$output[] = '<div class="slick-slider-wrapper">';

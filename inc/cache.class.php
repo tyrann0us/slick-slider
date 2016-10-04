@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) OR exit;
  *
  * @since 0.1
  */
-class slickCache {
+class slickSliderCache {
 
 	/**
 	 * Cached values stored in array.
