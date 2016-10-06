@@ -138,7 +138,7 @@ class slickSliderOptions {
 		array_walk_recursive( $options_default, function( &$value, $key ) {
 			'value' === $key && is_string( $value ) && $value = htmlspecialchars( $value );
 		} );
-		$options_merged = SlickSlider::arrayDiffAssocRecursive( $options_db, $options_default );
+		$options_merged = SlickSliderMain::arrayDiffAssocRecursive( $options_db, $options_default );
 
 		if ( is_array( $options_merged ) ) {
 			foreach ( $options_merged as $option => $value ) {

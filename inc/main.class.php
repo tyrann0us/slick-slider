@@ -2,64 +2,75 @@
 defined( 'ABSPATH' ) OR exit;
 
 /**
- * Main class for all backend methods.
+ * Main Slick Slider class.
  *
  * @since 0.1
  */
-class slickSlider {
+class slickSliderMain {
 
 	/**
-	 * Hook all Slick Slider actions and filters.
+	 * Hook all actions and filters for backend and frontend.
 	 *
 	 * @since 0.1
 	 */
 	public static function init() {
 
-		add_action( 'admin_notices', array(
-			 'slickSliderFeedback',
-			'rules' 
-		) );
-		add_action( 'network_admin_notices', array(
-			 'slickSliderFeedback',
-			'network' 
-		) );
-		add_action( 'admin_notices', array(
-			 'slickSliderFeedback',
-			'admin' 
-		) );
+		if ( is_admin() ) {
 
-		switch ( self::currentPage() ) {
-			case 'post' :
-			case 'post-new' :
-				add_action( 'admin_init', array(
-					'slickSliderTemplate',
-					'initTemplate'
-				) );
-				break;
-			case 'options-media' :
-				add_action( 'admin_init', array(
-					'slickSliderGui',
-					'initSettings' 
-				) );
-				break;
-			case 'options' :
-				add_action( 'update_option',  array(
-					 'slickSliderGui',
-					'saveChanges' 
-				) );
-				break;
-			case 'plugins' :
-				add_filter( 'plugin_action_links_' . SLICK_SLIDER_BASE, array(
-					 __CLASS__,
-					'addSettingsLinks' 
-				) );
-				add_filter( 'plugin_row_meta', array(
-					 __CLASS__,
-					'addThanksLink' 
-				), 10, 2 );
-				break;
-			default:
-				break;
+			add_action( 'admin_notices', array(
+				 'slickSliderFeedback',
+				'rules' 
+			) );
+			add_action( 'network_admin_notices', array(
+				 'slickSliderFeedback',
+				'network' 
+			) );
+			add_action( 'admin_notices', array(
+				 'slickSliderFeedback',
+				'admin' 
+			) );
+
+			switch ( self::currentPage() ) {
+				case 'post' :
+				case 'post-new' :
+					add_action( 'admin_init', array(
+						'slickSliderTemplate',
+						'initTemplate'
+					) );
+					break;
+				case 'options-media' :
+					add_action( 'admin_init', array(
+						'slickSliderGui',
+						'initSettings' 
+					) );
+					break;
+				case 'options' :
+					add_action( 'update_option',  array(
+						 'slickSliderGui',
+						'saveChanges' 
+					) );
+					break;
+				case 'plugins' :
+					add_filter( 'plugin_action_links_' . SLICK_SLIDER_BASE, array(
+						 __CLASS__,
+						'addSettingsLinks' 
+					) );
+					add_filter( 'plugin_row_meta', array(
+						 __CLASS__,
+						'addThanksLink' 
+					), 10, 2 );
+					break;
+				default:
+					break;
+			}
+
+		} else {
+
+			add_action( 'init', array(
+				'slickSliderOutput',
+				'initSlider'
+			) );
+
 		}
 
 	}
@@ -201,7 +212,7 @@ class slickSlider {
 	 * @param string $field Meta field value to get.
 	 * @return string|array Single value if $field is set, array of all values otherwise.
 	 */
-	public static function getPluginData( $field = NULL )	{
+	public static function getPluginData( $field = NULL ) {
 
 		if ( ! $plugin_data = slickSliderCache::get( 'plugin_data' ) ) {
 			if ( ! function_exists( 'get_plugin_data' ) ) {
@@ -214,6 +225,38 @@ class slickSlider {
 			return $plugin_data[$field];
 		}
 		return $plugin_data;
+
+	}
+
+	/**
+	 * Compute the difference of multi-dimensional arrays with additional index check.
+	 *
+	 * @since 0.1
+	 * 
+	 * @link http://php.net/manual/de/function.array-diff-assoc.php#111675
+	 * @param array $array1 The array to compare from.
+	 * @param array $array2 An array to compare against.
+	 * @return array        Array containing all the values from $array1 that are not present in $array2.
+	 */
+	public static function arrayDiffAssocRecursive( $array1, $array2 ) { 
+
+		foreach( $array1 as $key => $value ) {
+			if ( is_array( $value ) ) {
+				if ( ! isset( $array2[$key] ) ) {
+					$difference[$key] = $value;
+				} elseif ( ! is_array( $array2[$key] ) ) {
+					$difference[$key] = $value;
+				} else  {
+					$new_diff = self::arrayDiffAssocRecursive( $value, $array2[$key] );
+					if ( $new_diff != FALSE ) {
+						$difference[$key] = $new_diff;
+					}
+				}
+			} elseif ( ! isset( $array2[$key] ) || $array2[$key] != $value ) {
+				$difference[$key] = $value;
+			}
+		}
+		return ! isset( $difference ) ? 0 : $difference;
 
 	}
 

@@ -65,7 +65,7 @@ class slickSliderGui {
 			'media'
 		);
 
-		$pagenow = slickSlider::currentPage();
+		$pagenow = slickSliderMain::currentPage();
 		slickSliderOptions::renderSettingsMarkup( $pagenow );
 
 	}
@@ -79,9 +79,9 @@ class slickSliderGui {
 
 		wp_enqueue_style(
 			'slick-slider-options-media',
-			slickSlider::pluginUrl( 'css/slick-slider-options-media.min.css' ),
+			slickSliderMain::pluginUrl( 'css/slick-slider-options-media.min.css' ),
 			array(),
-			slickSlider::getPluginData( 'Version' )
+			slickSliderMain::getPluginData( 'Version' )
 		);
 
 	}
@@ -95,9 +95,9 @@ class slickSliderGui {
 
 		wp_enqueue_script(
 			'slick-slider-options-media',
-			slickSlider::pluginUrl( 'js/slick-slider-options-media.min.js' ),
+			slickSliderMain::pluginUrl( 'js/slick-slider-options-media.min.js' ),
 			array( 'jquery-ui-accordion' ),
-			slickSlider::getPluginData( 'Version' )
+			slickSliderMain::getPluginData( 'Version' )
 		);
 
 	}

@@ -15,12 +15,12 @@ class slickSliderFeedback {
 	 */
 	public static function rules() {
 
-		switch ( slickSlider::currentPage() ) {
+		switch ( slickSliderMain::currentPage() ) {
 			case 'plugins' :
 			case 'options-media' :
-				if ( ! slickSlider::isMinWp( '4.4' ) ) {
+				if ( ! slickSliderMain::isMinWp( '4.4' ) ) {
 					self::add( 'critical', sprintf( '%s: %s %s.', __( 'Attention', 'slick-slider' ), __( 'Slick Slider requires at least WordPress', 'slick-slider' ), '4.4' ) );
-				} else if ( ! slickSlider::isMinPhp( SLICK_SLIDER_MIN_PHP ) ) {
+				} else if ( ! slickSliderMain::isMinPhp( SLICK_SLIDER_MIN_PHP ) ) {
 					self::add( 'critical', sprintf( '%s: %s %s.', __( 'Attention', 'slick-slider' ), __( 'Slick Slider requires at least PHP', 'slick-slider' ), SLICK_SLIDER_MIN_PHP ) );
 				}
 				break;

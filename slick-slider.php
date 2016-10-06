@@ -32,12 +32,6 @@ define( 'SLICK_SLIDER_BASE', plugin_basename( __FILE__ ) );
 define( 'SLICK_SLIDER_MIN_PHP', 5.6 );
 
 
-require_once sprintf(
-	'%s/inc/_%s.class.php',
-	SLICK_SLIDER_DIR,
-	( is_admin() ? 'be' : 'fe' )
-);
-
 spl_autoload_register(
 	'slickSliderAutoload'
 );
@@ -45,7 +39,7 @@ spl_autoload_register(
 add_action(
 	'plugins_loaded',
 	array(
-		'slickSlider',
+		'slickSliderMain',
 		'init'
 	)
 );
@@ -54,7 +48,7 @@ add_action(
 register_activation_hook(
 	__FILE__,
 	array(
-		'slickSlider',
+		'slickSliderMain',
 		'install'
 	)
 );
@@ -62,7 +56,7 @@ register_activation_hook(
 register_uninstall_hook(
 	__FILE__,
 	array(
-		'slickSlider',
+		'slickSliderMain',
 		'uninstall'
 	)
 );
@@ -71,6 +65,7 @@ register_uninstall_hook(
 function slickSliderAutoload( $class ) {
 
 	$available = array(
+		'slickSliderMain' => 'main',
 		'slickSliderCache' => 'cache',
 		'slickSliderFeedback' => 'feedback',
 		'slickSliderOptions' => 'options',

@@ -41,7 +41,7 @@ class slickSliderTemplate {
 	 */
 	public static function printMediaTemplates() {
 
-		$pagenow = slickSlider::currentPage(); ?>
+		$pagenow = slickSliderMain::currentPage(); ?>
 
 		<script type="text/html" id="tmpl-slick-slider-gallery-settings">
 			<div class="clear"></div>
@@ -91,9 +91,9 @@ class slickSliderTemplate {
 
 		wp_enqueue_style(
 			'slick-slider-post-gallery',
-			slickSlider::pluginUrl( 'css/slick-slider-post.min.css' ),
+			slickSliderMain::pluginUrl( 'css/slick-slider-post.min.css' ),
 			false,
-			slickSlider::getPluginData( 'Version' )
+			slickSliderMain::getPluginData( 'Version' )
 		);
 
 	}
@@ -108,9 +108,9 @@ class slickSliderTemplate {
 
 		wp_enqueue_script(
 			'slick-slider-post-gallery',
-			slickSlider::pluginUrl( 'js/slick-slider-post.min.js' ),
+			slickSliderMain::pluginUrl( 'js/slick-slider-post.min.js' ),
 			array( 'media-editor' ),
-			slickSlider::getPluginData( 'Version' )
+			slickSliderMain::getPluginData( 'Version' )
 		);
 
 	}
