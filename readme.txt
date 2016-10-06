@@ -36,7 +36,7 @@ Available options (amongst others):
 > Note: No support for slick’s responsive options feature (different options at different breakpoints) at the moment.
 
 > Note: Slick Slider requires at least PHP 5.6! That means it won’t work on websites which are powered by PHP older than version 5.6!
-> If you don’t know your website’s PHP version ask your host and request an an update if necessary.
+> If you don’t know your website’s PHP version ask your host and request an update if necessary.
 
 
 Slick Slider is based upon the awesome [slick slider](https://kenwheeler.github.io/slick/) written by Ken Wheeler.
@@ -58,7 +58,7 @@ Absolutely! On each gallery edit modal there’s a checkbox called “Use Slick 
 = I want the slider to appear somewhere else, say in a widget =
 
 Since Slick Slider uses the default gallery shortcode, you can simply paste it wherever you want it to appear.
-Note that you may need to [enable support for shortcodes in widgets](http://www.wpbeginner.com/wp-tutorials/how-to-use-shortcodes-in-your-wordpress-sidebar-widgets/). Additionally if you want to edit the slider options you’ll have to change it using the shortcode attributes.
+Note that you may need to [enable support for shortcodes in widgets](http://www.wpbeginner.com/wp-tutorials/how-to-use-shortcodes-in-your-wordpress-sidebar-widgets/). Additionally if you want to edit the slider options you’ll have to change it using the shortcode attributes directly.
 
 = Are there captions available? =
 
@@ -71,8 +71,8 @@ Of course. Paste the following lines in your template or functions.php:
 
 `add_action( 'wp_enqueue_scripts', 'slick_slider_enqueue_assets' );
 function slick_slider_enqueue_assets() {
-	wp_enqueue_script( 'slick' );
-	wp_enqueue_style( 'slick-theme' );
+	wp_enqueue_script( 'slick-slider-core' );
+	wp_enqueue_style( 'slick-slider-core-theme' );
 }`
 
 = I don’t want the Plugin to initiate the slider =
