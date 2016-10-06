@@ -86,7 +86,7 @@ class slickSliderOutput {
 		}
 
 		if ( false !== apply_filters( 'slick_slider_load_helper_css', true ) ) {
-			wp_add_inline_style( 'slick-slider-core-theme', file_get_contents( SLICK_SLIDER_DIR . '/css/slick-slider-helper.css' ) );
+			wp_add_inline_style( 'slick-slider-core-theme', file_get_contents( SLICK_SLIDER_DIR . '/css/slick-slider-helper.min.css' ) );
 		}
 
 
