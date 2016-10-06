@@ -80,7 +80,7 @@ class slickSliderFeedback {
 	}
 
 	/**
-	 * Initiate output of message(s) if in multisite installtion.
+	 * Initiate output of message(s) if in multisite installation.
 	 *
 	 * @since 0.1
 	 */
@@ -91,7 +91,7 @@ class slickSliderFeedback {
 	}
 
 	/**
-	 * Initiate output of message(s) if not in multisite installtion.
+	 * Initiate output of message(s) if not in multisite installation.
 	 *
 	 * @since 0.1
 	 */
