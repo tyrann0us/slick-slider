@@ -122,7 +122,7 @@ class slickSliderOptions {
 	}
 
 	/**
-	 * Merge default options, user options and current gallery parameters into correct formatted array.
+	 * Merge default options, user options and current gallery parameters into correctly formatted array.
 	 * It only outputs options which differ from default Slick Slider options.
 	 *
 	 * @since 0.1
