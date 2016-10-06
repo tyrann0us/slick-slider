@@ -130,7 +130,7 @@ class slickSliderGui {
 	public static function settingSectionCallback() {
 
 		wp_nonce_field( '_slick__settings_nonce', '_slick_nonce' );
-		echo '<a id="slick-slider-settings"></a>';
+		echo '<a name="slick-slider-settings" id="slick-slider-settings"></a>';
 		echo '<input type="hidden" name="_slick_action" value="update" />';
 		submit_button( __( 'Reset Slick Slider settings', 'slick-slider' ), 'delete', '_slick_reset' );
 		echo sprintf(
