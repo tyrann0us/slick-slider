@@ -8,8 +8,7 @@ Stable tag: 0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Turn your native WordPress galleries into beautiful fully responsive sliders. Powered by the awesome “slick” slider.
-Adjust the slider to your needs on a per gallery base.
+Turn your native WordPress galleries into beautiful fully responsive sliders. Adjust the slider to your needs on a per gallery base.
 
 
 == Description ==
