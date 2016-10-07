@@ -36,7 +36,7 @@ Available options (amongst others):
 > Note: No support for slick’s responsive options feature (different options at different breakpoints) at the moment.
 
 > Note: Slick Slider requires at least PHP 5.6! That means it won’t work on websites which are powered by PHP older than version 5.6!
-> If you don’t know your website’s PHP version ask your host and request an update if necessary.
+> If you don’t know your website’s PHP version ask your host and request an update if necessary. [Click here](https://wordpress.org/support/topic/attention-slick-slider-requires-at-least-php-5-6/) for more information.
 
 
 Slick Slider is based upon the awesome [slick slider](https://kenwheeler.github.io/slick/) written by Ken Wheeler.
@@ -65,7 +65,7 @@ Note that you may need to [enable support for shortcodes in widgets](http://www.
 Yes, but hidden by default. To activate them use `add_filter( 'slick_slider_show_caption', '__return_true' );`.
 > Note: The captions are unstyled. You need to apply some CSS on them (use the class `.slide__caption`).
 
-= Is it possible to only use slick’s JS and CSS?
+= Is it possible to only use slick’s JS and CSS? =
 
 Of course. Paste the following lines in your template or functions.php:
 
@@ -114,5 +114,5 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 
 == Changelog ==
 
-= 0.1 =
+= 0.1 (10.07.2016) =
 * Initial release
