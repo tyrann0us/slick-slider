@@ -114,5 +114,5 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 
 == Changelog ==
 
-= 0.1 (10.07.2016) =
+= 0.1 (10/07/2016) =
 * Initial release
