@@ -1,5 +1,5 @@
 === Slick Slider ===
-Contributors: tyrann0us
+Contributors: Tyrannous
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J4347QQ8J3L54
 Tags: gallery, slider, image slider, slideshow, carousel, slick slider
 Requires at least: 4.6
@@ -39,7 +39,7 @@ Available options (amongst others):
 > If you don’t know your website’s PHP version ask your host and request an update if necessary. [Click here](https://wordpress.org/support/topic/attention-slick-slider-requires-at-least-php-5-6/) for more information.
 
 
-Slick Slider is based upon the awesome [slick slider](https://kenwheeler.github.io/slick/) written by Ken Wheeler.
+Slick Slider uses the awesome [slick slider](https://kenwheeler.github.io/slick/) written by Ken Wheeler.
 
 
 == Installation ==
@@ -86,7 +86,7 @@ You can turn it off by using `add_filter( 'slick_slider_load_helper_css', '__ret
 
 = I want to change the gallery attributes using PHP =
 
-Use the WordPress core filter `[shortcode_atts_gallery](http://codex.wordpress.org/Function_Reference/shortcode_atts_gallery)`.
+Use the WordPress core filter [`shortcode_atts_gallery`](http://codex.wordpress.org/Function_Reference/shortcode_atts_gallery).
 
 = Is it possible to adjust the caption’s markup? =
 
@@ -113,6 +113,9 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 3. Frontend with slider.
 
 == Changelog ==
+
+= 0.2 (10/17/2016) =
+* Fix: Minor tweaks in readme.txt
 
 = 0.1 (10/07/2016) =
 * Initial release
