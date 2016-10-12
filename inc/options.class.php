@@ -28,7 +28,11 @@ class slickSliderOptions {
 				$options_db = get_option( 'slick-slider' );
 			}
 			foreach ( $options as $option => $array_values ) {
-				$options[$option]['value'] = $options_db[$option];
+				if ( isset( $options_db[$option] ) ) {
+					$options[$option]['value'] = $options_db[$option];
+				} else {
+					self::update( $options );
+				}
 			}
 			slickSliderCache::set( 'options', $options );
 		}
