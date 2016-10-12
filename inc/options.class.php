@@ -261,7 +261,7 @@ class slickSliderOptions {
 				foreach ( $options as $option => $array_values ) {
 					if ( false === $array_values['showOnSingleGallery'] ) continue; ?>
 					<label class="setting">
-						<span><?php echo $option; ?></span><small data-hint="<?php echo $array_values['desc']; ?>">[?]</small>
+						<span><?php echo $array_values['name']; ?></span><small data-hint="<?php echo $array_values['desc']; ?>">[?]</small>
 						<?php switch ( $array_values['type'] ) {
 							case 'boolean' :
 								printf(
