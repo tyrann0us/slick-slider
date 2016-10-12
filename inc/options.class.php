@@ -32,6 +32,10 @@ class slickSliderOptions {
 			}
 			slickSliderCache::set( 'options', $options );
 		}
+		array_walk_recursive( $options, function( &$value, $key ) {
+			'value' === $key && is_string( $value ) && $value = htmlspecialchars_decode( $value );
+		} );
+
 		if ( empty( $field ) ) {
 			return $options;
 		}
@@ -135,9 +139,6 @@ class slickSliderOptions {
 		$options_db = self::get();
 		$options_default = self::defaults();
 
-		array_walk_recursive( $options_default, function( &$value, $key ) {
-			'value' === $key && is_string( $value ) && $value = htmlspecialchars( $value );
-		} );
 		$options_merged = SlickSliderMain::arrayDiffAssocRecursive( $options_db, $options_default );
 
 		if ( is_array( $options_merged ) ) {
