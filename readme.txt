@@ -116,6 +116,7 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 
 = 0.2 (10/17/2016) =
 * Fix: Minor tweaks in readme.txt
+* Fix: Minor bug causing default values to be rendered in `data-slick` attribute
 
 = 0.1 (10/07/2016) =
 * Initial release
