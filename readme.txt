@@ -118,6 +118,7 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 * Fix: Minor tweaks in readme.txt
 * Fix: Minor bug causing default values to be rendered in `data-slick` attribute
 * Fix: Minor bug that prevented new options to be added
+* Fix: Minor bug that caused wrapper div to be included in caption filter
 
 = 0.1 (10/07/2016) =
 * Initial release

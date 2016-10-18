@@ -226,10 +226,10 @@ class slickSliderOutput {
 					if ( ! empty( $caption_text ) ) {
 						$caption = [];
 						$caption[] = '<div class="slide__caption">';
-						$caption[] = $caption_text;
+						$caption[] = apply_filters( 'slick_slider_caption_html', $caption_text, $id, $post->ID );
 						$caption[] = '</div>';
 
-						$slide[] = apply_filters( 'slick_slider_caption_html', implode( "\n", $caption ), $id, $post->ID );
+						$slide[] = implode( "\n", $caption );
 					}
 				}
 
