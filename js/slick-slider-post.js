@@ -10,7 +10,7 @@ var slickSlider = {
 	},
 
 	/**
-	 * Extend WordPress gallery default settings with Slick settings.
+	 * Extend WordPress gallery default settings with Slick Slider settings.
 	 */
 	extendGalleryDefaults: function() {
 
@@ -62,7 +62,7 @@ var slickSlider = {
 	},
 
 	/**
-	 * Init Slick settings if Slick is active.
+	 * Init Slick settings if Slick Slider is active.
 	 */
 	initSliderSettings: function() {
 
@@ -80,7 +80,7 @@ var slickSlider = {
 	},
 
 	/**
-	 * Toggle settings element when Slick gets activated or deactivated.
+	 * Toggle settings element when Slick Slider gets activated or deactivated.
 	 */
 	toggleSliderSettings: function() {
 
