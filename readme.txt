@@ -114,9 +114,10 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 
 == Changelog ==
 
-= 0.2 (10/17/2016) =
+= 0.2 (10/23/2016) =
+* Feature: Added option to toggle Slick Slider options on gallery modal
 * Fix: Minor tweaks in readme.txt
-* Fix: Minor bug causing default values to be rendered in `data-slick` attribute
+* Fix: Minor bug causing some default values to be rendered in `data-slick` attribute
 * Fix: Minor bug that prevented new options to be added
 * Fix: Minor bug that caused wrapper div to be included in caption filter
 * Fix: Normalized gallery modal CSS

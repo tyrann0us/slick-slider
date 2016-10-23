@@ -349,6 +349,14 @@ class slickSliderOptions {
 	public static function defaults() {
 
 		return array(
+			'showOnGalleryModal' => array(
+				'name' => __( 'Show options on gallery modal', 'slick-slider' ),
+				'desc' => __( 'Show Slick Slider options on single gallery modal', 'slick-slider' ),
+				'showOnSingleGallery' => false,
+				'setting' => 'showOnGalleryModal',
+				'type' => 'boolean',
+				'value' => true,
+			),
 			'accessibility' => array(
 				'name' => __( 'accessibility', 'slick-slider' ),
 				'desc' => __( 'Enables tabbing and arrow key navigation.', 'slick-slider' ),

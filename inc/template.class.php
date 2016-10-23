@@ -41,7 +41,9 @@ class slickSliderTemplate {
 	 */
 	public static function printMediaTemplates() {
 
-		$pagenow = slickSliderMain::currentPage(); ?>
+		$pagenow = slickSliderMain::currentPage();
+		$showOnGalleryModal = slickSliderOptions::get( 'showOnGalleryModal' )['value'];
+		?>
 
 		<script type="text/html" id="tmpl-slick-slider-gallery-settings">
 			<div class="clear"></div>
@@ -54,9 +56,11 @@ class slickSliderTemplate {
 						<input type="checkbox" data-setting="slick_active">
 					</label>
 				</div>
-				<div class="slick-slider-settings-inner">
-					<?php slickSliderOptions::renderSettingsMarkup( $pagenow ); ?>
-				</div>
+				<?php if ( $showOnGalleryModal ) { ?>
+					<div class="slick-slider-settings-inner">
+						<?php slickSliderOptions::renderSettingsMarkup( $pagenow ); ?>
+					</div>
+				<?php } ?>
 			</div>
 		</script>
 
