@@ -75,7 +75,17 @@ function slick_slider_enqueue_assets() {
 	wp_enqueue_style( 'slick-slider-core-theme' );
 }`
 
+= Is it possible to prevent slick’s JS and CSS to get loaded? = 
 
+Paste the following lines in your functions.php:
+
+`add_action( 'wp_enqueue_scripts', 'slick_slider_deregister_assets', 11 );
+function slick_slider_deregister_assets() {
+	wp_deregister_script( 'slick-slider-core' );
+	wp_deregister_style( 'slick-slider-core' );
+}`
+
+> Note: This will also remove the initiation script and helper CSS from the page (see below).
 
 = Is it possible to prevent the slider from getting automatically initiated? =
 
@@ -117,6 +127,7 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 == Changelog ==
 
 = 0.3 =
+* Feature: Extended FAQ section in readme.txt
 * Fix: Minor tweaks in readme.txt
 
 = 0.2 (10/23/2016) =
