@@ -1,7 +1,7 @@
 === Slick Slider ===
 Contributors: Tyrannous
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J4347QQ8J3L54
-Tags: gallery, slider, image slider, slideshow, carousel, slick slider
+Tags: gallery, slider, image slider, slideshow, carousel, slick, jQuery slider
 Requires at least: 4.6
 Tested up to: 4.6
 Stable tag: 0.2
@@ -55,19 +55,19 @@ Slick Slider uses the awesome [slick slider](https://kenwheeler.github.io/slick/
 
 Absolutely! On each gallery edit modal there’s a checkbox called “Use Slick Slider”. If you leave this box unchecked your gallery will be a simple … gallery.
 
-= I want the slider to appear somewhere else, say in a widget =
+= Is it possible to place the slider somewhere else, say in a widget? =
 
 Since Slick Slider uses the default gallery shortcode, you can simply paste it wherever you want it to appear.
 Note that you may need to [enable support for shortcodes in widgets](http://www.wpbeginner.com/wp-tutorials/how-to-use-shortcodes-in-your-wordpress-sidebar-widgets/). Additionally if you want to edit the slider options you’ll have to change it using the shortcode attributes directly.
 
-= Are there captions available? =
+= Is it possible to add captions? =
 
-Yes, but hidden by default. To activate them use `add_filter( 'slick_slider_show_caption', '__return_true' );`.
-> Note: The captions are unstyled. You need to apply some CSS on them (use the class `.slide__caption`).
+They are hidden by default. To activate them use `add_filter( 'slick_slider_show_caption', '__return_true' );`.
+> Note: The captions aren’t styled. You need to apply some CSS on them (use the class `.slide__caption`).
 
-= Is it possible to only use slick’s JS and CSS? =
+= Is it possible to use slick’s JS and CSS independently? =
 
-Of course. Paste the following lines in your template or functions.php:
+Paste the following lines in your functions.php:
 
 `add_action( 'wp_enqueue_scripts', 'slick_slider_enqueue_assets' );
 function slick_slider_enqueue_assets() {
@@ -75,16 +75,18 @@ function slick_slider_enqueue_assets() {
 	wp_enqueue_style( 'slick-slider-core-theme' );
 }`
 
-= I don’t want the Plugin to initiate the slider =
 
-Use `add_filter( 'slick_slider_init_slider', '__return_false' );`
 
-= I don’t want the Plugin to print additional CSS on my page =
+= Is it possible to prevent the slider from getting automatically initiated? =
+
+Use `add_filter( 'slick_slider_init_slider', '__return_false' );`.
+
+= Is it possible to prevent the plugin from adding additional helper CSS on my page? =
 
 These three line of CSS are sometimes required if the page has a white background. Otherwise the slider arrows won’t be visible.
-You can turn it off by using `add_filter( 'slick_slider_load_helper_css', '__return_false' );`
+You can turn it off by using `add_filter( 'slick_slider_load_helper_css', '__return_false' );`.
 
-= I want to change the gallery attributes using PHP =
+= Is it possible to change the gallery attributes using PHP? =
 
 Use the WordPress core filter [`shortcode_atts_gallery`](http://codex.wordpress.org/Function_Reference/shortcode_atts_gallery).
 
@@ -113,6 +115,9 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 3. Frontend with slider.
 
 == Changelog ==
+
+= 0.3 =
+* Fix: Minor tweaks in readme.txt
 
 = 0.2 (10/23/2016) =
 * Feature: Added option to toggle Slick Slider options on gallery modal
