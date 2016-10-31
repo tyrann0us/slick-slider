@@ -126,8 +126,9 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 
 == Changelog ==
 
-= 0.3 =
+= 0.3 (10/31/2016) =
 * Feature: Extended FAQ section in readme.txt
+* Fix: Bug that prevented new options to be added (finally)
 * Fix: Minor tweaks in readme.txt
 
 = 0.2 (10/23/2016) =

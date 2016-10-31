@@ -30,8 +30,6 @@ class slickSliderOptions {
 			foreach ( $options as $option => $array_values ) {
 				if ( isset( $options_db[$option] ) ) {
 					$options[$option]['value'] = $options_db[$option];
-				} else {
-					self::update( $options );
 				}
 			}
 			slickSliderCache::set( 'options', $options );
@@ -152,7 +150,7 @@ class slickSliderOptions {
 		}
 		
 		$options_slider_raw = array_filter( $atts, function( $value, $key ) {
-		    return strpos( $key, 'sl_') === 0;
+			return strpos( $key, 'sl_') === 0;
 		}, true );
 
 		$options_slider = [];
