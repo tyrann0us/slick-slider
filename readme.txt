@@ -60,6 +60,12 @@ Absolutely! On each gallery edit modal there’s a checkbox called “Use Slick 
 Since Slick Slider uses the default gallery shortcode, you can simply paste it wherever you want it to appear.
 Note that you may need to [enable support for shortcodes in widgets](http://www.wpbeginner.com/wp-tutorials/how-to-use-shortcodes-in-your-wordpress-sidebar-widgets/). Additionally if you want to edit the slider options you’ll have to change it using the shortcode attributes directly.
 
+= Is it possible to specify custom links for the gallery images? =
+
+Use the plugin [WP Gallery Custom Links](https://wordpress.org/plugins/wp-gallery-custom-links/).
+
+> Note: Only support for custom URLs and link targets (including the filter `wpgcl_filter_raw_gallery_link_url`). No support for additional custom fields (they will be hidden) or shortcode attributes.
+
 = Is it possible to add captions? =
 
 They are hidden by default. To activate them use `add_filter( 'slick_slider_show_caption', '__return_true' );`.
@@ -125,6 +131,9 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 3. Frontend with slider.
 
 == Changelog ==
+
+= 0.4 =
+* Feature: Added support for custom links (see [FAQ section](https://wordpress.org/plugins/slick-slider/faq/))
 
 = 0.3 (10/31/2016) =
 * Feature: Extended FAQ section in readme.txt

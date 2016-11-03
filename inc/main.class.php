@@ -60,6 +60,12 @@ class slickSliderMain {
 						'addThanksLink' 
 					), 10, 2 );
 					break;
+				case 'admin-ajax' :
+					add_filter( 'attachment_fields_to_edit', array(
+						'slickSliderTemplate',
+						'unsetWpGalleryCustomLinksFields',
+					), 10, 2 );
+					break;
 				default:
 					break;
 			}

@@ -204,7 +204,15 @@ class slickSliderOutput {
 					)
 					: wp_get_attachment_image( $id, $atts['size'] );
 
-				if ( 'none' !== $atts['link'] ) {
+
+				if ( class_exists( 'WPGalleryCustomLinks' ) && $link = get_post_meta( $id, '_gallery_link_url', true ) ) {
+					$slide[] = sprintf(
+						'<a href="%s" target="%s">%s</a>',
+						esc_html( apply_filters( 'wpgcl_filter_raw_gallery_link_url', $link, $id, $post->ID ) ),
+						esc_html( get_post_meta( $id, '_gallery_link_target', true ) ),
+						$image_tag
+					);
+				} elseif ( 'none' !== $atts['link'] ) {
 					$slide[] = wp_get_attachment_link(
 						$id,
 						$atts['size'],
