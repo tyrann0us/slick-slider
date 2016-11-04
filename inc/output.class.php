@@ -81,11 +81,11 @@ class slickSliderOutput {
 			'1.6.0'
 		);
 
-		if ( false !== apply_filters( 'slick_slider_init_slider', true ) ) {
+		if ( apply_filters( 'slick_slider_init_slider', true ) ) {
 			wp_add_inline_script( 'slick-slider-core', file_get_contents( SLICK_SLIDER_DIR . '/js/slick-slider-init.js' ) );
 		}
 
-		if ( false !== apply_filters( 'slick_slider_load_helper_css', true ) ) {
+		if ( apply_filters( 'slick_slider_load_helper_css', true ) ) {
 			wp_add_inline_style( 'slick-slider-core-theme', file_get_contents( SLICK_SLIDER_DIR . '/css/slick-slider-helper.min.css' ) );
 		}
 
@@ -224,7 +224,7 @@ class slickSliderOutput {
 					$slide[] = $image_tag;
 				}
 
-				if ( false !== apply_filters( 'slick_slider_show_caption', false ) ) {
+				if ( apply_filters( 'slick_slider_show_caption', false ) ) {
 					$caption_text = ! empty( $meta['caption'] )
 						? $meta['caption']
 						: ( ! empty( $meta['title'] )
