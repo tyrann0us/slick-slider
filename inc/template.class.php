@@ -119,26 +119,4 @@ class slickSliderTemplate {
 
 	}
 
-	/**
-	 * Remove some of the custom attachment fields added by plugin "WP Gallery Custom Links".
-	 * These fields are not supported by Slick Slider.
-	 *
-	 * @since 0.4
-	 */
-	public static function unsetWpGalleryCustomLinksFields( $form_fields, $post ) {
-
-		if ( ! class_exists( 'WPGalleryCustomLinks' ) ) {
-			return $form_fields;
-		}
-
-		if ( isset( $form_fields['gallery_link_preserve_click'] ) ) {
-			unset( $form_fields['gallery_link_preserve_click'] );
-		}
-		if ( isset( $form_fields['gallery_link_additional_css_classes'] ) ) {
-			unset( $form_fields['gallery_link_additional_css_classes'] );
-		}
-		return $form_fields;
-
-	}
-
 }

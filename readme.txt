@@ -64,7 +64,7 @@ Note that you may need to [enable support for shortcodes in widgets](http://www.
 
 Use the plugin [WP Gallery Custom Links](https://wordpress.org/plugins/wp-gallery-custom-links/).
 
-> Note: Only support for custom URLs and link targets (including the filter `wpgcl_filter_raw_gallery_link_url`). No support for additional custom fields (they will be hidden) or shortcode attributes.
+> Note: Only support for custom URLs and link targets (including the filter `wpgcl_filter_raw_gallery_link_url`). No support for additional custom fields or shortcode attributes.
 
 = Is it possible to add captions? =
 
