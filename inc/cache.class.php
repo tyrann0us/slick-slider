@@ -11,6 +11,7 @@ class slickSliderCache {
 
 	/**
 	 * Cached values stored in array.
+	 * 
 	 * @since 0.1
 	 * 
 	 * @var array
