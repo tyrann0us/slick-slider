@@ -3,7 +3,7 @@ var slickSliderFeatherlightHelper = {
 	/**
 	 * Provides jQuery selectors/objects to be used later on.
 	 *
-	 * @since  0.4 
+	 * @since  0.4
 	 * @return void
 	 */
 	settings: {
@@ -22,7 +22,7 @@ var slickSliderFeatherlightHelper = {
 	/**
 	 * Finds and creates Featherlight galleries for Slick sliders.
 	 *
-	 * @since  0.4 
+	 * @since  0.4
 	 * @return void
 	 */
 	findSliders: function() {
@@ -38,7 +38,7 @@ var slickSliderFeatherlightHelper = {
 	 * Callback function to initialize Featherlight galleries.
 	 * Sets and deletes target slider object and adds captions, if available.
 	 *
-	 * @since  0.4 
+	 * @since  0.4
 	 * @return void
 	 */
 	buildGalleries: function( index, element ) {
@@ -90,7 +90,7 @@ var slickSliderFeatherlightHelper = {
 	/**
 	 * Listens for previous/next arrow click, touch swipe and keyboard navigation.
 	 * 	 
-	 * @since  0.4 
+	 * @since  0.4
 	 * @return void
 	 */
 	featherlightNavigationCallback: function() {
@@ -113,7 +113,7 @@ var slickSliderFeatherlightHelper = {
 	/**
 	 * Call all functions.
 	 * 	 
-	 * @since  0.4 
+	 * @since  0.4
 	 * @return void
 	 */
 	init: function() {

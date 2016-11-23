@@ -1,7 +1,10 @@
 var slickSlider = {
 
 	/**
-	 * Init variables.
+	 * Inits variables.
+	 *
+	 * @since  0.1
+	 * @return void
 	 */
 	settings: {
 		$slickSliderSettings: false,
@@ -10,7 +13,10 @@ var slickSlider = {
 	},
 
 	/**
-	 * Extend WordPress gallery default settings with Slick Slider settings.
+	 * Extends WordPress gallery default settings with Slick Slider settings.
+	 *
+	 * @since  0.1
+	 * @return {string} All media gallery templates.
 	 */
 	extendGalleryDefaults: function() {
 
@@ -62,7 +68,10 @@ var slickSlider = {
 	},
 
 	/**
-	 * Init Slick settings if Slick Slider is active.
+	 * Inits Slick settings if Slick Slider is active.
+	 * 
+	 * @since  0.1
+	 * @return void
 	 */
 	initSliderSettings: function() {
 
@@ -80,7 +89,10 @@ var slickSlider = {
 	},
 
 	/**
-	 * Toggle settings element when Slick Slider gets activated or deactivated.
+	 * Toggles settings element when Slick Slider gets activated or deactivated.
+	 *
+	 * @since  0.1
+	 * @return void
 	 */
 	toggleSliderSettings: function() {
 
@@ -93,7 +105,10 @@ var slickSlider = {
 	},
 
 	/**
-	 * Call all functions.
+	 * Calls all functions.
+	 *
+	 * @since  0.1
+	 * @return void
 	 */
 	init: function() {
 
@@ -106,9 +121,6 @@ var slickSlider = {
 	}
 }
 
-/**
- * Initiate.
- */
 jQuery( document ).ready( function() {
 
 	'use strict';

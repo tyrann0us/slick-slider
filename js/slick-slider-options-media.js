@@ -1,7 +1,10 @@
 var slickSlider = {
 
 	/**
-	 * Prepare the settings markup to be made collapsible using jQuery UI Accordion and activate it.
+	 * Prepares the settings markup to be made collapsible using jQuery UI Accordion and activate it.
+	 *
+	 * @since  0.1
+	 * @return void
 	 */
 	collapseSettings: function() {
 
@@ -26,7 +29,10 @@ var slickSlider = {
 	},
 
 	/**
-	 * Let the user confirm he wants to reset all settings.
+	 * Lets the user confirm he wants to reset all settings.
+	 *
+	 * @since  0.1
+	 * @return {bool} False if user aborts.
 	 */
 	confirmReset: function() {
 		
@@ -39,7 +45,10 @@ var slickSlider = {
 	},
 
 	/**
-	 * Call all functions.
+	 * Calls all functions.
+	 *
+	 * @since  0.1
+	 * @return void
 	 */
 	init: function() {
 		$ = jQuery;
@@ -49,9 +58,6 @@ var slickSlider = {
 
 }
 
-/**
- * Initiate.
- */
 jQuery( document ).ready( function() {
 
 	'use strict';
