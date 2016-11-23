@@ -89,6 +89,16 @@ class slickSliderOutput {
 			wp_add_inline_style( 'slick-slider-core-theme', file_get_contents( SLICK_SLIDER_DIR . '/css/slick-slider-helper.min.css' ) );
 		}
 
+		if ( class_exists( 'WP_Featherlight' ) ) {
+			wp_register_script(
+				'slick-slider-featherlight-helper',
+				slickSliderMain::pluginUrl( 'js/slick-slider-featherlight-helper.min.js' ),
+				array( 'wp-featherlight' ),
+				slickSliderMain::getPluginData( 'Version' ),
+				true
+			);
+		}
+
 	}
 
 	/**
@@ -165,6 +175,7 @@ class slickSliderOutput {
 				return '';
 			}
 
+			wp_enqueue_script( 'slick-slider-featherlight-helper' );
 			wp_enqueue_script( 'slick-slider-core' );
 			wp_enqueue_style( 'slick-slider-core-theme' );
 

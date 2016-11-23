@@ -1,7 +1,7 @@
 === Slick Slider ===
 Contributors: Tyrannous
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J4347QQ8J3L54
-Tags: gallery, slider, image slider, slideshow, carousel, slick, jQuery slider
+Tags: gallery, slider, image slider, slideshow, carousel, slick, jQuery slider, lightbox
 Requires at least: 4.6
 Tested up to: 4.6
 Stable tag: 0.3
@@ -65,6 +65,12 @@ Note that you may need to [enable support for shortcodes in widgets](http://www.
 Use the plugin [WP Gallery Custom Links](https://wordpress.org/plugins/wp-gallery-custom-links/).
 
 > Note: Only support for custom URLs and link targets (including the filter `wpgcl_filter_raw_gallery_link_url`). No support for additional custom fields or shortcode attributes.
+
+= Is it possible to open linked images in a lightbox? =
+
+Use the plugin [WP Featherlight](https://wordpress.org/plugins/wp-featherlight/).
+
+> Note: The gallery’s setting “Link To” has to be set to “Media File”.
 
 = Is it possible to add captions? =
 
@@ -134,6 +140,7 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 
 = 0.4 =
 * Feature: Added support for custom links (see [FAQ section](https://wordpress.org/plugins/slick-slider/faq/))
+* Feature: Added lightbox support (see [FAQ section](https://wordpress.org/plugins/slick-slider/faq/))
 
 = 0.3 (10/31/2016) =
 * Feature: Extended FAQ section in readme.txt
