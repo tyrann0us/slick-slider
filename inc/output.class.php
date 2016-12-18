@@ -209,9 +209,7 @@ class slickSliderOutput {
 						$image_src[0],
 						$image_src[1],
 						$image_src[2],
-						$meta['alt']
-							? sanitize_title( $meta['alt'] )
-							: sanitize_title( $meta['title'] )
+						$meta['alt'] ? sanitize_title( $meta['alt'] ) : ''
 					)
 					: wp_get_attachment_image( $id, $atts['size'] );
 
