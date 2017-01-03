@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: gallery, slider, image slider, slideshow, carousel, slick, jQuery slider, lightbox
 Requires at least: 4.6
 Tested up to: 4.7
-Stable tag: 0.3
+Stable tag: 0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -124,7 +124,7 @@ Use the filter `slick_slider_slide_html`. First argument is the slide’s HTML m
 
 Use the filter `slick_slider_html`. First argument is the slider’s HTML markup, second is the post ID.
 
-= Is it possible to enqueue scripts and styles unminifyed? =
+= Is it possible to enqueue scripts and styles unminified? =
 
 Use the constant [`SCRIPT_DEBUG`](https://codex.wordpress.org/Debugging_in_WordPress#SCRIPT_DEBUG).
 
@@ -142,7 +142,7 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 
 == Changelog ==
 
-= 0.4 =
+= 0.4 (01/03/2017) =
 * Feature: Added support for custom links (see [FAQ section](https://wordpress.org/plugins/slick-slider/faq/))
 * Feature: Added lightbox support (see [FAQ section](https://wordpress.org/plugins/slick-slider/faq/))
 * Feature: Added support for [`SCRIPT_DEBUG` constant](https://codex.wordpress.org/Debugging_in_WordPress#SCRIPT_DEBUG)
