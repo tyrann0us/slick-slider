@@ -4,6 +4,7 @@ var slickSliderFeatherlightHelper = {
 	 * Provides jQuery selectors/objects to be used later on.
 	 *
 	 * @since  0.4
+	 * 
 	 * @return void
 	 */
 	settings: {
@@ -23,6 +24,7 @@ var slickSliderFeatherlightHelper = {
 	 * Finds and creates Featherlight galleries for Slick sliders.
 	 *
 	 * @since  0.4
+	 * 
 	 * @return void
 	 */
 	findSliders: function() {
@@ -39,12 +41,13 @@ var slickSliderFeatherlightHelper = {
 	 * Sets and deletes target slider object and adds captions, if available.
 	 *
 	 * @since  0.4
+	 * 
 	 * @return void
 	 */
 	buildGalleries: function( index, element ) {
 
 		var $sliderObj   = $( element ),
-			$sliderItems = $sliderObj.find( s.slickSliderLinkSelector );
+			$sliderItems = $sliderObj.find( s.slickSliderLinkSelector ).filter( slickSliderFeatherlightHelper.testImages );
 
 		$sliderItems.featherlightGallery( {
 			afterContent: function() {
@@ -68,22 +71,17 @@ var slickSliderFeatherlightHelper = {
 	},
 
 	/**
-	 * Moves the slider to previous/next slide.
-	 * 
+	 * Checks href targets to see if a given anchor is linking to an image.
+	 *
 	 * @since  0.4
 	 * 
-	 * @param  {object} e Event object.
-	 * @return void 
+	 * @return mixed
 	 */
-	slickSliderGoTo: function( e ) {
+	testImages: function( index, element ) {
 
-		if ( ! s.targetSlider ) {
-			return;
-		}
-
-		var slickSliderCurrentSlide = s.targetSlider.slick( 'slickCurrentSlide' ),
-			slickSliderNextSlide = 'next' === e.type ? slickSliderCurrentSlide + 1 : slickSliderCurrentSlide - 1;
-		s.targetSlider.slick( 'slickGoTo', slickSliderNextSlide );
+		return /(.png|.jpg|.jpeg|.gif|.tiff|.bmp)$/.test(
+			$( element ).attr( 'href' ).toLowerCase().split( '?' )[0].split( '#' )[0]
+		);
 
 	},
 
@@ -91,6 +89,7 @@ var slickSliderFeatherlightHelper = {
 	 * Listens for previous/next arrow click, touch swipe and keyboard navigation.
 	 * 	 
 	 * @since  0.4
+	 * 
 	 * @return void
 	 */
 	featherlightNavigationCallback: function() {
@@ -109,11 +108,30 @@ var slickSliderFeatherlightHelper = {
 
 	},
 
+	/**
+	 * Moves the slider to previous/next slide.
+	 * 
+	 * @since  0.4
+	 * 
+	 * @return void 
+	 */
+	slickSliderGoTo: function( e ) {
+
+		if ( ! s.targetSlider ) {
+			return;
+		}
+
+		var slickSliderCurrentSlide = s.targetSlider.slick( 'slickCurrentSlide' ),
+			slickSliderNextSlide = 'next' === e.type ? slickSliderCurrentSlide + 1 : slickSliderCurrentSlide - 1;
+		s.targetSlider.slick( 'slickGoTo', slickSliderNextSlide );
+
+	},
 
 	/**
 	 * Call all functions.
 	 * 	 
 	 * @since  0.4
+	 * 
 	 * @return void
 	 */
 	init: function() {
