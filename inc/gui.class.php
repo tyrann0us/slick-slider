@@ -77,9 +77,11 @@ class slickSliderGui {
 	 */
 	public static function addCss() {
 
+		$assetSuffix = slickSliderMain::getAssetSuffix();
+
 		wp_enqueue_style(
 			'slick-slider-options-media',
-			slickSliderMain::pluginUrl( 'css/slick-slider-options-media.min.css' ),
+			slickSliderMain::pluginUrl( "css/slick-slider-options-media{$assetSuffix}.css" ),
 			array(),
 			slickSliderMain::getPluginData( 'Version' )
 		);
@@ -93,9 +95,11 @@ class slickSliderGui {
 	 */
 	public static function addJs() {
 
+		$assetSuffix = slickSliderMain::getAssetSuffix();
+
 		wp_enqueue_script(
 			'slick-slider-options-media',
-			slickSliderMain::pluginUrl( 'js/slick-slider-options-media.min.js' ),
+			slickSliderMain::pluginUrl( "js/slick-slider-options-media{$assetSuffix}.js" ),
 			array( 'jquery-ui-accordion' ),
 			slickSliderMain::getPluginData( 'Version' )
 		);
@@ -151,7 +155,7 @@ class slickSliderGui {
 		if ( self::$skipSaving ) {
 			return;
 		}
-		if ( empty( $_POST ) OR empty( $_POST['_slick_action'] ) ) {
+		if ( empty( $_POST ) || empty( $_POST['_slick_action'] ) ) {
 			return;
 		}
 		if ( ! isset( $_POST['_slick_nonce'] ) ) {

@@ -93,9 +93,11 @@ class slickSliderTemplate {
 	 */
 	public static function addCss() {
 
+		$assetSuffix = slickSliderMain::getAssetSuffix();
+
 		wp_enqueue_style(
 			'slick-slider-post-gallery',
-			slickSliderMain::pluginUrl( 'css/slick-slider-post.min.css' ),
+			slickSliderMain::pluginUrl( "css/slick-slider-post{$assetSuffix}.css" ),
 			false,
 			slickSliderMain::getPluginData( 'Version' )
 		);
@@ -110,9 +112,11 @@ class slickSliderTemplate {
 	 */
 	public static function addJs() {
 
+		$assetSuffix = slickSliderMain::getAssetSuffix();
+
 		wp_enqueue_script(
 			'slick-slider-post-gallery',
-			slickSliderMain::pluginUrl( 'js/slick-slider-post.min.js' ),
+			slickSliderMain::pluginUrl( "js/slick-slider-post{$assetSuffix}.js" ),
 			array( 'media-editor' ),
 			slickSliderMain::getPluginData( 'Version' )
 		);

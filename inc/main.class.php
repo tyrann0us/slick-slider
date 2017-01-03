@@ -260,4 +260,17 @@ class slickSliderMain {
 
 	}
 
+	/**
+	 * Helper function for getting the `.min` suffix for minified files.
+	 *
+	 * @since  0.4
+	 * 
+	 * @return string `.min` if SCRIPT_DEBUG is set and true, empty string otherwise.
+	 */
+	public static function getAssetSuffix() {
+
+		return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+	}
+
 }

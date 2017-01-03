@@ -60,9 +60,11 @@ class slickSliderOutput {
 	 */
 	public static function registerSlickAssets() {
 
+		$assetSuffix = slickSliderMain::getAssetSuffix();
+
 		wp_register_script(
 			'slick-slider-core',
-			slickSliderMain::pluginUrl( 'bower_components/slick-carousel/slick/slick.min.js' ),
+			slickSliderMain::pluginUrl( "bower_components/slick-carousel/slick/slick{$assetSuffix}.js" ),
 			array( 'jquery' ),
 			'1.6.0',
 			true
@@ -86,13 +88,13 @@ class slickSliderOutput {
 		}
 
 		if ( apply_filters( 'slick_slider_load_helper_css', true ) ) {
-			wp_add_inline_style( 'slick-slider-core-theme', file_get_contents( SLICK_SLIDER_DIR . '/css/slick-slider-helper.min.css' ) );
+			wp_add_inline_style( 'slick-slider-core-theme', file_get_contents( SLICK_SLIDER_DIR . "/css/slick-slider-helper{$assetSuffix}.css" ) );
 		}
 
 		if ( class_exists( 'WP_Featherlight' ) ) {
 			wp_register_script(
 				'slick-slider-featherlight-helper',
-				slickSliderMain::pluginUrl( 'js/slick-slider-featherlight-helper.min.js' ),
+				slickSliderMain::pluginUrl( "js/slick-slider-featherlight-helper{$assetSuffix}.js" ),
 				array( 'wp-featherlight' ),
 				slickSliderMain::getPluginData( 'Version' ),
 				true

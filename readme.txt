@@ -124,6 +124,10 @@ Use the filter `slick_slider_slide_html`. First argument is the slide’s HTML m
 
 Use the filter `slick_slider_html`. First argument is the slider’s HTML markup, second is the post ID.
 
+= Is it possible to enqueue scripts and styles unminifyed? =
+
+Use the constant [`SCRIPT_DEBUG`](https://codex.wordpress.org/Debugging_in_WordPress#SCRIPT_DEBUG).
+
 = I want to buy you a beer! =
 
 Thats great, thanks! First of all, you should say thank you to [Ken Wheeler](http://kenwheeler.github.io/) who developed the actual slick slider.
@@ -141,6 +145,7 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 = 0.4 =
 * Feature: Added support for custom links (see [FAQ section](https://wordpress.org/plugins/slick-slider/faq/))
 * Feature: Added lightbox support (see [FAQ section](https://wordpress.org/plugins/slick-slider/faq/))
+* Feature: Added support for [`SCRIPT_DEBUG` constant](https://codex.wordpress.org/Debugging_in_WordPress#SCRIPT_DEBUG)
 
 = 0.3 (10/31/2016) =
 * Feature: Extended FAQ section in readme.txt
