@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) OR exit;
  *
  * @since 0.1
  */
-class slickSliderGui {
+class Slick_Slider_Gui {
 
 	/**
 	 * If set to true, skip saving Slick Slider options to database.
@@ -18,7 +18,7 @@ class slickSliderGui {
 	 * 
 	 * @var boolean $skip_saving Whether to skip saving.
 	 */
-	private static $skipSaving = false;
+	private static $skip_saving = false;
 
 	/**
 	 * Enqueue assets,
@@ -27,7 +27,7 @@ class slickSliderGui {
 	 *
 	 * @since 0.1
 	 */
-	public static function initSettings() {
+	public static function init_settings() {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
@@ -36,14 +36,14 @@ class slickSliderGui {
 			'admin_enqueue_scripts',
 			array(
 				 __CLASS__,
-				'addCss' 
+				'add_css' 
 			)
 		);
 		add_action(
 			'admin_print_styles',
 			array(
 				 __CLASS__,
-				'addJs' 
+				'add_js' 
 			)
 		);
 
@@ -51,7 +51,7 @@ class slickSliderGui {
 			'load-options-media.php',
 			array(
 				__CLASS__,
-				'addHelpTab'
+				'add_help_tab'
 			)
 		);
 
@@ -60,13 +60,13 @@ class slickSliderGui {
 			__( 'Slick Slider settings', 'slick-slider' ),
 			array(
 				__CLASS__,
-				'settingSectionCallback'
+				'setting_section_callback'
 			),
 			'media'
 		);
 
-		$pagenow = slickSliderMain::currentPage();
-		slickSliderOptions::renderSettingsMarkup( $pagenow );
+		$pagenow = Slick_Slider_Main::current_page();
+		Slick_Slider_Options::render_settings_markup( $pagenow );
 
 	}
 
@@ -75,15 +75,15 @@ class slickSliderGui {
 	 *
 	 * @since 0.1
 	 */
-	public static function addCss() {
+	public static function add_css() {
 
-		$assetSuffix = slickSliderMain::getAssetSuffix();
+		$assetSuffix = Slick_Slider_Main::get_asset_suffix();
 
 		wp_enqueue_style(
 			'slick-slider-options-media',
-			slickSliderMain::pluginUrl( "css/slick-slider-options-media{$assetSuffix}.css" ),
+			Slick_Slider_Main::plugin_url( "css/slick-slider-options-media{$assetSuffix}.css" ),
 			array(),
-			slickSliderMain::getPluginData( 'Version' )
+			Slick_Slider_Main::get_plugin_data( 'Version' )
 		);
 
 	}
@@ -93,15 +93,15 @@ class slickSliderGui {
 	 *
 	 * @since 0.1
 	 */
-	public static function addJs() {
+	public static function add_js() {
 
-		$assetSuffix = slickSliderMain::getAssetSuffix();
+		$assetSuffix = Slick_Slider_Main::get_asset_suffix();
 
 		wp_enqueue_script(
 			'slick-slider-options-media',
-			slickSliderMain::pluginUrl( "js/slick-slider-options-media{$assetSuffix}.js" ),
+			Slick_Slider_Main::plugin_url( "js/slick-slider-options-media{$assetSuffix}.js" ),
 			array( 'jquery-ui-accordion' ),
-			slickSliderMain::getPluginData( 'Version' )
+			Slick_Slider_Main::get_plugin_data( 'Version' )
 		);
 
 	}
@@ -111,7 +111,7 @@ class slickSliderGui {
 	 *
 	 * @since 0.1
 	 */
-	public static function addHelpTab() {
+	public static function add_help_tab() {
 		$screen = get_current_screen();
 		$screen->add_help_tab( array(
 			'id' => 'slick-slider-help',
@@ -131,7 +131,7 @@ class slickSliderGui {
 	 *
 	 * @since 0.1
 	 */
-	public static function settingSectionCallback() {
+	public static function setting_section_callback() {
 
 		wp_nonce_field( '_slick__settings_nonce', '_slick_nonce' );
 		echo '<a name="slick-slider-settings" id="slick-slider-settings"></a>';
@@ -150,9 +150,9 @@ class slickSliderGui {
 	 *
 	 * @since 0.1
 	 */
-	public static function saveChanges() {
+	public static function save_changes() {
 
-		if ( self::$skipSaving ) {
+		if ( self::$skip_saving ) {
 			return;
 		}
 		if ( empty( $_POST ) || empty( $_POST['_slick_action'] ) ) {
@@ -168,13 +168,13 @@ class slickSliderGui {
 			return;
 		}
 
-		self::$skipSaving = true;
+		self::$skip_saving = true;
 		$_POST = array_map( 'stripslashes_deep', $_POST );
 		if ( isset( $_POST['_slick_reset'] ) ) {
-			slickSliderOptions::reset();
+			Slick_Slider_Options::reset();
 			return;
 		}
-		slickSliderOptions::update( $_POST, true );
+		Slick_Slider_Options::update( $_POST, true );
 
 	}
 }

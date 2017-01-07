@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) OR exit;
  *
  * @since 0.1
  */
-class slickSliderCache {
+class Slick_Slider_Cache {
 
 	/**
 	 * Cached values stored in array.
@@ -32,11 +32,11 @@ class slickSliderCache {
 		if ( empty( $key ) ) {
 			return;
 		}
-		$cache = ( array ) self::$_cache;
-		if ( empty( $cache[$key] ) ) {
+		$cache = (array) self::$_cache;
+		if ( empty( $cache[ $key ] ) ) {
 			return null;
 		}
-		return $cache[$key];
+		return $cache[ $key ];
 
 	}
 
@@ -54,8 +54,8 @@ class slickSliderCache {
 		if ( empty( $key ) ) {
 			return;
 		}
-		$cache        = ( array ) self::$_cache;
-		$cache[$key]  = $value;
+		$cache = (array) self::$_cache;
+		$cache[ $key ] = $value;
 		self::$_cache = $cache;
 
 	}

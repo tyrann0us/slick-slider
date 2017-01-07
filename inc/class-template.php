@@ -6,30 +6,30 @@ defined( 'ABSPATH' ) OR exit;
  *
  * @since 0.1
  */
-class slickSliderTemplate {
+class Slick_Slider_Template {
 
 	/**
 	 * Initiate registering of gallery settings template and required JS and CSS files.
 	 *
 	 * @since 0.1
 	 */
-	public static function initTemplate() {
+	public static function init_template() {
 
 		add_action( 'print_media_templates', array(
 			__CLASS__,
-			'printMediaTemplates'
+			'print_media_templates'
 		) );
 		add_action( 'admin_print_scripts', array(
 			__CLASS__,
-			'printSliderDefaults' 
+			'print_slider_defaults'
 		) );
 		add_action( 'admin_enqueue_scripts',  array(
 			 __CLASS__,
-			'addCss' 
+			'add_css'
 		) );
 		add_action( 'admin_enqueue_scripts',  array(
 			 __CLASS__,
-			'addJs' 
+			'add_js'
 		) );
 
 	}
@@ -39,10 +39,10 @@ class slickSliderTemplate {
 	 * 
 	 * @since 0.1
 	 */
-	public static function printMediaTemplates() {
+	public static function print_media_templates() {
 
-		$pagenow = slickSliderMain::currentPage();
-		$showOnGalleryModal = slickSliderOptions::get( 'showOnGalleryModal' )['value'];
+		$pagenow = Slick_Slider_Main::current_page();
+		$show_on_gallery_modal = Slick_Slider_Options::get( 'showOnGalleryModal' )['value'];
 		?>
 
 		<script type="text/html" id="tmpl-slick-slider-gallery-settings">
@@ -56,9 +56,9 @@ class slickSliderTemplate {
 						<input type="checkbox" data-setting="slick_active">
 					</label>
 				</div>
-				<?php if ( $showOnGalleryModal ) { ?>
+				<?php if ( $show_on_gallery_modal ) { ?>
 					<div class="slick-slider-settings-inner">
-						<?php slickSliderOptions::renderSettingsMarkup( $pagenow ); ?>
+						<?php Slick_Slider_Options::render_settings_markup( $pagenow ); ?>
 					</div>
 				<?php } ?>
 			</div>
@@ -73,11 +73,11 @@ class slickSliderTemplate {
 	 * 
 	 * @return string json encoded options.
 	 */
-	public static function printSliderDefaults() {
+	public static function print_slider_defaults() {
 
-		$options_json = json_encode( slickSliderOptions::get() );
+		$options_json = json_encode( Slick_Slider_Options::get() );
 
-		$output = array();
+		$output = [];
 		$output[] = '<script type="text/javascript">';
 		$output[] = sprintf( 'var slider_defaults = %s;', $options_json );
 		$output[] = '</script>';
@@ -91,15 +91,15 @@ class slickSliderTemplate {
 	 *
 	 * @since 0.1
 	 */
-	public static function addCss() {
+	public static function add_css() {
 
-		$assetSuffix = slickSliderMain::getAssetSuffix();
+		$assetSuffix = Slick_Slider_Main::get_asset_suffix();
 
 		wp_enqueue_style(
 			'slick-slider-post-gallery',
-			slickSliderMain::pluginUrl( "css/slick-slider-post{$assetSuffix}.css" ),
+			Slick_Slider_Main::plugin_url( "css/slick-slider-post{$assetSuffix}.css" ),
 			false,
-			slickSliderMain::getPluginData( 'Version' )
+			Slick_Slider_Main::get_plugin_data( 'Version' )
 		);
 
 	}
@@ -110,15 +110,15 @@ class slickSliderTemplate {
 	 *
 	 * @since 0.1
 	 */
-	public static function addJs() {
+	public static function add_js() {
 
-		$assetSuffix = slickSliderMain::getAssetSuffix();
+		$assetSuffix = Slick_Slider_Main::get_asset_suffix();
 
 		wp_enqueue_script(
 			'slick-slider-post-gallery',
-			slickSliderMain::pluginUrl( "js/slick-slider-post{$assetSuffix}.js" ),
+			Slick_Slider_Main::plugin_url( "js/slick-slider-post{$assetSuffix}.js" ),
 			array( 'media-editor' ),
-			slickSliderMain::getPluginData( 'Version' )
+			Slick_Slider_Main::get_plugin_data( 'Version' )
 		);
 
 	}

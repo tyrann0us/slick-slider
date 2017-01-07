@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) OR exit;
 /**
  * Class to output all files and HTML markup required for Slick Slider on frontend.
  */
-class slickSliderOutput {
+class Slick_Slider_Output {
 
 	/**
 	 * Number of Slick Sliders on same WordPress page.
@@ -13,7 +13,7 @@ class slickSliderOutput {
 	 * 
 	 * @var integer
 	 */
-	private static $slickInstance = 0;
+	private static $slick_instance = 0;
 
 	/**
 	 * Initiate registering of assets and replacing default WordPress gallery HTML with Slick Slider markup.
@@ -22,9 +22,9 @@ class slickSliderOutput {
 	 * 
 	 * @return If PHP version is too low.
 	 */
-	public static function initSlider() {
+	public static function init_slider() {
 
-		if ( ! slickSliderMain::isMinPhp( SLICK_SLIDER_MIN_PHP ) ) {
+		if ( ! Slick_Slider_Main::is_min_php( SLICK_SLIDER_MIN_PHP ) ) {
 			return;
 		}
 
@@ -32,7 +32,7 @@ class slickSliderOutput {
 			'wp_enqueue_scripts',
 			array(
 				__CLASS__,
-				'registerSlickAssets'
+				'register_slick_assets'
 			)
 		);
 
@@ -40,7 +40,7 @@ class slickSliderOutput {
 			'post_gallery',
 			array(
 				__CLASS__,
-				'slickMarkup'
+				'slick_markup'
 			),
 			10,
 			3
@@ -58,13 +58,13 @@ class slickSliderOutput {
 	 *
 	 * @since 0.1
 	 */
-	public static function registerSlickAssets() {
+	public static function register_slick_assets() {
 
-		$assetSuffix = slickSliderMain::getAssetSuffix();
+		$asset_suffix = Slick_Slider_Main::get_asset_suffix();
 
 		wp_register_script(
 			'slick-slider-core',
-			slickSliderMain::pluginUrl( "bower_components/slick-carousel/slick/slick{$assetSuffix}.js" ),
+			Slick_Slider_Main::plugin_url( "bower_components/slick-carousel/slick/slick{$asset_suffix}.js" ),
 			array( 'jquery' ),
 			'1.6.0',
 			true
@@ -72,13 +72,13 @@ class slickSliderOutput {
 		
 		wp_register_style(
 			'slick-slider-core',
-			slickSliderMain::pluginUrl( 'bower_components/slick-carousel/slick/slick.css' ),
+			Slick_Slider_Main::plugin_url( 'bower_components/slick-carousel/slick/slick.css' ),
 			array(),
 			'1.6.0'
 		);
 		wp_register_style(
 			'slick-slider-core-theme',
-			slickSliderMain::pluginUrl( 'bower_components/slick-carousel/slick/slick-theme.css' ),
+			Slick_Slider_Main::plugin_url( 'bower_components/slick-carousel/slick/slick-theme.css' ),
 			array( 'slick-slider-core' ),
 			'1.6.0'
 		);
@@ -88,15 +88,15 @@ class slickSliderOutput {
 		}
 
 		if ( apply_filters( 'slick_slider_load_helper_css', true ) ) {
-			wp_add_inline_style( 'slick-slider-core-theme', file_get_contents( SLICK_SLIDER_DIR . "/css/slick-slider-helper{$assetSuffix}.css" ) );
+			wp_add_inline_style( 'slick-slider-core-theme', file_get_contents( SLICK_SLIDER_DIR . "/css/slick-slider-helper{$asset_suffix}.css" ) );
 		}
 
 		if ( class_exists( 'WP_Featherlight' ) ) {
 			wp_register_script(
 				'slick-slider-featherlight-helper',
-				slickSliderMain::pluginUrl( "js/slick-slider-featherlight-helper{$assetSuffix}.js" ),
+				Slick_Slider_Main::plugin_url( "js/slick-slider-featherlight-helper{$asset_suffix}.js" ),
 				array( 'wp-featherlight' ),
-				slickSliderMain::getPluginData( 'Version' ),
+				Slick_Slider_Main::get_plugin_data( 'Version' ),
 				true
 			);
 		}
@@ -113,7 +113,7 @@ class slickSliderOutput {
 	 * @param integer $instance Unique numeric ID of this gallery shortcode instance.
 	 * @return string           Complete Slick Slider markup which can be modified by multiple filters.
 	 */
-	public static function slickMarkup( $output = '', $atts, $instance ) {
+	public static function slick_markup( $output = '', $atts, $instance ) {
 		
 		if ( isset( $atts['slick_active'] ) && 'true' === $atts['slick_active'] ) {
 
@@ -144,9 +144,9 @@ class slickSliderOutput {
 					)
 				);
 
-				$attachments = array();
+				$attachments = [];
 				foreach ( $_attachments as $key => $val ) {
-					$attachments[$val->ID] = $_attachments[$key];
+					$attachments[ $val->ID ] = $_attachments[ $key ];
 				}
 			} elseif ( ! empty( $atts['exclude'] ) ) {
 				$attachments = get_children(
@@ -181,14 +181,14 @@ class slickSliderOutput {
 			wp_enqueue_script( 'slick-slider-core' );
 			wp_enqueue_style( 'slick-slider-core-theme' );
 
-			$options = slickSliderOptions::prepareOptionsForOutput( $atts );
+			$options = Slick_Slider_Options::prepare_options_for_output( $atts );
 
 			$output = [];
 			$output[] = '<div class="slick-slider-wrapper">';
 			$output[] = sprintf(
 				'<div class="slick-slider slick-slider--size-%s" id="slick-slider-%s" %s>',
 				sanitize_html_class( $atts['size'] ),
-				++self::$slickInstance,
+				++self::$slick_instance,
 				! empty( $options )
 					? sprintf(
 						'data-slick=\'%s\'',

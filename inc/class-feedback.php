@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) OR exit;
  *
  * @since 0.1
  */
-class slickSliderFeedback {
+class Slick_Slider_Feedback {
 
 	/**
 	 * Add warning if PHP and/or WordPress version is too low.
@@ -15,12 +15,12 @@ class slickSliderFeedback {
 	 */
 	public static function rules() {
 
-		switch ( slickSliderMain::currentPage() ) {
+		switch ( Slick_Slider_Main::current_page() ) {
 			case 'plugins' :
 			case 'options-media' :
-				if ( ! slickSliderMain::isMinWp( '4.4' ) ) {
-					self::add( 'critical', sprintf( '%s: %s %s.', __( 'Attention', 'slick-slider' ), __( 'Slick Slider requires at least WordPress', 'slick-slider' ), '4.4' ) );
-				} else if ( ! slickSliderMain::isMinPhp( SLICK_SLIDER_MIN_PHP ) ) {
+				if ( ! Slick_Slider_Main::is_min_wp( SLICK_SLIDER_MIN_WP ) ) {
+					self::add( 'critical', sprintf( '%s: %s %s.', __( 'Attention', 'slick-slider' ), __( 'Slick Slider requires at least WordPress', 'slick-slider' ), SLICK_SLIDER_MIN_WP ) );
+				} elseif ( ! Slick_Slider_Main::is_min_php( SLICK_SLIDER_MIN_PHP ) ) {
 					self::add( 'critical', sprintf( '%s: %s %s.', __( 'Attention', 'slick-slider' ), __( 'Slick Slider requires at least PHP', 'slick-slider' ), SLICK_SLIDER_MIN_PHP ) );
 				}
 				break;
@@ -40,15 +40,15 @@ class slickSliderFeedback {
 	 */
 	public static function add( $type, $msg ) {
 
-		if ( empty( $type ) OR empty( $msg ) OR ! in_array( $type, array(
+		if ( empty( $type ) || empty( $msg ) || ! in_array( $type, array(
 			'critical',
 			'notice' 
 		) ) ) {
 			return false;
 		}
-		$data        = ( array ) slickSliderCache::get( 'feedback' );
-		$data[$type] = $msg;
-		SlickSliderCache::set( 'feedback', $data );
+		$data = (array) Slick_Slider_Cache::get( 'feedback' );
+		$data[ $type ] = $msg;
+		Slick_Slider_Cache::set( 'feedback', $data );
 
 	}
 
@@ -62,7 +62,7 @@ class slickSliderFeedback {
 	 */
 	public static function get( $type = '' ) {
 
-		$data = ( array ) slickSliderCache::get( 'feedback' );
+		$data = (array) Slick_Slider_Cache::get( 'feedback' );
 		if ( empty( $data ) ) {
 			return false;
 		}
@@ -72,8 +72,8 @@ class slickSliderFeedback {
 		if ( in_array( $type, array(
 			'critical',
 			'notice' 
-		) ) && ! empty( $data[$type] ) ) {
-			return $data[$type];
+		) ) && ! empty( $data[ $type ] ) ) {
+			return $data[ $type ];
 		}
 		return false;
 
@@ -122,7 +122,7 @@ class slickSliderFeedback {
 		foreach ( $errors as $type => $msg ) {
 			echo sprintf(
 				'<div class="notice notice-%s is-dismissible"><p>%s</p></div>',
-				esc_attr( $matrix[$type] ),
+				esc_attr( $matrix[ $type ] ),
 				$msg
 			);
 		}

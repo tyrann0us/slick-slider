@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) OR exit;
  *
  * @since 0.1
  */
-class slickSliderOptions {
+class Slick_Slider_Options {
 
 	/**
 	 * Get Slick Slider options from database.
@@ -19,7 +19,7 @@ class slickSliderOptions {
 	 */
 	public static function get( $field = '' ) {
 
-		$options = slickSliderCache::get( 'options' );
+		$options = Slick_Slider_Cache::get( 'options' );
 		if ( empty( $options ) ) {
 			$options = self::defaults();
 			$options_db = get_option( 'slick-slider' );
@@ -28,11 +28,11 @@ class slickSliderOptions {
 				$options_db = get_option( 'slick-slider' );
 			}
 			foreach ( $options as $option => $array_values ) {
-				if ( isset( $options_db[$option] ) ) {
-					$options[$option]['value'] = $options_db[$option];
+				if ( isset( $options_db[ $option ] ) ) {
+					$options[ $option ]['value'] = $options_db[ $option ];
 				}
 			}
-			slickSliderCache::set( 'options', $options );
+			Slick_Slider_Cache::set( 'options', $options );
 		}
 		array_walk_recursive( $options, function( &$value, $key ) {
 			'value' === $key && is_string( $value ) && $value = htmlspecialchars_decode( $value );
@@ -41,7 +41,7 @@ class slickSliderOptions {
 		if ( empty( $field ) ) {
 			return $options;
 		}
-		return ( empty( $options[$field] ) ? '' : $options[$field] );
+		return ( empty( $options[ $field ] ) ? '' : $options[ $field ] );
 
 	}
 
@@ -62,26 +62,26 @@ class slickSliderOptions {
 		}
 		if ( $prepare ) {
 			$options_default = self::defaults();
-			$options = array();
+			$options = [];
 			foreach ( $options_default as $option => $array_values ) {
-				if ( isset( $fields[$option] ) ) {
+				if ( isset( $fields[ $option ] ) ) {
 					switch ( $array_values['type'] ) {
 						case 'boolean' :
-							$options[$option] = true;
+							$options[ $option ] = true;
 							break;
 						case 'integer' :
-							$options[$option] = floatval( $fields[$option] );
+							$options[ $option ] = floatval( $fields[ $option ] );
 							break;
 						case 'string' :
 						case 'select' :
 						case 'function' :
-							$options[$option] = $fields[$option];
+							$options[ $option ] = $fields[ $option ];
 							break;
 					}
 				} else {
 					switch ( $array_values['type'] ) {
 						case 'boolean' :
-							$options[$option] = false;
+							$options[ $option ] = false;
 							break;
 					}
 				}
@@ -90,7 +90,7 @@ class slickSliderOptions {
 			$options = array_merge( (array) get_option( 'slick-slider' ), $fields );
 		}
 		update_option( 'slick-slider', $options );
-		slickSliderCache::set( 'options', $options );
+		Slick_Slider_Cache::set( 'options', $options );
 
 	}
 
@@ -101,7 +101,7 @@ class slickSliderOptions {
 	 */
 	public static function init() {
 
-		add_option( 'slick-slider', self::defaultOptions() );
+		add_option( 'slick-slider', self::default_options() );
 
 	}
 
@@ -112,7 +112,7 @@ class slickSliderOptions {
 	 */
 	public static function reset() {
 
-		self::update( self::defaultOptions() );
+		self::update( self::default_options() );
 
 	}
 
@@ -136,33 +136,33 @@ class slickSliderOptions {
 	 * @param array $atts Shortcode parameters.
 	 * @return array      Slick Slider options.
 	 */
-	public static function prepareOptionsForOutput( $atts ) {
+	public static function prepare_options_for_output( $atts ) {
 
 		$options_db = self::get();
 		$options_default = self::defaults();
 
-		$options_merged = SlickSliderMain::arrayDiffAssocRecursive( $options_db, $options_default );
+		$options_merged = Slick_Slider_Main::array_diff_assoc_recursive( $options_db, $options_default );
 
 		if ( is_array( $options_merged ) ) {
 			foreach ( $options_merged as $option => $value ) {
-				$options_merged[$option] = $value['value'];
+				$options_merged[ $option ] = $value['value'];
 			}
 		}
 		
 		$options_slider_raw = array_filter( $atts, function( $value, $key ) {
-			return strpos( $key, 'sl_') === 0;
+			return 0 === strpos( $key, 'sl_');
 		}, true );
 
 		$options_slider = [];
 		$keys = array_keys( $options_db );
 		foreach ( $options_slider_raw as $option => $value ) {
-			if ( 'true' == $value || 'false' == $value ) {
+			if ( 'true' === $value || 'false' === $value ) {
 				$value = filter_var( $value, FILTER_VALIDATE_BOOLEAN );
-			} else if ( is_numeric( $value ) ) {
+			} elseif ( is_numeric( $value ) ) {
 				$value = floatval( $value );
 			}
 			$key = array_search( $option, array_column( $options_db, 'setting' ) );
-			$options_slider[$keys[$key]] = $value;
+			$options_slider[ $keys[ $key ] ] = $value;
 		}
 
 		return is_array( $options_merged ) ? array_merge( $options_merged, $options_slider ) : $options_slider;
@@ -177,7 +177,7 @@ class slickSliderOptions {
 	 * @param string $location Where the markup should be inserted (markup differs based on location).
 	 * @return                 If $location is empty.
 	 */
-	public static function renderSettingsMarkup( $location = '' ) {
+	public static function render_settings_markup( $location = '' ) {
 
 		if ( empty( $location ) ) {
 			return;
@@ -205,7 +205,7 @@ class slickSliderOptions {
 										$option,
 										$option,
 										esc_attr( $array_values['value'] ),
-										'edgeFriction' == $option ? 'step="0.01"' : ''
+										'edgeFriction' === $option ? 'step="0.01"' : ''
 									);
 									break;
 								case 'string' :
@@ -219,7 +219,10 @@ class slickSliderOptions {
 								case 'select' :
 									$select_options = [];
 									foreach ( $array_values['values'] as $value ) {
-										$select_options[] = sprintf( '<option %s>%s</option>', $value == $array_values['value'] ? 'selected' : '', $value );
+										$select_options[] = sprintf(
+											'<option %s>%s</option>',
+											$value === $array_values['value'] ? 'selected' : '', $value
+										);
 									}
 									printf(
 										'<select id="%s" name="%s">%s</select>',
@@ -273,16 +276,22 @@ class slickSliderOptions {
 								break;
 							case 'integer' :
 								printf(
-									'<input type="text" data-setting="%s" value="%s" />',
+									'<input type="number" data-setting="%s" value="%s" />',
 									$array_values['setting'],
-									sprintf( '<# print( slider_defaults.%s.value ) #>', $option )
+									sprintf(
+										'<# print( slider_defaults.%s.value ) #>',
+										$option
+									)
 								);
 								break;
 							case 'string' :
 								printf(
 									'<input type="text" data-setting="%s" value="%s" />',
 									$array_values['setting'],
-									sprintf( '<# print( slider_defaults.%s.value ) #>', $option )
+									sprintf(
+										'<# print( slider_defaults.%s.value ) #>',
+										$option
+									)
 								);
 								break;
 							case 'select' :
@@ -331,7 +340,7 @@ class slickSliderOptions {
 	 * 
 	 * @return array Slick Slider options encoded.
 	 */
-	public static function defaultOptions() {
+	public static function default_options() {
 
 		return array_map( function( $option ) { return esc_attr( $option['value'] ); }, self::defaults() );
 
@@ -584,7 +593,14 @@ class slickSliderOptions {
 			//	'desc' => __( 'Object containing breakpoints and settings objects (see demo). Enables settings sets at given screen width. Set settings to "unslick" instead of an object to disable slick at a given breakpoint.', 'slick-slider' ),
 			//	'setting' => 'sl_responsive',
 			//	'type' => 'object',
-			//	'value' => '',
+			//	'value' => array (
+			//		(object) ( array(
+			//			'breakpoint' => 600,
+			//			'settings' => (object) ( array(
+			//				'slidesToShow' => 4,
+			//			) ),
+			//		) ),
+			//	),
 			//),
 			'rows' => array(
 				'name' => __( 'rows', 'slick-slider' ),

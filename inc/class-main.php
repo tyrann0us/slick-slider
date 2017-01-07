@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) OR exit;
  *
  * @since 0.1
  */
-class slickSliderMain {
+class Slick_Slider_Main {
 
 	/**
 	 * Hook all actions and filters for backend and frontend.
@@ -18,47 +18,50 @@ class slickSliderMain {
 		if ( is_admin() ) {
 
 			add_action( 'admin_notices', array(
-				 'slickSliderFeedback',
+				 'Slick_Slider_Feedback',
 				'rules' 
 			) );
 			add_action( 'network_admin_notices', array(
-				 'slickSliderFeedback',
+				 'Slick_Slider_Feedback',
 				'network' 
 			) );
 			add_action( 'admin_notices', array(
-				 'slickSliderFeedback',
+				 'Slick_Slider_Feedback',
 				'admin' 
 			) );
 
-			switch ( self::currentPage() ) {
+			switch ( self::current_page() ) {
 				case 'post' :
 				case 'post-new' :
 					add_action( 'admin_init', array(
-						'slickSliderTemplate',
-						'initTemplate'
+						'Slick_Slider_Template',
+						'init_template'
 					) );
 					break;
 				case 'options-media' :
 					add_action( 'admin_init', array(
-						'slickSliderGui',
-						'initSettings' 
+						'Slick_Slider_Gui',
+						'init_settings' 
 					) );
 					break;
 				case 'options' :
 					add_action( 'update_option',  array(
-						 'slickSliderGui',
-						'saveChanges' 
+						 'Slick_Slider_Gui',
+						'save_changes' 
 					) );
 					break;
 				case 'plugins' :
 					add_filter( 'plugin_action_links_' . SLICK_SLIDER_BASE, array(
 						 __CLASS__,
-						'addSettingsLinks' 
+						'add_settings_links' 
 					) );
 					add_filter( 'plugin_row_meta', array(
 						 __CLASS__,
-						'addThanksLink' 
-					), 10, 2 );
+						'add_thanks_links' 
+						),
+						10,
+						2
+					);
 					break;
 				default:
 					break;
@@ -67,8 +70,8 @@ class slickSliderMain {
 		} else {
 
 			add_action( 'init', array(
-				'slickSliderOutput',
-				'initSlider'
+				'Slick_Slider_Output',
+				'init_slider'
 			) );
 
 		}
@@ -82,7 +85,7 @@ class slickSliderMain {
 	 */
 	public static function install() {
 
-		slickSliderOptions::init();
+		Slick_Slider_Options::init();
 
 	}
 
@@ -93,7 +96,7 @@ class slickSliderMain {
 	 */
 	public static function uninstall() {
 
-		slickSliderOptions::destroy();
+		Slick_Slider_Options::destroy();
 
 	}
 
@@ -105,7 +108,7 @@ class slickSliderMain {
 	 * @param string $path URI to asset.
 	 * @return string      Full URL to asset.
 	 */
-	public static function pluginUrl( $path ) {
+	public static function plugin_url( $path ) {
 
 		return plugins_url( $path, SLICK_SLIDER_FILE );
 
@@ -118,7 +121,7 @@ class slickSliderMain {
 	 * 
 	 * @return string Slug of curerent page (e. g. 'options-media').
 	 */
-	public static function currentPage() {
+	public static function current_page() {
 
 		return ( empty( $GLOBALS['pagenow'] ) ? 'index' : basename( $GLOBALS['pagenow'], '.php' ) );
 
@@ -132,12 +135,16 @@ class slickSliderMain {
 	 * @param array $data Current plugin action link.
 	 * @return array      Merged array without link to plugin-editor and with link to Slick Slider settings.
 	 */
-	public static function addSettingsLinks( $data ) {
+	public static function add_settings_links( $data ) {
 
 		$output = array_filter( $data, function( $value ) { return ! strpos( $value, 'plugin-editor.php' ); } );
 		if ( current_user_can( 'manage_options' ) ) {
 			$output = array_merge( $output, array(
-				 sprintf( '<a href="%s">%s</a>', admin_url( 'options-media.php#slick-slider-settings' ), __( 'Settings', 'slick-slider' ) ) 
+				sprintf(
+					'<a href="%s">%s</a>',
+					admin_url( 'options-media.php#slick-slider-settings' ),
+					__( 'Settings', 'slick-slider' )
+				) 
 			) );
 		}
 		return $output;
@@ -153,23 +160,23 @@ class slickSliderMain {
 	 * @param string $page Plugin basename.
 	 * @return array $data Merged array with links (see description).
 	 */
-	public static function addThanksLink( $data, $page ) {
+	public static function add_thanks_links( $data, $page ) {
 
-		if ( SLICK_SLIDER_BASE != $page ) {
+		if ( SLICK_SLIDER_BASE !== $page ) {
 			return $data;
 		}
 		if ( current_user_can( 'manage_options' ) ) {
 			return array_merge( $data, array(
-				 sprintf(
-				 	'<a href="%s" target="blank">%s</a>',
-				 	'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J4347QQ8J3L54',
-				 	__( 'Donate', 'slick-slider' )
-				 ),
-				 sprintf(
-				 	'<a href="%s" target="blank">%s</a>',
-				 	'https://wordpress.org/support/plugin/slick-slider/reviews/#new-post',
-				 	__( 'Rate', 'slick-slider' )
-				 )
+				sprintf(
+					'<a href="%s" target="blank">%s</a>',
+					'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J4347QQ8J3L54',
+					__( 'Donate', 'slick-slider' )
+				),
+				sprintf(
+					'<a href="%s" target="blank">%s</a>',
+					'https://wordpress.org/support/plugin/slick-slider/reviews/#new-post',
+					__( 'Rate', 'slick-slider' )
+				)
 			) );
 		}
 		return $data;
@@ -184,9 +191,9 @@ class slickSliderMain {
 	 * @param string $version WordPress version to check against.
 	 * @return boolean        True if WordPress is at least of version $version, false otherwise.
 	 */
-	public static function isMinWp( $version ) {
+	public static function is_min_wp( $version ) {
 
-		return version_compare( $GLOBALS[ 'wp_version' ], $version . 'alpha', '>=' );
+		return version_compare( $GLOBALS['wp_version'], $version . 'alpha', '>=' );
 
 	}
 
@@ -198,7 +205,7 @@ class slickSliderMain {
 	 * @param string $version PHP version to check against.
 	 * @return boolean        True if PHP is at least of version $version, false otherwise.
 	 */
-	public static function isMinPhp( $version ) {
+	public static function is_min_php( $version ) {
 
 		return version_compare( phpversion(), $version, '>=' );
 
@@ -212,17 +219,17 @@ class slickSliderMain {
 	 * @param string $field Meta field value to get.
 	 * @return string|array Single value if $field is set, array of all values otherwise.
 	 */
-	public static function getPluginData( $field = NULL ) {
+	public static function get_plugin_data( $field = NULL ) {
 
-		if ( ! $plugin_data = slickSliderCache::get( 'plugin_data' ) ) {
+		if ( ! $plugin_data = Slick_Slider_Cache::get( 'plugin_data' ) ) {
 			if ( ! function_exists( 'get_plugin_data' ) ) {
 				require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 			}
 			$plugin_data = get_plugin_data( SLICK_SLIDER_FILE );
-			slickSliderCache::set( 'plugin_data', $plugin_data );
+			Slick_Slider_Cache::set( 'plugin_data', $plugin_data );
 		}
-		if ( ! empty( $field ) && isset( $plugin_data[$field] ) ) {
-			return $plugin_data[$field];
+		if ( ! empty( $field ) && isset( $plugin_data[ $field ] ) ) {
+			return $plugin_data[ $field ];
 		}
 		return $plugin_data;
 
@@ -238,22 +245,22 @@ class slickSliderMain {
 	 * @param array $array2 An array to compare against.
 	 * @return array        Array containing all the values from $array1 that are not present in $array2.
 	 */
-	public static function arrayDiffAssocRecursive( $array1, $array2 ) { 
+	public static function array_diff_assoc_recursive( $array1, $array2 ) { 
 
 		foreach( $array1 as $key => $value ) {
 			if ( is_array( $value ) ) {
 				if ( ! isset( $array2[$key] ) ) {
-					$difference[$key] = $value;
-				} elseif ( ! is_array( $array2[$key] ) ) {
-					$difference[$key] = $value;
+					$difference[ $key ] = $value;
+				} elseif ( ! is_array( $array2[ $key ] ) ) {
+					$difference[ $key ] = $value;
 				} else  {
-					$new_diff = self::arrayDiffAssocRecursive( $value, $array2[$key] );
-					if ( $new_diff != FALSE ) {
-						$difference[$key] = $new_diff;
+					$new_diff = self::array_diff_assoc_recursive( $value, $array2[ $key ] );
+					if ( $new_diff != false ) {
+						$difference[ $key ] = $new_diff;
 					}
 				}
-			} elseif ( ! isset( $array2[$key] ) || $array2[$key] != $value ) {
-				$difference[$key] = $value;
+			} elseif ( ! isset( $array2[ $key ] ) || $array2[ $key ] != $value ) {
+				$difference[ $key ] = $value;
 			}
 		}
 		return ! isset( $difference ) ? 0 : $difference;
@@ -267,7 +274,7 @@ class slickSliderMain {
 	 * 
 	 * @return string `.min` if SCRIPT_DEBUG is set and true, empty string otherwise.
 	 */
-	public static function getAssetSuffix() {
+	public static function get_asset_suffix() {
 
 		return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 

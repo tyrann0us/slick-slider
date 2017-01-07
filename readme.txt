@@ -142,6 +142,10 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 
 == Changelog ==
 
+= 0.4.1 (01/07/2017) = 
+* Fix: Bug (introduced in 0.4) that appeared when activating or the plugin or resetting the options
+* Misc: Several code formatting changes according to the [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/)
+
 = 0.4 (01/03/2017) =
 * Feature: Added support for custom links (see [FAQ section](https://wordpress.org/plugins/slick-slider/faq/))
 * Feature: Added lightbox support (see [FAQ section](https://wordpress.org/plugins/slick-slider/faq/))

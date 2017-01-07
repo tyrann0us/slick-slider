@@ -31,17 +31,18 @@ defined( 'ABSPATH' ) OR exit;
 define( 'SLICK_SLIDER_DIR', dirname( __FILE__ ) );
 define( 'SLICK_SLIDER_FILE', __FILE__ );
 define( 'SLICK_SLIDER_BASE', plugin_basename( __FILE__ ) );
+define( 'SLICK_SLIDER_MIN_WP', 4.6 );
 define( 'SLICK_SLIDER_MIN_PHP', 5.6 );
 
 
 spl_autoload_register(
-	'slickSliderAutoload'
+	'Slick_Slider_Autoload'
 );
 
 add_action(
 	'plugins_loaded',
 	array(
-		'slickSliderMain',
+		'Slick_Slider_Main',
 		'init'
 	)
 );
@@ -50,7 +51,7 @@ add_action(
 register_activation_hook(
 	__FILE__,
 	array(
-		'slickSliderMain',
+		'Slick_Slider_Main',
 		'install'
 	)
 );
@@ -58,30 +59,30 @@ register_activation_hook(
 register_uninstall_hook(
 	__FILE__,
 	array(
-		'slickSliderMain',
+		'Slick_Slider_Main',
 		'uninstall'
 	)
 );
 
 
-function slickSliderAutoload( $class ) {
+function Slick_Slider_Autoload( $class ) {
 
 	$available = array(
-		'slickSliderMain' => 'main',
-		'slickSliderCache' => 'cache',
-		'slickSliderFeedback' => 'feedback',
-		'slickSliderOptions' => 'options',
-		'slickSliderOutput' => 'output',
-		'slickSliderGui' => 'gui',
-		'slickSliderTemplate' => 'template',
+		'Slick_Slider_Main' => 'main',
+		'Slick_Slider_Cache' => 'cache',
+		'Slick_Slider_Feedback' => 'feedback',
+		'Slick_Slider_Options' => 'options',
+		'Slick_Slider_Output' => 'output',
+		'Slick_Slider_Gui' => 'gui',
+		'Slick_Slider_Template' => 'template',
 	);
 
-	if ( isset( $available[$class] ) ) {
+	if ( isset( $available[ $class ] ) ) {
 		require_once(
 			sprintf(
-				'%s/inc/%s.class.php',
+				'%s/inc/class-%s.php',
 				SLICK_SLIDER_DIR,
-				$available[$class]
+				$available[ $class ]
 			)
 		);
 	}
