@@ -276,7 +276,7 @@ class Slick_Slider_Options {
 								break;
 							case 'integer' :
 								printf(
-									'<input type="number" data-setting="%s" value="%s" />',
+									'<input type="text" data-setting="%s" value="%s" />',
 									$array_values['setting'],
 									sprintf(
 										'<# print( slider_defaults.%s.value ) #>',
