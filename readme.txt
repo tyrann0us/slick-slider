@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: gallery, slider, image slider, slideshow, carousel, slick, jQuery slider, lightbox
 Requires at least: 4.6
 Tested up to: 4.7
-Stable tag: 0.4.1
+Stable tag: 0.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,7 +142,10 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 
 == Changelog ==
 
-= 0.4.1 (01/07/2017) = 
+= 0.4.2 (01/08/2017) =
+* Fix: Bug (introduced in 0.4) that prevented numeric option values in gallery modal to update
+
+= 0.4.1 (01/07/2017) =
 * Fix: Bug (introduced in 0.4) that appeared when activating the plugin or resetting the options
 * Misc: Several code formatting changes according to the [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/)
 
