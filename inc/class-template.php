@@ -117,7 +117,7 @@ class Slick_Slider_Template {
 		wp_enqueue_script(
 			'slick-slider-post-gallery',
 			Slick_Slider_Main::plugin_url( "js/slick-slider-post{$assetSuffix}.js" ),
-			array( 'media-editor' ),
+			array( 'jquery' ),
 			Slick_Slider_Main::get_plugin_data( 'Version' )
 		);
 
