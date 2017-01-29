@@ -142,6 +142,9 @@ If you want, you can buy me a beer too. You’ll find the donation link on your 
 
 == Changelog ==
 
+= 0.5 =
+* Misc: Minor JavaScript improvements
+
 = 0.4.2 (01/08/2017) =
 * Fix: Bug (introduced in 0.4) that prevented numeric option values in gallery modal to update
 

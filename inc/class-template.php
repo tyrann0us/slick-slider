@@ -53,7 +53,11 @@ class Slick_Slider_Template {
 				<div class="slick-slider-toggle-settings">
 					<label class="setting">
 						<span><?php _e( 'Use Slick Slider', 'slick-slider' ); ?></span>
-						<input type="checkbox" data-setting="slick_active">
+						<input
+							type="checkbox"
+							data-setting="slick_active"
+							<# if ( slickSlider.settings.slickActive ) { #> checked="checked" <# } #>
+						>
 					</label>
 				</div>
 				<?php if ( $show_on_gallery_modal ) { ?>

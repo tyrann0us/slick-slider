@@ -275,21 +275,13 @@ class Slick_Slider_Options {
 								);
 								break;
 							case 'integer' :
-								printf(
-									'<input type="text" data-setting="%s" value="%s" />',
-									$array_values['setting'],
-									sprintf(
-										'<# print( slider_defaults.%s.value ) #>',
-										$option
-									)
-								);
-								break;
 							case 'string' :
 								printf(
-									'<input type="text" data-setting="%s" value="%s" />',
+									'<input type="%s" data-setting="%s" value="%s" />',
+									'integer' === $array_values['type'] ? 'number' : 'text',
 									$array_values['setting'],
 									sprintf(
-										'<# print( slider_defaults.%s.value ) #>',
+										'{{ slider_defaults.%s.value }}',
 										$option
 									)
 								);
@@ -304,7 +296,7 @@ class Slick_Slider_Options {
 										'<option value="%s" %s>%s</option>',
 										$value,
 										sprintf(
-											'<# if ( "%s" == slider_defaults.%s.value ) { #> selected="selected" <# } #>',
+											'<# if ( "%s" === slider_defaults.%s.value ) { #> selected="selected" <# } #>',
 											$value,
 											$option
 										),
@@ -318,7 +310,7 @@ class Slick_Slider_Options {
 									'<textarea data-setting="%s">%s</textarea>',
 									$array_values['setting'],
 									sprintf(
-										'<# print( slider_defaults.%s.value ) #>',
+										'{{ slider_defaults.%s.value }}',
 										$option
 									)
 								);

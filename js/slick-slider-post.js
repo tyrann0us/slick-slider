@@ -22,7 +22,7 @@ var slickSlider = {
 
 		var media = wp.media, defaults = media.gallery.defaults;
 		$.extend( defaults, {
-			slick_active: false,
+			slick_active: s.slickActive,
 		} );
 		$.each( slider_defaults, function( key, value ) {
 			switch ( value.type ) {
