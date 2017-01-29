@@ -10,7 +10,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Turn your native WordPress galleries into beautiful fully responsive sliders. Adjust the slider to your needs on a per gallery base.
 
-
 == Description ==
 
 Slick Slider turns your native WordPress galleries into beautiful fully responsive sliders. Choose from a wide range of options to adjust all sliders to your needs with a simple click.
@@ -41,13 +40,11 @@ Available options (amongst others):
 
 Slick Slider uses the awesome [slick slider](https://kenwheeler.github.io/slick/) written by Ken Wheeler.
 
-
 == Installation ==
 
-1. Upload the extracted plugin folder to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly
-2. Activate the plugin through the “Plugins” screen in WordPress
+1. Install the plugin through the WordPress “Plugins” screen
+2. Activate the plugin
 3. Use the “Settings” -> “Media” screen to configure the default slider options or leave it as it is
-
 
 == Frequently Asked Questions ==
 
@@ -131,8 +128,7 @@ Use the constant [`SCRIPT_DEBUG`](https://codex.wordpress.org/Debugging_in_WordP
 = I want to buy you a beer! =
 
 Thats great, thanks! First of all, you should say thank you to [Ken Wheeler](http://kenwheeler.github.io/) who developed the actual slick slider.
-If you want, you can buy me a beer too. You’ll find the donation link on your plugin page once you have Slick Slider installed and activated.
-
+If you want, [you can buy me a beer too](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J4347QQ8J3L54).
 
 == Screenshots ==
 
