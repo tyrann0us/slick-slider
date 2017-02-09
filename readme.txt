@@ -78,21 +78,19 @@ They are hidden by default. To activate them use `add_filter( 'slick_slider_show
 
 Paste the following lines in your functions.php:
 
-`add_action( 'wp_enqueue_scripts', 'slick_slider_enqueue_assets' );
-function slick_slider_enqueue_assets() {
+`add_action( 'wp_enqueue_scripts', function() {
 	wp_enqueue_script( 'slick-slider-core' );
 	wp_enqueue_style( 'slick-slider-core-theme' );
-}`
+}, 11 );`
 
 = Is it possible to prevent slick’s JS and CSS to get loaded? = 
 
 Paste the following lines in your functions.php:
 
-`add_action( 'wp_enqueue_scripts', 'slick_slider_deregister_assets', 11 );
-function slick_slider_deregister_assets() {
+`add_action( 'wp_enqueue_scripts', function() {
 	wp_deregister_script( 'slick-slider-core' );
 	wp_deregister_style( 'slick-slider-core' );
-}`
+}, 11 );`
 
 > Note: This will also remove the initiation script and helper CSS from the page (see below).
 
