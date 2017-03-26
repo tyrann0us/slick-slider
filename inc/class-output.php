@@ -193,6 +193,8 @@ class Slick_Slider_Output {
 				$options['showCaption'] = true;
 			}
 
+			do_action( 'slick_slider_before_slider', $atts, $post->ID, self::$slick_instance );
+
 			$output = [];
 			$output[] = '<div class="slick-slider-wrapper">';
 			$output[] = sprintf(
@@ -208,6 +210,8 @@ class Slick_Slider_Output {
 			);
 
 			foreach ( $attachments as $id => $attachment ) {
+
+				do_action( 'slick_slider_before_slide', $id, $post->ID, self::$slick_instance );
 
 				$slide = [];
 				$slide[] = sprintf( '<div class="slide" data-attachment-id="%s">', $id );
@@ -267,12 +271,16 @@ class Slick_Slider_Output {
 				$slide[] = '</div>';
 				$output[] = apply_filters( 'slick_slider_slide_html', implode( "\n", $slide ), $id, $post->ID, self::$slick_instance );
 
+				do_action( 'slick_slider_after_slide', $id, $post->ID, self::$slick_instance );
+
 			}
 
 			$output[] = '</div>';
 			$output[] = '</div>';
 
 			$output = implode( "\n", $output );
+
+			do_action( 'slick_slider_after_slider', $atts, $post->ID, self::$slick_instance );
 
 			return apply_filters( 'slick_slider_html', $output, $post->ID, self::$slick_instance );
 		}
