@@ -118,6 +118,7 @@ class Slick_Slider_Output {
 		if ( isset( $atts['slick_active'] ) && 'true' === $atts['slick_active'] ) {
 
 			global $post;
+			self::$slick_instance++;
 
 			$atts = wp_parse_args( $atts, array(
 				'order' => 'ASC',
@@ -127,6 +128,7 @@ class Slick_Slider_Output {
 				'include' => '',
 				'exclude' => '',
 				'link' => '',
+				'slick_instance' => self::$slick_instance,
 			) );
 			$atts = apply_filters( 'shortcode_atts_gallery', $atts, [], 'gallery' );
 
@@ -196,7 +198,7 @@ class Slick_Slider_Output {
 			$output[] = sprintf(
 				'<div class="slick-slider slick-slider--size-%s" id="slick-slider-%s" %s>',
 				sanitize_html_class( $atts['size'] ),
-				++self::$slick_instance,
+				$atts['slick_instance'],
 				! empty( $options )
 					? sprintf(
 						'data-slick=\'%s\'',
@@ -253,7 +255,7 @@ class Slick_Slider_Output {
 					if ( ! empty( $caption_text ) ) {
 						$caption = [];
 						$caption[] = '<div class="slide__caption">';
-						$caption[] = apply_filters( 'slick_slider_caption_html', $caption_text, $id, $post->ID );
+						$caption[] = apply_filters( 'slick_slider_caption_html', $caption_text, $id, $post->ID, self::$slick_instance );
 						$caption[] = '</div>';
 
 						$slide[] = implode( "\n", $caption );
@@ -263,7 +265,7 @@ class Slick_Slider_Output {
 
 				$slide[] = '</div>';
 				$slide[] = '</div>';
-				$output[] = apply_filters( 'slick_slider_slide_html', implode( "\n", $slide ), $id, $post->ID );
+				$output[] = apply_filters( 'slick_slider_slide_html', implode( "\n", $slide ), $id, $post->ID, self::$slick_instance );
 
 			}
 
@@ -272,7 +274,7 @@ class Slick_Slider_Output {
 
 			$output = implode( "\n", $output );
 
-			return apply_filters( 'slick_slider_html', $output, $post->ID );
+			return apply_filters( 'slick_slider_html', $output, $post->ID, self::$slick_instance );
 		}
 
 	}

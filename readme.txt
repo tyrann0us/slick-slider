@@ -109,15 +109,15 @@ Use the WordPress core filter [`shortcode_atts_gallery`](http://codex.wordpress.
 
 = Is it possible to adjust the caption’s markup? =
 
-Use the filter `slick_slider_caption_html`. First argument is the caption’s HTML, second is the attachment ID, third is the post ID.
+Use the filter `slick_slider_caption_html`. Parameters: caption HTML, attachment ID, post ID, slider instance.
 
 = Is it possible to adjust the markup for each slide? =
 
-Use the filter `slick_slider_slide_html`. First argument is the slide’s HTML markup, second is the attachment ID, third is the post ID.
+Use the filter `slick_slider_slide_html`. Parameters: slide HTML, attachment ID, post ID, slider instance.
 
 = Is it possible to adjust the markup for the entire slider? =
 
-Use the filter `slick_slider_html`. First argument is the slider’s HTML markup, second is the post ID.
+Use the filter `slick_slider_html`. Parameters: slider HTML, post ID, slider instance.
 
 = Is it possible to enqueue scripts and styles unminified? =
 
