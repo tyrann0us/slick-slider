@@ -183,6 +183,14 @@ class Slick_Slider_Output {
 
 			$options = Slick_Slider_Options::prepare_options_for_output( $atts );
 
+			if ( apply_filters( 'slick_slider_show_caption', false ) ) {
+
+				/* translators: Replacement string ("Use %3$s instead."), see https://developer.wordpress.org/reference/functions/_deprecated_function/ */
+				_deprecated_function( 'add_filter( \'slick_slider_show_caption\' )', 0.5, __( 'the new option “Show caption”', 'slick-slider' ) );
+
+				$$options['showCaption'] = true;
+			}
+
 			$output = [];
 			$output[] = '<div class="slick-slider-wrapper">';
 			$output[] = sprintf(
@@ -235,7 +243,7 @@ class Slick_Slider_Output {
 					$slide[] = $image_tag;
 				}
 
-				if ( apply_filters( 'slick_slider_show_caption', false ) ) {
+				if ( isset( $options['showCaption'] ) && $options['showCaption'] ) {
 					$caption_text = ! empty( $meta['caption'] )
 						? $meta['caption']
 						: ( ! empty( $meta['title'] )

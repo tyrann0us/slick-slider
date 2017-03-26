@@ -356,6 +356,14 @@ class Slick_Slider_Options {
 				'type' => 'boolean',
 				'value' => true,
 			),
+			'showCaption' => array(
+				'name' => __( 'Show caption', 'slick-slider' ),
+				'desc' => __( 'Show caption below slide image.', 'slick-slider' ),
+				'showOnSingleGallery' => true,
+				'setting' => 'sl_show_caption',
+				'type' => 'boolean',
+				'value' => false,
+			),
 			'accessibility' => array(
 				'name' => __( 'accessibility', 'slick-slider' ),
 				'desc' => __( 'Enables tabbing and arrow key navigation.', 'slick-slider' ),

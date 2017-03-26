@@ -71,7 +71,7 @@ Use the plugin [WP Featherlight](https://wordpress.org/plugins/wp-featherlight/)
 
 = Is it possible to add captions? =
 
-They are hidden by default. To activate them use `add_filter( 'slick_slider_show_caption', '__return_true' );`.
+Use the option “Show caption”.
 > Note: The captions aren’t styled. You need to apply some CSS on them (use the class `.slide__caption`).
 
 = Is it possible to use slick’s JS and CSS independently? =
@@ -137,6 +137,7 @@ If you want, [you can buy me a beer too](https://www.paypal.com/cgi-bin/webscr?c
 == Changelog ==
 
 = 0.5 =
+* Feature: Added new option “Show caption”, deprecating the `slick_slider_show_caption` filter.
 * Misc: Minor JavaScript improvements
 
 = 0.4.2 (01/08/2017) =
