@@ -268,7 +268,7 @@ class Slick_Slider_Main {
 	}
 
 	/**
-	 * Helper function for getting the `.min` suffix for minified files.
+	 * Helper function for getting the `.min` suffix for minified assets.
 	 *
 	 * @since  0.4
 	 * 

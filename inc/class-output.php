@@ -190,7 +190,7 @@ class Slick_Slider_Output {
 				/* translators: Replacement string ("Use %3$s instead."), see https://developer.wordpress.org/reference/functions/_deprecated_function/ */
 				_deprecated_function( 'add_filter( \'slick_slider_show_caption\' )', 0.5, __( 'the new option “Show caption”', 'slick-slider' ) );
 
-				$$options['showCaption'] = true;
+				$options['showCaption'] = true;
 			}
 
 			$output = [];
@@ -201,7 +201,7 @@ class Slick_Slider_Output {
 				$atts['slick_instance'],
 				! empty( $options )
 					? sprintf(
-						'data-slick=\'%s\'',
+						"data-slick='%s'",
 						json_encode( $options )
 					)
 					: ''

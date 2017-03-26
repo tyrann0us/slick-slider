@@ -278,7 +278,7 @@ class Slick_Slider_Options {
 							case 'string' :
 								printf(
 									'<input type="%s" data-setting="%s" value="%s" />',
-									'integer' === $array_values['type'] ? 'number' : 'text',
+									'text',
 									$array_values['setting'],
 									sprintf(
 										'{{ slider_defaults.%s.value }}',
@@ -350,7 +350,7 @@ class Slick_Slider_Options {
 		return array(
 			'showOnGalleryModal' => array(
 				'name' => __( 'Show options on gallery modal', 'slick-slider' ),
-				'desc' => __( 'Show Slick Slider options on single gallery modal', 'slick-slider' ),
+				'desc' => __( 'Show Slick Slider options on single gallery modal.', 'slick-slider' ),
 				'showOnSingleGallery' => false,
 				'setting' => 'showOnGalleryModal',
 				'type' => 'boolean',
