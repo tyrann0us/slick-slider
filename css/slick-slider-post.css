@@ -26,6 +26,8 @@
 	min-height: 0;
 }
 .media-modal .slick-slider-settings .setting input[type="checkbox"] {
+	width: auto;
+	height: 16px;
     margin-top: 7px;
 }
 @media ( max-width: 782px ) {
@@ -35,6 +37,13 @@
 		height: 25px;
 	}
 }
+@media ( max-width: 900px ) {
+	.media-modal .slick-slider-settings .setting input[type="text"],
+	.media-modal .slick-slider-settings .setting select {
+		font-size: inherit;
+	}
+}
+
 .media-modal .slick-slider-settings .setting select {   
     width: 50%;
     margin: 2px 0 0;
