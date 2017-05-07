@@ -122,7 +122,8 @@ class Slick_Slider_Template {
 			'slick-slider-post-gallery',
 			Slick_Slider_Main::plugin_url( "js/slick-slider-post{$assetSuffix}.js" ),
 			array( 'jquery' ),
-			Slick_Slider_Main::get_plugin_data( 'Version' )
+			Slick_Slider_Main::get_plugin_data( 'Version' ),
+			true
 		);
 
 	}
