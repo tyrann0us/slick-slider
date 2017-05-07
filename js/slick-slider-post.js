@@ -1,26 +1,24 @@
 var slickSlider = {
 
 	/**
-	 * Inits variables.
+	 * Init variables.
 	 *
 	 * @since  0.1
 	 * @return void
 	 */
 	settings: {
-		$slickSliderSettings: false,
-		$invalidGallerySettings: false,
 		slickActive: false,
 	},
 
 	/**
-	 * Extends WordPress gallery default settings with Slick Slider settings.
+	 * Extend WordPress gallery default settings with Slick Slider settings.
 	 *
 	 * @since  0.1
 	 * @return {string} All media gallery templates.
 	 */
 	extendGalleryDefaults: function() {
 
-		var media = wp.media, defaults = media.gallery.defaults;
+		var defaults = wp.media.gallery.defaults;
 		$.extend( defaults, {
 			slick_active: s.slickActive,
 		} );
@@ -52,14 +50,14 @@ var slickSlider = {
 			}
 		} );
 
-		if ( ! media.gallery.templates ) media.gallery.templates = ['gallery-settings'];
-		media.gallery.templates.push( 'slick-slider-gallery-settings' );
+		if ( ! wp.media.gallery.templates ) wp.media.gallery.templates = ['gallery-settings'];
+		wp.media.gallery.templates.push( 'slick-slider-settings' );
 
-		media.view.Settings.Gallery = media.view.Settings.Gallery.extend( {
+		wp.media.view.Settings.Gallery = wp.media.view.Settings.Gallery.extend( {
 			template: function ( view ) {
 				var output = '';
-				for ( var i in media.gallery.templates ) {
-					output += media.template( media.gallery.templates[i] )( view );
+				for ( var i in wp.media.gallery.templates ) {
+					output += wp.media.template( wp.media.gallery.templates[i] )( view );
 				}
 				return output;
 			}
@@ -68,44 +66,77 @@ var slickSlider = {
 	},
 
 	/**
-	 * Inits Slick settings if Slick Slider is active.
+	 * Init listeners when media modal has been opened.
 	 * 
 	 * @since  0.1
 	 * @return void
 	 */
 	initSliderSettings: function() {
 
-		$( document ).on( 'click', '.dashicons-edit, .media-button-gallery', function() {
+		wp.media.view.Modal.prototype.on( 'open', function() {
 
-			s.slickActive = $( '[data-setting="slick_active"]' ).is( ':checked' );
-			s.$invalidGallerySettings = $( '[name="columns"]' ).parent();
-			s.$invalidGallerySettings.css( 'display', ! s.slickActive ? 'block' : 'none' );
-	
-			s.$slickSliderSettings = $( '.slick-slider-settings-inner' );
-			s.$slickSliderSettings.css( 'display', s.slickActive ? 'block' : 'none' );
+			slickSlider.toggleSliderListener();
+			slickSlider.toggleSliderSettings();
 
+			/**
+			 * Fire when the `Add to gallery` button has been clicked.
+			 * Use `setTimeout` to get new media modal sidebar.
+			 */
+			wp.media.frame.on( 'toolbar:render:gallery-edit', function() {
+				setTimeout( function() {
+					slickSlider.toggleSliderSettings();
+					slickSlider.toggleSliderListener();
+				}, 0 );
+			});
+		} );
+
+	},
+
+
+	/**
+	 * Fire when the `Use Slick Slider` checkbox has been changed in the media modal.
+	 *
+	 * @since  0.5
+	 * @return void
+	 */
+	toggleSliderListener: function() {
+
+		slickSlider.getModalSidebar().find( '[data-setting="slick_active"]' ).on( 'change', function() {
+			slickSlider.toggleSliderSettings();
 		} );
 
 	},
 
 	/**
-	 * Toggles settings element when Slick Slider gets activated or deactivated.
+	 * Toggle settings element and unneeded `Columns` gallery setting depending on whether Slick Slider is active.
 	 *
 	 * @since  0.1
 	 * @return void
 	 */
 	toggleSliderSettings: function() {
 
-		$( document ).on( 'click', '.media-modal .slick-slider-toggle-settings input', function() {
+		$media_sidebar = slickSlider.getModalSidebar();
 
-			s.$slickSliderSettings.add( s.$invalidGallerySettings ).toggle();
-
-		} );
+		s.slickActive = $media_sidebar.find( '[data-setting="slick_active"]' ).is( ':checked' );
+		$media_sidebar.find( '.slick-slider-settings-inner' ).toggle( s.slickActive );
+		$media_sidebar.find( '[name="columns"]' ).prop( 'disabled', s.slickActive );
 
 	},
 
 	/**
-	 * Calls all functions.
+	 * Get the current media modal sidebar element and return it.
+	 *
+	 * @return jQuery object sidebar of current wp.media.frame.
+	 * @since  0.5
+	 */
+	getModalSidebar: function() {
+
+		return wp.media.frame.content.get( 'view' ).sidebar.$el;
+
+	},
+
+	/**
+	 * Call all functions.
 	 *
 	 * @since  0.1
 	 * @return void
@@ -116,7 +147,6 @@ var slickSlider = {
 		$ = jQuery;
 		this.extendGalleryDefaults();
 		this.initSliderSettings();
-		this.toggleSliderSettings();
 
 	}
 }

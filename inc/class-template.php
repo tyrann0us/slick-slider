@@ -45,7 +45,7 @@ class Slick_Slider_Template {
 		$show_on_gallery_modal = Slick_Slider_Options::get( 'showOnGalleryModal' )['value'];
 		?>
 
-		<script type="text/html" id="tmpl-slick-slider-gallery-settings">
+		<script type="text/html" id="tmpl-slick-slider-settings">
 			<div class="clear"></div>
 			<div class="slick-slider-settings">
 				<hr>
