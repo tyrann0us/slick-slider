@@ -42,15 +42,15 @@ Slick Slider uses the awesome [slick slider](https://kenwheeler.github.io/slick/
 
 == Screenshots ==
 
-1. Media settings screen. All available options are listed here.
-2. Single gallery screen. Only the most important options are visible.
+1. Media settings. All available options are listed here.
+2. Gallery Media Modal. Only the most important options are visible.
 3. Frontend with slider.
 
 == Frequently Asked Questions ==
 
 = I don’t want all galleries to become sliders! Is this possible? =
 
-Absolutely! On each gallery edit modal there’s a checkbox called “Use Slick Slider”. If you leave this box unchecked your gallery will be a simple … gallery.
+Absolutely! On each gallery Media Modal there’s a checkbox called “Use Slick Slider”. If you leave this box unchecked your gallery will be a simple … gallery.
 
 = Is it possible to place the slider somewhere else, say in a widget? =
 
@@ -131,8 +131,9 @@ If you want, [you can buy me a beer too](https://www.paypal.com/cgi-bin/webscr?c
 == Changelog ==
 
 = 0.5 =
-* Feature: Added new option “Show caption”, deprecating the `slick_slider_show_caption` filter.
-* Misc: Minor JavaScript improvements
+* Feature: Added new option “Show caption”, deprecating the `slick_slider_show_caption` filter
+* Misc: Fixed a bug that hid the Slick Slider settings in the Gallery Media Modal under certain circumstances
+* Misc: Minor CSS and JavaScript improvements
 
 = 0.4.2 (01/08/2017) =
 * Fix: Bug (introduced in 0.4) that prevented numeric option values in gallery modal to update
