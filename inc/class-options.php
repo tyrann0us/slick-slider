@@ -420,6 +420,14 @@ class Slick_Slider_Options {
 				'type' => 'string',
 				'value' => '',
 			),
+			'appendDots' => array(
+				'name' => __( 'appendDots', 'slick-slider' ),
+				'desc' => __( 'Change where the navigation dots are attached (Selector, htmlString, Array, Element, jQuery object)', 'slick-slider' ),
+				'showOnSingleGallery' => false,
+				'setting' => 'sl_appenddots',
+				'type' => 'string',
+				'value' => '',
+			),
 			'prevArrow' => array(
 				'name' => __( 'prevArrow', 'slick-slider' ),
 				'desc' => __( 'Allows you to select a node or customize the HTML for the "Previous" arrow.', 'slick-slider' ),
@@ -478,6 +486,14 @@ class Slick_Slider_Options {
 				'setting' => 'sl_dots',
 				'type' => 'boolean',
 				'value' => false,
+			),
+			'dotsClass' => array(
+				'name' => __( 'dotsClass', 'slick-slider' ),
+				'desc' => __( 'Class for slide indicator dots container.', 'slick-slider' ),
+				'showOnSingleGallery' => false,
+				'setting' => 'sl_dotsclass',
+				'type' => 'string',
+				'value' => 'slick-dots',
 			),
 			'draggable' => array(
 				'name' => __( 'draggable', 'slick-slider' ),
@@ -558,6 +574,14 @@ class Slick_Slider_Options {
 			//	'type' => 'boolean',
 			//	'value' => false,
 			//),
+			'pauseOnFocus' => array(
+				'name' => __( 'pauseOnFocus', 'slick-slider' ),
+				'desc' => __( 'Pause Autoplay On Focus.', 'slick-slider' ),
+				'showOnSingleGallery' => true,
+				'setting' => 'sl_pauseonfocus',
+				'type' => 'boolean',
+				'value' => true,
+			),
 			'pauseOnHover' => array(
 				'name' => __( 'pauseOnHover', 'slick-slider' ),
 				'desc' => __( 'Pause Autoplay On Hover.', 'slick-slider' ),
@@ -729,6 +753,22 @@ class Slick_Slider_Options {
 				'setting' => 'sl_rtl',
 				'type' => 'boolean',
 				'value' => false,
+			),
+			'waitForAnimate' => array(
+				'name' => __( 'waitForAnimate', 'slick-slider' ),
+				'desc' => __( 'Ignores requests to advance the slide while animating.', 'slick-slider' ),
+				'showOnSingleGallery' => false,
+				'setting' => 'sl_waitforanimate',
+				'type' => 'boolean',
+				'value' => true,
+			),
+			'zIndex' => array(
+				'name' => __( 'zIndex', 'slick-slider' ),
+				'desc' => __( 'Set the zIndex values for slides, useful for IE9 and lower.', 'slick-slider' ),
+				'showOnSingleGallery' => false,
+				'setting' => 'sl_zindex',
+				'type' => 'integer',
+				'value' => 1000,
 			),
 		);
 

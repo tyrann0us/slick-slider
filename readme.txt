@@ -132,6 +132,7 @@ If you want, [you can buy me a beer too](https://www.paypal.com/cgi-bin/webscr?c
 
 = 0.5 =
 * Feature: Added new option “Show caption”, deprecating the `slick_slider_show_caption` filter
+* Feature: Added new options “appendDots”, “dotsClass”, “pauseOnFocus”, “waitForAnimate” and “zIndex”.
 * Fix: Bug that hid the Slick Slider settings in the Gallery Media Modal under certain circumstances
 * Misc: Minor CSS and JavaScript improvements
 
