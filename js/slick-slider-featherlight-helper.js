@@ -60,7 +60,7 @@ var slickSliderFeatherlightHelper = {
 
 				object.find( '.caption' ).remove();
 				if ( caption.length ) {
-					$( '<div class="caption">' ).text( caption.text() ).appendTo( object.find( s.featherlightContentSelector ) );
+					$( '<div class="caption">' ).html( caption.html() ).appendTo( object.find( s.featherlightContentSelector ) );
 				}
 			},
 			afterClose: function() {
