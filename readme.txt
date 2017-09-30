@@ -5,7 +5,7 @@ Tags: gallery, slider, image slider, slideshow, carousel, slick, jQuery slider, 
 Requires at least: 4.6
 Tested up to: 4.8
 Requires PHP: 5.6
-Stable tag: 0.4.2
+Stable tag: 0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -131,7 +131,7 @@ If you want, [you can buy me a beer too](https://www.paypal.com/cgi-bin/webscr?c
 
 == Changelog ==
 
-= 0.5 =
+= 0.5 (09/30/2017) =
 * Feature: Updated Slick to v1.8.0
 * Feature: Added new options “appendDots”, “dotsClass”, "focusOnChange", “pauseOnFocus”, “waitForAnimate” and “zIndex”
 * Feature: Added new option “Show caption”, deprecating the `slick_slider_show_caption` filter
