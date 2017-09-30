@@ -511,6 +511,14 @@ class Slick_Slider_Options {
 				'type' => 'boolean',
 				'value' => false,
 			),
+			'focusOnChange' => array(
+				'name' => __( 'focusOnChange', 'slick-slider' ),
+				'desc' => __( 'Puts focus on slide after change.', 'slick-slider' ),
+				'showOnSingleGallery' => false,
+				'setting' => 'sl_focusonchange',
+				'type' => 'boolean',
+				'value' => false,
+			),
 			'focusOnSelect' => array(
 				'name' => __( 'focusOnSelect', 'slick-slider' ),
 				'desc' => __( 'Enable focus on selected element (click).', 'slick-slider' ),
