@@ -131,9 +131,11 @@ If you want, [you can buy me a beer too](https://www.paypal.com/cgi-bin/webscr?c
 == Changelog ==
 
 = 0.5 =
+* Feature: Updated Slick to v1.8.0
+* Feature: Added new options “appendDots”, “dotsClass”, "focusOnChange", “pauseOnFocus”, “waitForAnimate” and “zIndex”
 * Feature: Added new option “Show caption”, deprecating the `slick_slider_show_caption` filter
-* Feature: Added new options “appendDots”, “dotsClass”, “pauseOnFocus”, “waitForAnimate” and “zIndex”.
 * Fix: Bug that hid the Slick Slider settings in the Gallery Media Modal under certain circumstances
+* Misc: Changed default value of "focusOnSelect" to `false`
 * Misc: Minor CSS and JavaScript improvements
 
 = 0.4.2 (01/08/2017) =

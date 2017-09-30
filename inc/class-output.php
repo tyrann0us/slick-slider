@@ -66,7 +66,7 @@ class Slick_Slider_Output {
 			'slick-slider-core',
 			Slick_Slider_Main::plugin_url( "bower_components/slick-carousel/slick/slick{$asset_suffix}.js" ),
 			array( 'jquery' ),
-			'1.6.0',
+			'1.8.0',
 			true
 		);
 		
@@ -74,13 +74,13 @@ class Slick_Slider_Output {
 			'slick-slider-core',
 			Slick_Slider_Main::plugin_url( 'bower_components/slick-carousel/slick/slick.css' ),
 			array(),
-			'1.6.0'
+			'1.8.0'
 		);
 		wp_register_style(
 			'slick-slider-core-theme',
 			Slick_Slider_Main::plugin_url( 'bower_components/slick-carousel/slick/slick-theme.css' ),
 			array( 'slick-slider-core' ),
-			'1.6.0'
+			'1.8.0'
 		);
 
 		if ( apply_filters( 'slick_slider_init_slider', true ) ) {
