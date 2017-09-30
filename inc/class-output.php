@@ -193,6 +193,16 @@ class Slick_Slider_Output {
 				$options['showCaption'] = true;
 			}
 
+			add_filter(
+				'wp_get_attachment_image_attributes',
+				array(
+					'Slick_Slider_Main',
+					'switch_attachment_attr'
+				),
+				10,
+				3
+			);
+
 			do_action( 'slick_slider_before_slider', $atts, $post->ID, self::$slick_instance );
 
 			$output = [];
@@ -217,18 +227,7 @@ class Slick_Slider_Output {
 				$slide[] = sprintf( '<div class="slide" data-attachment-id="%s">', $id );
 				$slide[] = '<div class="slide__inner">';
 
-				$image_src = wp_get_attachment_image_src( $id, $atts['size'] );
-				$meta = wp_prepare_attachment_for_js( $id );
-				$image_tag = isset( $options['lazyLoad'] ) && 'progressive' === $options['lazyLoad']
-					? sprintf(
-						'<img data-lazy="%s" width="%s" height="%s" alt="%s" />',
-						$image_src[0],
-						$image_src[1],
-						$image_src[2],
-						$meta['alt'] ? sanitize_title( $meta['alt'] ) : ''
-					)
-					: wp_get_attachment_image( $id, $atts['size'] );
-
+				$image_tag = wp_get_attachment_image( $id, $atts['size'] );
 
 				if ( class_exists( 'WPGalleryCustomLinks' ) && $link = get_post_meta( $id, '_gallery_link_url', true ) ) {
 					$slide[] = sprintf(
@@ -250,6 +249,7 @@ class Slick_Slider_Output {
 				}
 
 				if ( isset( $options['showCaption'] ) && $options['showCaption'] ) {
+					$meta = wp_prepare_attachment_for_js( $id );
 					$caption_text = ! empty( $meta['caption'] )
 						? $meta['caption']
 						: ( ! empty( $meta['title'] )

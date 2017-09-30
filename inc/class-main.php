@@ -280,4 +280,34 @@ class Slick_Slider_Main {
 
 	}
 
+	/**
+	 * Enable lazy loading of images by replacing image attributes.
+	 *
+	 * @since  0.5.0
+	 *
+	 * @see wp_get_attachment_image()
+	 * @param array        $attr       Attributes for the image markup.
+	 * @param WP_Post      $attachment Image attachment post.
+	 * @param string|array $size       Requested size. Image size or array of width and height values (in that order). Default 'thumbnail'.
+	 * @return array $attr 
+	 */
+	public static function switch_attachment_attr( $attr, $attachment, $size ) {
+
+		$attributes = array(
+			'sizes'  => 'data-sizes',
+			'src'    => 'data-lazy',
+			'srcset' => 'data-srcset',
+		);
+
+		foreach ( $attributes as $key => $attribute ) {
+			if ( isset( $attr[ $key ] ) ) {
+				$attr[ $attribute ] = $attr[ $key ];
+				unset( $attr[ $key] );
+			}
+		}
+
+		return $attr;
+
+	}
+
 }

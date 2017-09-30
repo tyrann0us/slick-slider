@@ -135,6 +135,7 @@ If you want, [you can buy me a beer too](https://www.paypal.com/cgi-bin/webscr?c
 * Feature: Updated Slick to v1.8.0
 * Feature: Added new options “appendDots”, “dotsClass”, "focusOnChange", “pauseOnFocus”, “waitForAnimate” and “zIndex”
 * Feature: Added new option “Show caption”, deprecating the `slick_slider_show_caption` filter
+* Feature: Always lazy load images to improve page load time
 * Fix: Bug that hid the Slick Slider settings in the Gallery Media Modal under certain circumstances
 * Misc: Added new actions `slick_slider_before_slider`, `slick_slider_after_slider`, `slick_slider_before_slide` and `slick_slider_after_slide`
 * Misc: Extended filters `slick_slider_caption_html`, `slick_slider_slide_html` and `slick_slider_html`
