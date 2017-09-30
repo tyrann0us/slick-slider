@@ -522,7 +522,7 @@ class Slick_Slider_Options {
 			'focusOnSelect' => array(
 				'name' => __( 'focusOnSelect', 'slick-slider' ),
 				'desc' => __( 'Enable focus on selected element (click).', 'slick-slider' ),
-				'showOnSingleGallery' => true,
+				'showOnSingleGallery' => false,
 				'setting' => 'sl_focusonselect',
 				'type' => 'boolean',
 				'value' => false,
