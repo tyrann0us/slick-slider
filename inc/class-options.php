@@ -570,6 +570,7 @@ class Slick_Slider_Options {
 				'type' => 'select',
 				'value' => 'ondemand',
 				'values' => array(
+					'anticipated',
 					'ondemand',
 					'progressive',
 				),
