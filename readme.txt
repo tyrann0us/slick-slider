@@ -136,8 +136,10 @@ If you want, [you can buy me a beer too](https://www.paypal.com/cgi-bin/webscr?c
 * Feature: Added new options “appendDots”, “dotsClass”, "focusOnChange", “pauseOnFocus”, “waitForAnimate” and “zIndex”
 * Feature: Added new option “Show caption”, deprecating the `slick_slider_show_caption` filter
 * Fix: Bug that hid the Slick Slider settings in the Gallery Media Modal under certain circumstances
+* Misc: Added new actions `slick_slider_before_slider`, `slick_slider_after_slider`, `slick_slider_before_slide` and `slick_slider_after_slide`
+* Misc: Extended filters `slick_slider_caption_html`, `slick_slider_slide_html` and `slick_slider_html`
 * Misc: Changed default value of "focusOnSelect" to `false`
-* Misc: Minor CSS and JavaScript improvements
+* Misc: Minor PHP, JavaScript and CSS improvements
 
 = 0.4.2 (01/08/2017) =
 * Fix: Bug (introduced in 0.4) that prevented numeric option values in gallery modal to update
