@@ -282,6 +282,15 @@ class Slick_Slider_Output {
 
 			do_action( 'slick_slider_after_slider', $atts, $post->ID, self::$slick_instance );
 
+			remove_filter(
+				'wp_get_attachment_image_attributes',
+				array(
+					'Slick_Slider_Main',
+					'switch_attachment_attr'
+				),
+				10
+			);
+
 			return apply_filters( 'slick_slider_html', $output, $post->ID, self::$slick_instance );
 		}
 
