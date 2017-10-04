@@ -131,6 +131,9 @@ If you want, [you can buy me a beer too](https://www.paypal.com/cgi-bin/webscr?c
 
 == Changelog ==
 
+= 0.5.1 (10/04/2017) =
+* Fix: Bug (introduced in 0.5) that caused non Slick galleries following a Slick gallery to not show images
+
 = 0.5 (09/30/2017) =
 * Feature: Updated Slick to v1.8.0
 * Feature: Added new options “appendDots”, “dotsClass”, "focusOnChange", “pauseOnFocus”, “waitForAnimate” and “zIndex”
