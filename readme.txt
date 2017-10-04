@@ -5,7 +5,7 @@ Tags: gallery, slider, image slider, slideshow, carousel, slick, jQuery slider, 
 Requires at least: 4.6
 Tested up to: 4.8
 Requires PHP: 5.6
-Stable tag: 0.5
+Stable tag: 0.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
