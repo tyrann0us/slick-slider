@@ -113,7 +113,7 @@ class Slick_Slider_Output {
 	 * @param integer $instance Unique numeric ID of this gallery shortcode instance.
 	 * @return string           Complete Slick Slider markup which can be modified by multiple filters.
 	 */
-	public static function slick_markup( $output = '', $atts, $instance ) {
+	public static function slick_markup( $output = '', $atts = null, $instance = null ) {
 		
 		if ( isset( $atts['slick_active'] ) && 'true' === $atts['slick_active'] ) {
 
