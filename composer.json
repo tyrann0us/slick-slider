@@ -1,7 +1,6 @@
 {
   "name": "tyrann0us/slick-slider",
   "description": "Turn your native WordPress galleries into beautiful fully responsive sliders using the awesome “slick” slider.",
-  "version": "1.0.0",
   "license": "GPL-3.0",
   "type": "wordpress-plugin",
   "keywords": [
