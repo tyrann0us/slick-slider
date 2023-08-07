@@ -5,7 +5,7 @@ Tags: gallery, slider, image slider, slideshow, carousel, slick, jQuery slider, 
 Requires at least: 4.6
 Tested up to: 4.8
 Requires PHP: 5.6
-Stable tag: 0.5.1
+Stable tag: 0.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -130,6 +130,9 @@ Thats great, thanks! First of all, you should say thank you to [Ken Wheeler](htt
 If you want, [you can buy me a beer too](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J4347QQ8J3L54).
 
 == Changelog ==
+
+= 0.5.2 (08/07/2023) =
+* Fix: PHP 8.0 compatibility
 
 = 0.5.1 (10/04/2017) =
 * Fix: Bug (introduced in 0.5) that caused non Slick galleries following a Slick gallery to not show images
